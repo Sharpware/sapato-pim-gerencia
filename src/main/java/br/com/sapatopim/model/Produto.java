@@ -9,6 +9,6 @@ package br.com.sapatopim.model;
  *
  * @author Christopher
  */
-public class ProdutoModel {
+public class Produto {
     
 }

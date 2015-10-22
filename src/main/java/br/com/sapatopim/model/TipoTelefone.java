@@ -7,8 +7,8 @@ package br.com.sapatopim.model;
 
 /**
  *
- * @author Christopher
+ * @author kurosaki-x
  */
-public class TelefoneModel {
+public enum TipoTelefone {
     
 }

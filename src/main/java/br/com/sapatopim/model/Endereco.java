@@ -1,6 +1,6 @@
 package br.com.sapatopim.model;
 
-public class EnderecoModel {
+public class Endereco {
     
     private long id;
     private String logradouro;

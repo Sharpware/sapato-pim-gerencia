@@ -2,7 +2,7 @@ package br.com.sapatopim.model;
 
 import java.util.Date;
 
-public abstract class PessoaModel extends EnderecoModel {
+public abstract class Pessoa {
     
     private long id;
     private String nome;
@@ -10,7 +10,7 @@ public abstract class PessoaModel extends EnderecoModel {
     private Date dataNascimento;
     private String observacao;
     private String email;
-
+    private Endereco endereco;
     
     public long getId() {
         return id;
@@ -61,7 +61,15 @@ public abstract class PessoaModel extends EnderecoModel {
         this.email = email;
     }
     
-    public void addTelefone(){}
+    public void addTelefone() {
+        
+    }
     
-    
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 }

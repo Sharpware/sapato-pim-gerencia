@@ -2,7 +2,7 @@ package br.com.sapatopim.model;
 
 import java.util.List;
 
-public class FornecedorModel extends EnderecoModel{
+public class Fornecedor {
     
     private long id;
     private String razaoSocial;
@@ -11,6 +11,13 @@ public class FornecedorModel extends EnderecoModel{
     private String observacoes;
     private List<String> email;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     
     public String getRazaoSocial() {
         return razaoSocial;
@@ -51,8 +58,5 @@ public class FornecedorModel extends EnderecoModel{
     public void setEmail(List<String> email) {
         this.email = email;
     }
-    
-    
-    
     
 }

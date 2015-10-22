@@ -9,6 +9,8 @@ package br.com.sapatopim.model;
  *
  * @author Christopher
  */
-public class UsuarioModel {
+public class Telefone {
     
+    private String numero;
+    private TipoTelefone tipoTelefone;
 }
