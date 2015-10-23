@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.sapatopim.model;
+package com.github.sharpware.sport4you.model;
 
 /**
  *
- * @author kurosaki-x
+ * @author Christopher
  */
-public enum TipoTelefone {
+public class Telefone {
     
+    private String numero;
+    private TipoTelefone tipoTelefone;
 }

@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.sapatopim.model;
+package com.github.sharpware.sport4you.controller;
 
 /**
  *
  * @author Christopher
  */
-public class Telefone {
+public class ClienteController {
     
-    private String numero;
-    private TipoTelefone tipoTelefone;
 }
