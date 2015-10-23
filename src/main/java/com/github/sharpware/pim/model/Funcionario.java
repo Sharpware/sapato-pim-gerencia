@@ -23,7 +23,7 @@ public class Funcionario extends Pessoa<Funcionario> {
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_funcionario")
     private TipoFuncionario tipoFuncionario;
-    
+
     public String getLogin() {
         return login;
     }
@@ -37,6 +37,14 @@ public class Funcionario extends Pessoa<Funcionario> {
     }
     public Funcionario setSenha(String senha) {
         this.senha = senha;
+        return this;
+    }
+    
+    public TipoFuncionario getTipoFuncionario() {
+        return tipoFuncionario;
+    }
+    public Funcionario setTipoFuncionario(TipoFuncionario tipoFuncionario) {
+        this.tipoFuncionario = tipoFuncionario;
         return this;
     }
 }
