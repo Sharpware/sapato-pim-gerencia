@@ -10,7 +10,14 @@ package com.github.sharpware.pim.model;
  * @author kurosaki-x
  */
 public enum TipoTelefone {
-    RESIDENCIAL,
-    CELULAR,
-    TRABALHO
+    
+    RESIDENCIAL("Residencial"),
+    CELULAR("Celular"),
+    TRABALHO("Trabalho");
+    
+    private String nome;
+    
+    TipoTelefone(String nome) {
+        this.nome = nome;
+    }
 }

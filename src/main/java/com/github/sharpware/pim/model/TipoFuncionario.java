@@ -9,14 +9,15 @@ package com.github.sharpware.pim.model;
  *
  * @author RodrigoFelipe
  */
-public enum Situacao {
+public enum TipoFuncionario {
     
-    ATIVO("Ativo"),
-    INATIVO("Inativo");
-
-    private final String nome;
+    CAIXA("Caixa"),
+    VENDEDOR("Vendedor"),
+    GERENTE("Gerente");
     
-    private Situacao(String nome) {
+    private String nome;
+    
+    TipoFuncionario(String nome) {
         this.nome = nome;
     }
 }
