@@ -39,6 +39,10 @@ public class Produto {
     @Column(name="preco_venda")
     private double precoVenda;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="tipo_produto")
+    private TipoProduto tipoProtudo;
+
     public long getId() {
         return id;
     }
@@ -100,6 +104,14 @@ public class Produto {
     }
     public Produto setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
+        return this;
+    }
+    
+    public TipoProduto getTipoProtudo() {
+        return tipoProtudo;
+    }
+    public Produto setTipoProtudo(TipoProduto tipoProtudo) {
+        this.tipoProtudo = tipoProtudo;
         return this;
     }
 }
