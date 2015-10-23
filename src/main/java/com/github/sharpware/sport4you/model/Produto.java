@@ -23,56 +23,64 @@ public class Produto {
     public long getId() {
         return id;
     }
-    public void setId(long id) {
+    public Produto setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getNome() {
         return nome;
     }
-    public void setNome(String nome) {
+    public Produto setNome(String nome) {
         this.nome = nome;
+        return this;
     }
 
     public String getMarca() {
         return marca;
     }
-    public void setMarca(String marca) {
+    public Produto setMarca(String marca) {
         this.marca = marca;
+        return this;
     }
 
     public int getQuantidade() {
         return quantidade;
     }
-    public void setQuantidade(int quantidade) {
+    public Produto setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+        return this;
     }
 
     public String getTamanho() {
         return tamanho;
     }
-    public void setTamanho(String tamanho) {
+    public Produto setTamanho(String tamanho) {
         this.tamanho = tamanho;
+        return this;
     }
 
     public String getCodigoBarras() {
         return codigoBarras;
     }
-    public void setCodigoBarras(String codigoBarras) {
+    public Produto setCodigoBarras(String codigoBarras) {
         this.codigoBarras = codigoBarras;
+        return this;
     }
 
     public double getPrecoCusto() {
         return precoCusto;
     }
-    public void setPrecoCusto(double precoCusto) {
+    public Produto setPrecoCusto(double precoCusto) {
         this.precoCusto = precoCusto;
+        return this;
     }
 
     public double getPrecoVenda() {
         return precoVenda;
     }
-    public void setPrecoVenda(double precoVenda) {
+    public Produto setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
+        return this;
     }
 }
