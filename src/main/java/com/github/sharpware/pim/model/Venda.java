@@ -12,10 +12,12 @@ import javax.persistence.*;
  *
  * @author RodrigoFelipe
  */
+@Entity
 public class Venda {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id")
     private long id;
     
     @Column(name="data")
@@ -37,6 +39,7 @@ public class Venda {
     private ItemVenda itemVenda;
     
     @Enumerated(EnumType.STRING)
+    @Column(name="tipo_venda")
     private TipoVenda tipoVenda;
 
     public long getId() {

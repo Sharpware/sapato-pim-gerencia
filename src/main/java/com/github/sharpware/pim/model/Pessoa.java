@@ -35,10 +35,11 @@ public abstract class Pessoa<T> {
     @Embedded
     private Endereco endereco;
     
+    
     private final List<Telefone> telefones;
 
     public Pessoa() {
-        telefones = new ArrayList<>();
+        this.telefones = new ArrayList<>();
     }
     
     public long getId() {
@@ -97,7 +98,7 @@ public abstract class Pessoa<T> {
     }
     
     public T addTelefone(Telefone telefone) {
-        telefones.add(telefone);
+        this.telefones.add(telefone);
         return (T) this;
     }
 }
