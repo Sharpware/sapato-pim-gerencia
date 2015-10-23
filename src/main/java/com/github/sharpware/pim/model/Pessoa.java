@@ -32,7 +32,9 @@ public abstract class Pessoa<T> {
     @Column(name="situacao")
     private Situacao situacao;
     
+    @Embedded
     private Endereco endereco;
+    
     private final List<Telefone> telefones;
 
     public Pessoa() {

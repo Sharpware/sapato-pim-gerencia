@@ -2,12 +2,8 @@ package com.github.sharpware.pim.model;
 
 import javax.persistence.*;
 
+@Embeddable
 public class Endereco {
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
-    private long id;
     
     @Column(name="logradouro")
     private String logradouro;
@@ -30,70 +26,59 @@ public class Endereco {
     @Column(name="uf")
     private String uf;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getLogradouro() {
         return logradouro;
     }
-
-    public void setLogradouro(String logradouro) {
+    public Endereco setLogradouro(String logradouro) {
         this.logradouro = logradouro;
+        return this;
     }
 
     public int getNumero() {
         return numero;
     }
-
-    public void setNumero(int numero) {
+    public Endereco setNumero(int numero) {
         this.numero = numero;
+        return this;
     }
 
     public String getCep() {
         return cep;
     }
-
-    public void setCep(String cep) {
+    public Endereco setCep(String cep) {
         this.cep = cep;
+        return this;
     }
 
     public String getComplemento() {
         return complemento;
     }
-
-    public void setComplemento(String complemento) {
+    public Endereco setComplemento(String complemento) {
         this.complemento = complemento;
+        return this;
     }
 
     public String getBairro() {
         return bairro;
     }
-
-    public void setBairro(String bairro) {
+    public Endereco setBairro(String bairro) {
         this.bairro = bairro;
+        return this;
     }
 
     public String getCidade() {
         return cidade;
     }
-
-    public void setCidade(String cidade) {
+    public Endereco setCidade(String cidade) {
         this.cidade = cidade;
+        return this;
     }
 
     public String getUf() {
         return uf;
     }
-
-    public void setUf(String uf) {
+    public Endereco setUf(String uf) {
         this.uf = uf;
+        return this;
     }
-    
-    
-    
 }
