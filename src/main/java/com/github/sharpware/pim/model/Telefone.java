@@ -22,7 +22,12 @@ public class Telefone {
     @Column(name="numero")
     private String numero;
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name="tipo_telefone")
     private TipoTelefone tipoTelefone;
+    
+    public Telefone(String numero, TipoTelefone tipoTelefone) {
+        this.numero = numero;
+        this.tipoTelefone = tipoTelefone;
+    }
 }

@@ -27,11 +27,32 @@ public class ItemVenda {
     
     @Column(name="valor_total")
     private double valorTotal;
+
+    @OneToOne
+    @JoinColumn(name="produto_id")
+    private Produto produto;
     
     public long getId() {
         return id;
     }
-    public void setId(long id) {
+    public ItemVenda setId(long id) {
         this.id = id;
+        return this;
+    }
+    
+    public LocalDate getData() {
+        return data;
+    }
+    public ItemVenda setData(LocalDate data) {
+        this.data = data;
+        return this;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+    public ItemVenda setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+        return this;
     }
 }

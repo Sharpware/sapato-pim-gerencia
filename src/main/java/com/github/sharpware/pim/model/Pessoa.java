@@ -28,6 +28,10 @@ public abstract class Pessoa<T> {
     @Column(name="email")
     private String email;
     
+    @Enumerated(EnumType.STRING)
+    @Column(name="situacao")
+    private Situacao situacao;
+    
     private Endereco endereco;
     private final List<Telefone> telefones;
 
