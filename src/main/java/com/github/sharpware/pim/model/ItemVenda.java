@@ -32,6 +32,8 @@ public class ItemVenda {
     @JoinColumn(name="produto_id")
     private Produto produto;
     
+    private int quantidade;
+    
     public long getId() {
         return id;
     }
@@ -55,4 +57,12 @@ public class ItemVenda {
         this.valorTotal = valorTotal;
         return this;
     }
+    
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public ItemVenda setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+		return this;
+	}
 }
