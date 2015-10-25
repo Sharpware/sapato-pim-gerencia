@@ -11,4 +11,8 @@ package com.github.sharpware.pim.controller;
  */
 public class ClienteController {
     
+	public void formulario() {
+		
+	}
+	
 }
