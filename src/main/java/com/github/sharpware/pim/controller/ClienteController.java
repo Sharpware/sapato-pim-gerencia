@@ -5,10 +5,14 @@
  */
 package com.github.sharpware.pim.controller;
 
+import br.com.caelum.vraptor.Controller;
+
 /**
  *
  * @author Christopher
  */
+
+@Controller
 public class ClienteController {
     
 	public void formulario() {
