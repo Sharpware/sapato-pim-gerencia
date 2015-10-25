@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class ItemVenda {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
 
     @Column(name="data")
@@ -32,6 +32,7 @@ public class ItemVenda {
     @JoinColumn(name="produto_id")
     private Produto produto;
     
+    @Column(name="quantidade")
     private int quantidade;
     
     public long getId() {

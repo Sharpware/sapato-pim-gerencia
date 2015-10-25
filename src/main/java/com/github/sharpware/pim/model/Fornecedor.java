@@ -30,7 +30,8 @@ public class Fornecedor {
     @Column(name="email_secundario")
     private String emailSecundario;
 
-    
+    @OneToMany
+    @JoinColumn(name="telefone")
     private List<Telefone> telefones;
     
     public Fornecedor() {

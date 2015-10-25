@@ -35,7 +35,8 @@ public abstract class Pessoa<T> {
     @Embedded
     private Endereco endereco;
     
-    @ManyToMany
+    @OneToMany
+    @JoinColumn(name="telefone")
     private List<Telefone> telefones;
 
     public Pessoa() {

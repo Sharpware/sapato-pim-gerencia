@@ -11,7 +11,8 @@
 	<h2>Formulário de Cadastro de Cliente</h2>
 	<ul>
 		<li>
-			<i
+			<p>Nome:</p>
+			<input type="text" name="nome" />
 		</li>
 	</ul>
 
