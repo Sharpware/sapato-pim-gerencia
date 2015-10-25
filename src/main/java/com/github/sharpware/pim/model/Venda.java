@@ -46,7 +46,7 @@ public class Venda {
     private Funcionario funcionario;
     
     @OneToMany
-    @JoinColumn(name="item_venda")
+    @JoinColumn(name="item_venda_id")
     private List<ItemVenda> itensVenda;
     
     @Enumerated(EnumType.STRING)

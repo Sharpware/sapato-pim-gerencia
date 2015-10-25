@@ -12,6 +12,9 @@ import javax.persistence.*;
  * @author Christopher
  */
 @Entity
+@Table(name="produto")
+@SecondaryTable(name="lista_preco", 
+				pkJoinColumns = { @PrimaryKeyJoinColumn(name = "id") })
 public class Produto {
     
     @Id
@@ -25,9 +28,6 @@ public class Produto {
     @Column(name="marca")
     private String marca;
     
-    @Column(name="quantidade")
-    private int quantidade;
-    
     @Column(name="tamanho")
     private String tamanho;
     
@@ -37,7 +37,7 @@ public class Produto {
     @Column(name="preco_custo")
     private double precoCusto;
     
-    @Column(name="preco_venda")
+    @Column(table="lista_preco", name="preco_venda")
     private double precoVenda;
 
     @Enumerated(EnumType.STRING)
@@ -67,15 +67,7 @@ public class Produto {
         this.marca = marca;
         return this;
     }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-    public Produto setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-        return this;
-    }
-
+    
     public String getTamanho() {
         return tamanho;
     }
