@@ -5,10 +5,20 @@
  */
 package com.github.sharpware.pim.controller;
 
+import br.com.caelum.vraptor.Controller;
+import javax.inject.Inject;
+
 /**
  *
  * @author Christopher
  */
+
+@Controller
 public class ClienteController {
+    
+    @Inject
+    public ClienteController() {
+        
+    }
     
 }
