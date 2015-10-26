@@ -21,8 +21,8 @@ public class Fornecedor {
     @Column(name="cnpj")
     private String cnpj;
     
-    @Column(name="observacao")
-    private String observacoes;
+    @Column(name="descricao")
+    private String descricao;
     
     @Column(name="email_primario")
     private String emailPrimario;
@@ -69,11 +69,11 @@ public class Fornecedor {
         return this;
     }
 
-    public String getObservacoes() {
-        return observacoes;
+    public String getDescricao() {
+        return descricao;
     }
-    public Fornecedor setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
+    public Fornecedor setDescricao(String descricao) {
+        this.descricao = descricao;
         return this;
     }
 

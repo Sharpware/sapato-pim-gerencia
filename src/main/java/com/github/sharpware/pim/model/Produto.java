@@ -5,7 +5,18 @@
  */
 package com.github.sharpware.pim.model;
 
-import javax.persistence.*;
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
+import javax.persistence.Table;
 
 /**
  *
@@ -39,6 +50,12 @@ public class Produto {
     
     @Column(table="lista_preco", name="preco_venda")
     private double precoVenda;
+    
+    @Column(table="lista_preco", name="data_inicio")
+    private LocalDate dataInicio;
+    
+    @Column(table="lista_preco", name="data_fim")
+    private LocalDate dataFim;
 
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_produto")

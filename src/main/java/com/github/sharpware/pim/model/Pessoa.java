@@ -22,8 +22,8 @@ public abstract class Pessoa<T> {
     @Column(name="data_nascimento")
     private LocalDate dataNascimento;
     
-    @Column(name="observacao")
-    private String observacao;
+    @Column(name="descricao")
+    private String descricao;
     
     @Column(name="email")
     private String email;
@@ -75,11 +75,11 @@ public abstract class Pessoa<T> {
         return (T) this;
     }
 
-    public String getObservacao() {
-        return observacao;
+    public String getDescricao() {
+        return descricao;
     }
-    public T setObservacao(String observacao) {
-        this.observacao = observacao;
+    public T setDescricao(String descricao) {
+        this.descricao = descricao;
         return (T) this;
     }
 

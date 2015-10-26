@@ -15,6 +15,6 @@ import br.com.caelum.vraptor.Controller;
 public class ClienteController {
 
     public void formulario() {
-
+        
     }
 }

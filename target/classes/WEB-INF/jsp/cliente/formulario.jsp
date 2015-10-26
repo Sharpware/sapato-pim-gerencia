@@ -14,6 +14,11 @@
 			<p>Nome:</p>
 			<input type="text" name="nome" />
 		</li>
+		<li>
+			<p>CPF:</p>
+			<input type="text" name="cpf" />
+		</li>
+		li>
 	</ul>
 
 </body>
