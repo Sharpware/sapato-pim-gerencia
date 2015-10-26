@@ -35,8 +35,9 @@ public abstract class Pessoa<T> {
     @Embedded
     private Endereco endereco;
     
-    
-    private final List<Telefone> telefones;
+    @OneToMany
+    @JoinColumn(name="telefone")
+    private List<Telefone> telefones;
 
     public Pessoa() {
         this.telefones = new ArrayList<>();
@@ -60,7 +61,8 @@ public abstract class Pessoa<T> {
     public String getCpf() {
         return cpf;
     }
-    public T setCpf(String cpf) {
+    
+	public T setCpf(String cpf) {
         this.cpf = cpf;
         return (T) this;
     }

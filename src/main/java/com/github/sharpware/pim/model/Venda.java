@@ -6,7 +6,18 @@
 package com.github.sharpware.pim.model;
 
 import java.time.LocalDate;
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -35,8 +46,8 @@ public class Venda {
     private Funcionario funcionario;
     
     @OneToMany
-    @JoinColumn(name="item_venda")
-    private ItemVenda itemVenda;
+    @JoinColumn(name="item_venda_id")
+    private List<ItemVenda> itensVenda;
     
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_venda")
@@ -81,11 +92,11 @@ public class Venda {
         return this;
     }
 
-    public ItemVenda getItemVenda() {
-        return itemVenda;
+    public List<ItemVenda> getItemVenda() {
+        return itensVenda;
     }
-    public Venda setItemVenda(ItemVenda itemVenda) {
-        this.itemVenda = itemVenda;
+    public Venda setItemVenda(List<ItemVenda> itensVenda) {
+        this.itensVenda = itensVenda;
         return this;
     }
 
