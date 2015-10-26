@@ -31,6 +31,6 @@ public class ClienteController {
     }
     
     public void salvar(Cliente cliente) {
-    	
+    	dao.salvar(cliente);
     }
 }
