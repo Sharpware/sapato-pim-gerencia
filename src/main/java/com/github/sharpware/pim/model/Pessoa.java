@@ -36,7 +36,7 @@ public abstract class Pessoa<T> {
     private Endereco endereco;
     
     @OneToMany
-    @JoinColumn(name="telefone")
+    @JoinColumn(name="telefone_id")
     private List<Telefone> telefones;
 
     public Pessoa() {
