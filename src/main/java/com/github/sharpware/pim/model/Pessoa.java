@@ -1,7 +1,7 @@
 package com.github.sharpware.pim.model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.*;
 
@@ -20,7 +20,7 @@ public abstract class Pessoa<T> {
     private String cpf;
     
     @Column(name="data_nascimento")
-    private LocalDate dataNascimento;
+    private Calendar dataNascimento;
     
     @Column(name="descricao")
     private String descricao;
@@ -67,10 +67,10 @@ public abstract class Pessoa<T> {
         return (T) this;
     }
 
-    public LocalDate getDataNascimento() {
+    public Calendar getDataNascimento() {
         return dataNascimento;
     }
-    public T setDataNascimento(LocalDate dataNascimento) {
+    public T setDataNascimento(Calendar dataNascimento) {
         this.dataNascimento = dataNascimento;
         return (T) this;
     }
