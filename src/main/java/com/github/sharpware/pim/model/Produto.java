@@ -5,7 +5,6 @@
  */
 package com.github.sharpware.pim.model;
 
-
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
