@@ -5,7 +5,7 @@
  */
 package com.github.sharpware.pim.model;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,7 +32,7 @@ public class Venda {
     private long id;
     
     @Column(name="data")
-    private LocalDate data;
+    private Calendar data;
     
     @Column(name="valor_total")
     private double valorTotal;
@@ -60,10 +60,10 @@ public class Venda {
         this.id = id;
     }
 
-    public LocalDate getData() {
+    public Calendar getData() {
         return data;
     }
-    public Venda setData(LocalDate data) {
+    public Venda setData(Calendar data) {
         this.data = data;
         return this;
     }

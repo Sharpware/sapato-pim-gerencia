@@ -1,6 +1,6 @@
 package com.github.sharpware.pim.model;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -27,7 +27,7 @@ public class Estoque {
     private int quantidade;
 
     @Column(name="data_entrada")
-    private LocalDate dataEntrada;
+    private Calendar dataEntrada;
 
     public long getId() {
             return id;
@@ -50,5 +50,13 @@ public class Estoque {
     public Estoque setQuantidade(int quantidade) {
             this.quantidade = quantidade;
             return this;
+    }
+    
+    public Calendar getDataEntrada() {
+        return dataEntrada;
+    }
+    public Estoque setDataEntrada(Calendar dataEntrada) {
+        this.dataEntrada = dataEntrada;
+        return this;
     }
 }

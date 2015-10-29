@@ -5,8 +5,7 @@
  */
 package com.github.sharpware.pim.model;
 
-import java.time.LocalDate;
-
+import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -52,10 +51,10 @@ public class Produto {
     private double precoVenda;
     
     @Column(table="lista_preco", name="data_inicio")
-    private LocalDate dataInicio;
+    private Calendar dataInicio;
     
     @Column(table="lista_preco", name="data_fim")
-    private LocalDate dataFim;
+    private Calendar dataFim;
 
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_produto")
@@ -114,6 +113,22 @@ public class Produto {
     }
     public Produto setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
+        return this;
+    }
+    
+    public Calendar getDataInicio() {
+        return dataInicio;
+    }
+    public Produto setDataInicio(Calendar dataInicio) {
+        this.dataInicio = dataInicio;
+        return this;
+    }
+
+    public Calendar getDataFim() {
+        return dataFim;
+    }
+    public Produto setDataFim(Calendar dataFim) {
+        this.dataFim = dataFim;
         return this;
     }
     
