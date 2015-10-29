@@ -73,15 +73,15 @@
             <ul>
                 <li>
                     <p>Telefone residencial:</p>
-                    <input type="text" name="telefone.numero" value="${telefone.numero}" />
+                    <input type="text" name="telefone.addTelefone" value="${telefone.numero}" />
                 </li>
                 <li>
                     <p>Telefone trabalho:</p>
-                    <input type="text" name="telefone.numero" value="${telefone.numero}" />
+                    <input type="text" name="telefone.addTelefone" value="${telefone.numero}" />
                 </li>
                 <li>
                     <p>Celular:</p>
-                    <input type="text" name="telefone.numero" value="${telefone.numero}" />
+                    <input type="text" name="telefone.addTelefone" value="${telefone.numero}" />
                 </li>
             </ul>
         </div>

@@ -11,6 +11,7 @@ import com.github.sharpware.pim.dao.ClienteDao;
 import com.github.sharpware.pim.model.Cliente;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Post;
 
 /**
  *
@@ -26,10 +27,9 @@ public class ClienteController {
 		this.dao = dao;
 	}
 	
-    public void formulario() {
-        
-    }
+    public void formulario() { }
     
+    @Post("/cliente")
     public void salvar(Cliente cliente) {
     	dao.salvar(cliente);
     }
