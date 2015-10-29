@@ -10,7 +10,7 @@ public class Fornecedor {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private long id;
+    private Long id;
     
     @Column(name="razao_social")
     private String razaoSocial;
@@ -38,7 +38,7 @@ public class Fornecedor {
         this.telefones = new ArrayList<>();
     }
     
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public void setId(long id) {

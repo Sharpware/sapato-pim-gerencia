@@ -6,16 +6,7 @@
 package com.github.sharpware.pim.model;
 
 import java.util.Calendar;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.SecondaryTable;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -30,7 +21,7 @@ public class Produto {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private long id;
+    private Long id;
     
     @Column(name="nome")
     private String nome;
@@ -50,9 +41,11 @@ public class Produto {
     @Column(table="lista_preco", name="preco_venda")
     private double precoVenda;
     
+    @Temporal(TemporalType.DATE)
     @Column(table="lista_preco", name="data_inicio")
     private Calendar dataInicio;
     
+    @Temporal(TemporalType.DATE)
     @Column(table="lista_preco", name="data_fim")
     private Calendar dataFim;
 

@@ -5,6 +5,7 @@
  */
 package com.github.sharpware.pim.model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -18,6 +19,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -29,30 +32,35 @@ public class Venda {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private long id;
+    private Long id;
     
-    @Column(name="data")
+    @Temporal(TemporalType.DATE)
+    @Column(name="data_venda")
     private Calendar data;
     
     @Column(name="valor_total")
     private double valorTotal;
     
     @OneToOne
-    @JoinColumn(name="cliente_id")
+    @JoinColumn(name="id_cliente")
     private Cliente cliente;
     
     @OneToOne
-    @JoinColumn(name="funcionario_id")
+    @JoinColumn(name="id_funcionario")
     private Funcionario funcionario;
     
     @OneToMany
-    @JoinColumn(name="item_venda_id")
+    @JoinColumn(name="id_item_venda")
     private List<ItemVenda> itensVenda;
     
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_venda")
     private TipoVenda tipoVenda;
 
+    public Venda() {
+        this.itensVenda = new ArrayList<>();
+    }
+    
     public long getId() {
         return id;
     }

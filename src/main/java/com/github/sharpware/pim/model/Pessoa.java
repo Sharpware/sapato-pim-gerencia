@@ -11,7 +11,7 @@ public abstract class Pessoa<T> {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    private long id;
+    private Long id;
     
     @Column(name="nome")
     private String nome;
@@ -19,6 +19,7 @@ public abstract class Pessoa<T> {
     @Column(name="cpf")
     private String cpf;
     
+    @Temporal(TemporalType.DATE)
     @Column(name="data_nascimento")
     private Calendar dataNascimento;
     
@@ -36,14 +37,14 @@ public abstract class Pessoa<T> {
     private Endereco endereco;
     
     @OneToMany
-    @JoinColumn(name="telefone_id")
+    @JoinColumn(name="id_telefone")
     private List<Telefone> telefones;
 
     public Pessoa() {
         this.telefones = new ArrayList<>();
     }
     
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public void setId(long id) {
@@ -90,6 +91,14 @@ public abstract class Pessoa<T> {
         this.email = email;
         return (T) this;
     }
+    
+    public Situacao getSituacao() {
+		return situacao;
+	}
+	public T setSituacao(Situacao situacao) {
+		this.situacao = situacao;
+		return (T) this;
+	}
     
     public Endereco getEndereco() {
         return endereco;
