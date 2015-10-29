@@ -20,7 +20,7 @@ public class ItemVenda {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name="data")
     private Calendar data;
@@ -29,9 +29,9 @@ public class ItemVenda {
     private double valorTotal;
 
     @OneToOne
-    @JoinColumn(name="produto_id")
+    @JoinColumn(name="id_produto")
     private Produto produto;
-    
+
     @Column(name="quantidade")
     private int quantidade;
     
@@ -50,7 +50,7 @@ public class ItemVenda {
         this.data = data;
         return this;
     }
-
+    
     public double getValorTotal() {
         return valorTotal;
     }
@@ -59,11 +59,19 @@ public class ItemVenda {
         return this;
     }
     
-	public int getQuantidade() {
-		return quantidade;
-	}
-	public ItemVenda setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-		return this;
-	}
+    public int getQuantidade() {
+            return quantidade;
+    }
+    public ItemVenda setQuantidade(int quantidade) {
+            this.quantidade = quantidade;
+            return this;
+    }
+    
+    public Produto getProduto() {
+        return produto;
+    }
+    public ItemVenda setProduto(Produto produto) {
+        this.produto = produto;
+        return this;
+    }
 }
