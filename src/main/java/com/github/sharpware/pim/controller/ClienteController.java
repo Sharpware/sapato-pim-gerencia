@@ -22,15 +22,19 @@ import br.com.caelum.vraptor.Result;
 @Controller
 public class ClienteController {
 	
-    private ClienteDao dao;
-    private Result result;
+    private final ClienteDao dao;
+    private final Result result;
 
     @Inject
-    public ClienteController(ClienteDao dao, Result result) {
-            this.dao = dao;
-            this.result = result;
+    public ClienteController(Result result) {
+        this.dao = new ClienteDao();
+        this.result = result;
     }
 
+    public ClienteController() {
+        this(null);
+    }
+    
     public void formulario() { }
     
     @Post("/cliente")
