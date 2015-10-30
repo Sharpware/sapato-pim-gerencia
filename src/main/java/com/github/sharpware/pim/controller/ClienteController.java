@@ -22,29 +22,37 @@ import br.com.caelum.vraptor.Result;
 @Controller
 public class ClienteController {
 	
-	private ClienteDao dao;
-	private Result result;
-	
-	@Inject
-	public ClienteController(ClienteDao dao, Result result) {
-		this.dao = dao;
-		this.result = result;
-	}
-	
+    private ClienteDao dao;
+    private Result result;
+
+    @Inject
+    public ClienteController(ClienteDao dao, Result result) {
+            this.dao = dao;
+            this.result = result;
+    }
+
     public void formulario() { }
     
     @Post("/cliente")
     public void salvar(Cliente cliente) {
     	dao.salvar(cliente);
+        result.redirectTo(this).listar();
     }
     
-    @Get("/cliente")
-    public void lista() {
+    @Get("/cliente/")
+    public void listar() {
     	result.include("clientes", dao.buscarTodos());
     }
     
-    @Post("/cliente")
-    public void editar(Cliente cliente) {
+    @Get("/cliente/{id}")
+    public void editar(Long id) {
     	
+        Cliente clienteEncontrado = dao.buscarPorId(id);
+        if(clienteEncontrado == null) {
+            result.notFound();
+        } else {
+            result.include(clienteEncontrado);
+            result.of(this).formulario();
+        }
     }
 }

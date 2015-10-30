@@ -30,7 +30,7 @@ public class ClienteDao {
 		}
 	}
 	
-	public Cliente buscarPorId(Cliente cliente) {
+	public Cliente buscarPorId(Long id) {
 		return this.manager.createQuery("from Cliente where id=1", Cliente.class)
 					.getSingleResult();
 	}
