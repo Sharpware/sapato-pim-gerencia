@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Formulário de Cadastro de Cliente</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Formulário de Cadastro de Cliente</title>
 </head>
 <body>
 
@@ -33,39 +33,39 @@
             </li>
             <li>
                 <p>Situação:</p>
-                <input type="radio" name="situacao" value="${cliente.situacao}" checked />Ativo
-                <input type="radio" name="situacao" value="${cliente.situacao}" />Inativo
+                <input type="radio" name="cliente.situacao" value="${cliente.situacao}" checked />Ativo
+                <input type="radio" name="cliente.situacao" value="${cliente.situacao}" />Inativo
             </li>
         </ul>
         <div class="endereco">
             <ul>
                 <li>
                     <p>Logradouro:</p>
-                    <input type="text" name="endereco.logradouro" value="${endereco.logradouro}" />
+                    <input type="text" name="endereco.logradouro" value="${cliente.endereco.logradouro}" />
                 </li>
                 <li>
                     <p>N°:</p>
-                    <input type="text" name="endereco.numero" value="${endereco.numero}" />
+                    <input type="text" name="endereco.numero" value="${cliente.endereco.numero}" />
                 </li>
                 <li>
                     <p>CEP:</p>
-                    <input type="text" name="endereco.cep" value="${endereco.cep}" />
+                    <input type="text" name="endereco.cep" value="${cliente.endereco.cep}" />
                 </li>
                 <li>
                     <p>Complemento:</p>
-                    <input type="text" name="endereco.complemento" value="${endereco.complemento}" />
+                    <input type="text" name="endereco.complemento" value="${cliente.endereco.complemento}" />
                 </li>
                 <li>
                     <p>Bairro:</p>
-                    <input type="text" name="endereco.bairro" value="${endereco.bairro}" />
+                    <input type="text" name="endereco.bairro" value="${cliente.endereco.bairro}" />
                 </li>
                 <li>
                     <p>Cidade:</p>
-                    <input type="text" name="endereco.cidade" value="${endereco.cidade}" />
+                    <input type="text" name="endereco.cidade" value="${cliente.endereco.cidade}" />
                 </li>
                 <li>
                     <p>UF:</p>
-                    <input type="text" name="endereco.uf" value="${endereco.uf}" />
+                    <input type="text" name="endereco.uf" value="${cliente.endereco.uf}" />
                 </li>
             </ul>
         </div>
@@ -73,15 +73,15 @@
             <ul>
                 <li>
                     <p>Telefone residencial:</p>
-                    <input type="text" name="telefone.addTelefone" value="${telefone.numero}" />
+                    <input type="text" name="cliente.telefoneResidencial" value="${cliente.addTelefone}" />
                 </li>
                 <li>
                     <p>Telefone trabalho:</p>
-                    <input type="text" name="telefone.addTelefone" value="${telefone.numero}" />
+                    <input type="text" name="cliente.telefoneTrabalho" value="${cliente.addTelefone}" />
                 </li>
                 <li>
                     <p>Celular:</p>
-                    <input type="text" name="telefone.addTelefone" value="${telefone.numero}" />
+                    <input type="text" name="telefone.celular" value="${cliente.addTelefone}" />
                 </li>
             </ul>
         </div>
