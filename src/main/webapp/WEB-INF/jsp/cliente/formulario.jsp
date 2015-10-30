@@ -7,9 +7,9 @@
 	<title>Formulário de Cadastro de Cliente</title>
 </head>
 <body>
-
-    <h2>Formulário de Cadastro de Cliente</h2>
+    
     <form action="${linkTo[ClienteController].salvar}" method="post">
+        <h2>Formulário de Cadastro de Cliente</h2>
         <ul>
             <li>
                 <p>Nome:</p>

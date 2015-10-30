@@ -6,7 +6,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.github.sharpware.pim.model.Cliente;
+import javax.transaction.Transactional;
 
+@Transactional
 public class ClienteDao {
 	
 	private EntityManager manager;
