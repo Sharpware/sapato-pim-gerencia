@@ -12,6 +12,7 @@ import javax.persistence.*;
  * @author Christopher
  */
 @Entity
+@Table(name="telefone")
 public class Telefone {
     
     @Id

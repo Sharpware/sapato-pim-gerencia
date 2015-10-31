@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@Table(name="fornecedor")
 public class Fornecedor {
     
     @Id
