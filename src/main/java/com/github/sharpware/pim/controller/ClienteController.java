@@ -14,10 +14,12 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import com.github.sharpware.pim.dao.ClienteDao;
+import java.util.Optional;
 
 /**
  *
  * @author Christopher
+ * @author George
  */
 @Controller
 public class ClienteController {
@@ -50,11 +52,14 @@ public class ClienteController {
     
     @Get("/cliente/{id}")
     public void editar(Long id) {
-    	
-        dao.buscarPorId(id).ifPresent(cliente -> {
-            result.notFound();
+        
+        Optional<Cliente> optionalCliente = dao.buscarPorId(id);
+        if (optionalCliente.isPresent()) {
+            Cliente cliente = optionalCliente.get();
             result.include(cliente);
-            result.of(this).formulario();
-        });   
+            result.redirectTo(this).formulario();
+        } else {
+            result.notFound();
+        }
     }
 }
