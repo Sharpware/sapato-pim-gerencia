@@ -15,4 +15,5 @@
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Cliente.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/TipoProduto.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Situacao.java
+/home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/JPAClienteDao.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/FabricaDeConexao.java

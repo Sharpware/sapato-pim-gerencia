@@ -1,42 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.github.sharpware.pim.dao;
 
+import com.github.sharpware.pim.model.Cliente;
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-
-import com.github.sharpware.pim.model.Cliente;
-import javax.transaction.Transactional;
-
-@Transactional
-public class ClienteDao {
-	
-	private EntityManager manager;
-	
-	@Inject
-	public ClienteDao(EntityManager manager) {
-            this.manager = manager;
-	}
-	
-	public ClienteDao() {
-            this(null);
-	}
-	
-	public void salvar(Cliente cliente) {
-            if (cliente.getId() == null) {
-                this.manager.persist(cliente);
-            } else {
-                this.manager.merge(cliente);
-            }
-	}
-	
-	public Cliente buscarPorId(Long id) {
-            return this.manager.createQuery("from Cliente where id=1", Cliente.class)
-                            .getSingleResult();
-	}
-	
-	public List<Cliente> buscarTodos() {
-            return this.manager.createQuery("from Cliente", Cliente.class)
-                                .getResultList();
-	}
+/**
+ *
+ * @author kurosaki-x
+ */
+public interface ClienteDao {
+    
+    void salvar(Cliente cliente);
+    Cliente buscarPorId(Long id);
+    List<Cliente> buscarTodos();
 }

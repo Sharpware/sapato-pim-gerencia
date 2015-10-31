@@ -1,6 +1,7 @@
 package com.github.sharpware.pim.dao;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
@@ -16,6 +17,7 @@ public class FabricaDeConexao {
     }
     
     @Produces
+    @RequestScoped
     public EntityManager criaEntityManager(EntityManagerFactory factory) {
         return factory.createEntityManager();
     }

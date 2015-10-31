@@ -33,8 +33,8 @@
             </li>
             <li>
                 <p>Situação:</p>
-                <input type="radio" name="cliente.situacao" value="${cliente.situacao}" checked />Ativo
-                <input type="radio" name="cliente.situacao" value="${cliente.situacao}" />Inativo
+                <input type="radio" name="cliente.ativo" value="${cliente.situacao}" checked />Ativo
+                <input type="radio" name="cliente.inativo" value="${cliente.situacao}" />Inativo
             </li>
         </ul>
         <div class="endereco">

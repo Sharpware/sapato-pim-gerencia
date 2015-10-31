@@ -7,13 +7,14 @@ package com.github.sharpware.pim.controller;
 
 import javax.inject.Inject;
 
-import com.github.sharpware.pim.dao.ClienteDao;
+import com.github.sharpware.pim.dao.JPAClienteDao;
 import com.github.sharpware.pim.model.Cliente;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import com.github.sharpware.pim.dao.ClienteDao;
 
 /**
  *
@@ -26,13 +27,13 @@ public class ClienteController {
     private final Result result;
 
     @Inject
-    public ClienteController(Result result) {
-        this.dao = new ClienteDao();
+    public ClienteController(ClienteDao dao, Result result) {
+        this.dao = dao;
         this.result = result;
     }
 
     public ClienteController() {
-        this(null);
+        this(null, null);
     }
     
     public void formulario() { }
