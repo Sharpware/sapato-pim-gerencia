@@ -7,7 +7,6 @@ package com.github.sharpware.pim.controller;
 
 import javax.inject.Inject;
 
-import com.github.sharpware.pim.dao.JPAClienteDao;
 import com.github.sharpware.pim.model.Cliente;
 
 import br.com.caelum.vraptor.Controller;
@@ -44,7 +43,7 @@ public class ClienteController {
         result.redirectTo(this).listar();
     }
     
-    @Get("/cliente/listar")
+    @Get("/cliente")
     public void listar() {
     	result.include("clientes", dao.buscarTodos());
     }
@@ -52,12 +51,10 @@ public class ClienteController {
     @Get("/cliente/{id}")
     public void editar(Long id) {
     	
-        Cliente clienteEncontrado = dao.buscarPorId(id);
-        if(clienteEncontrado == null) {
+        dao.buscarPorId(id).ifPresent(cliente -> {
             result.notFound();
-        } else {
-            result.include(clienteEncontrado);
+            result.include(cliente);
             result.of(this).formulario();
-        }
+        });   
     }
 }

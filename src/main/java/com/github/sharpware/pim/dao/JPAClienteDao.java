@@ -6,6 +6,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.github.sharpware.pim.model.Cliente;
+import java.util.Optional;
+import javax.persistence.EntityNotFoundException;
 
 public class JPAClienteDao implements ClienteDao {
 	
@@ -30,14 +32,21 @@ public class JPAClienteDao implements ClienteDao {
 	}
 	
         @Override
-	public Cliente buscarPorId(Long id) {
-            return this.manager.createQuery("from Cliente where id=1", Cliente.class)
-                            .getSingleResult();
+	public Optional<Cliente> buscarPorId(Long id) {
+            try{
+                Cliente cliente = this.manager.createQuery("SELECT c FROM Cliente c where c.id = :id", Cliente.class)
+                                .setParameter("id", id)
+                                .getSingleResult();
+                return Optional.ofNullable(cliente);
+            }
+            catch (EntityNotFoundException ex) {
+                return Optional.empty();
+            }
 	}
 	
         @Override
 	public List<Cliente> buscarTodos() {
-            return this.manager.createQuery("from Cliente", Cliente.class)
+            return this.manager.createQuery("FROM Cliente", Cliente.class)
                                 .getResultList();
 	}
 }
