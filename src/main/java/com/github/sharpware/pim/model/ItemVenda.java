@@ -6,9 +6,6 @@
 package com.github.sharpware.pim.model;
 
 import java.util.Calendar;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.*;
 
 /**
@@ -16,6 +13,7 @@ import javax.persistence.*;
  * @author RodrigoFelipe
  */
 @Entity
+@Table(name="item_venda")
 public class ItemVenda {
 
     @Id

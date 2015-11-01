@@ -12,6 +12,7 @@ import javax.persistence.*;
  * @author RodrigoFelipe
  */
 @Entity
+@Table(name="funcionario")
 public class Funcionario extends Pessoa<Funcionario> {
 
     @Column(name="login")
