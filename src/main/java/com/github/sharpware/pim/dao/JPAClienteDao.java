@@ -42,11 +42,10 @@ public class JPAClienteDao implements ClienteDao {
 
     @Override
     public Optional<Cliente> buscarPorId(Long id) {
-        try{
+        try {
             Cliente cliente = this.manager.find(Cliente.class, id);
             return Optional.ofNullable(cliente);
-        }
-        catch (EntityNotFoundException ex) {
+        } catch (EntityNotFoundException ex) {
             return Optional.empty();
         }
     }

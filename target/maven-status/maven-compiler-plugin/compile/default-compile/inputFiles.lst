@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-/home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/IDao.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Fornecedor.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/TipoFuncionario.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Pessoa.java
@@ -19,24 +17,3 @@
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Situacao.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/JPAClienteDao.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/FabricaDeConexao.java
-=======
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\TipoTelefone.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\dao\FabricaDeConexao.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Cliente.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Estoque.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Funcionario.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Pessoa.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Venda.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Produto.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\TipoVenda.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\controller\ClienteController.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\TipoFuncionario.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\dao\ClienteDao.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Endereco.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Fornecedor.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Telefone.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\ItemVenda.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\Situacao.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\model\TipoProduto.java
-C:\Users\ATOM\Desktop\sapato-pim-gerencia\src\main\java\com\github\sharpware\pim\dao\JPAClienteDao.java
->>>>>>> e486005fbcadc17ed046ae81fafcffadba5acc72

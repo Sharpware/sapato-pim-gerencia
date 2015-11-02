@@ -38,7 +38,7 @@ public abstract class Pessoa<T> implements Serializable {
     private Endereco endereco;
     
     @OneToMany
-    @JoinColumn(name="id_telefone")
+    @JoinColumn(name="id")
     private List<Telefone> telefones;
 
     public Pessoa() {
