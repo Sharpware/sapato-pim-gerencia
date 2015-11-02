@@ -1,9 +1,11 @@
+/home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/controller/FuncionarioController.java
+/home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/IDao.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Fornecedor.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/TipoFuncionario.java
+/home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/JPAFuncionarioDao.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Pessoa.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/TipoVenda.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Produto.java
-/home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/ClienteDao.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Funcionario.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/ItemVenda.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Venda.java

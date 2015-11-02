@@ -11,9 +11,10 @@ import com.github.sharpware.pim.model.Cliente;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import com.github.sharpware.pim.dao.ClienteDao;
+import com.github.sharpware.pim.dao.*;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -26,22 +27,22 @@ import javax.transaction.Transactional;
 @Controller
 public class ClienteController {
 	
-    private final ClienteDao dao;
+    private final IDao<Cliente> dao;
     private final Result result;
 
     @Inject
-    public ClienteController(ClienteDao dao, Result result) {
-        this.dao = dao;
+    public ClienteController(Result result) {
+        this.dao = new JPAClienteDao();
         this.result = result;
     }
 
     public ClienteController() {
-        this(null, null);
+        this(null);
     }
     
+    @Path("cliente/formulario")
     public void formulario() { }
     
-    @Transactional
     @Post("/cliente")
     public void salvar(Cliente cliente) {
     	dao.salvar(cliente);

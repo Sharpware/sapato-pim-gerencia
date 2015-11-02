@@ -10,8 +10,7 @@ import java.util.Optional;
 
 /**
  *
- * @author George
- * @param <T>
+ * @author kurosaki-x
  */
 public interface IDao<T> {
     void salvar(T entidade);

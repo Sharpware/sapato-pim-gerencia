@@ -11,7 +11,10 @@
         <h2>Lista de clientes cadatrados</h2>
         <ul>
             <c:forEach items="${clientes}" var="cliente">
-                <li>ID: ${cliente.id} Nome: ${cliente.nome} CPF: ${cliente.cpf}</li>
+                <li>
+                    ID: ${cliente.id} Nome: ${cliente.nome} CPF: ${cliente.cpf} 
+                    <a${linkTo[ClienteController].editar(cliente.id)}>Modificar</a>
+                </li>
             </c:forEach>
         </ul>
 

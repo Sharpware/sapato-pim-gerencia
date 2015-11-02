@@ -12,7 +12,7 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.EntityTransaction;
 
-public class JPAClienteDao implements ClienteDao {
+public class JPAClienteDao implements IDao<Cliente> {
 	
     private EntityManager manager;
 
@@ -25,7 +25,7 @@ public class JPAClienteDao implements ClienteDao {
     public JPAClienteDao() {
         this(null);
     }
-
+    
     @Override
     public void salvar(Cliente cliente) {
         EntityTransaction transaction = manager.getTransaction();
@@ -49,7 +49,7 @@ public class JPAClienteDao implements ClienteDao {
             return Optional.empty();
         }
     }
-
+    
     @Override
     public List<Cliente> buscarTodos() {
         return this.manager.createQuery("SELECT c FROM Cliente c", Cliente.class)
