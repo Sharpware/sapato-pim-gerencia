@@ -17,7 +17,6 @@ import br.com.caelum.vraptor.Result;
 import com.github.sharpware.pim.dao.*;
 import java.util.List;
 import java.util.Optional;
-import javax.transaction.Transactional;
 
 /**
  *
