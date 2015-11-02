@@ -1,5 +1,7 @@
 package com.github.sharpware.pim.dao;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,6 +10,7 @@ import javax.persistence.EntityManager;
 import com.github.sharpware.pim.model.Cliente;
 import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.EntityTransaction;
 
 public class JPAClienteDao implements ClienteDao {
 	
@@ -18,25 +21,29 @@ public class JPAClienteDao implements ClienteDao {
             this.manager = manager;
 	}
 	
+        @Deprecated
 	public JPAClienteDao() {
             this(null);
 	}
 	
         @Override
 	public void salvar(Cliente cliente) {
-            if (cliente.getId() == null) {
-                this.manager.persist(cliente);
-            } else {
-                this.manager.merge(cliente);
+            EntityTransaction tx = manager.getTransaction();
+            try {
+                tx.begin();
+                manager.merge(requireNonNull(cliente));
+                tx.commit();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                tx.rollback();
+                throw new RuntimeException(ex);
             }
 	}
 	
         @Override
 	public Optional<Cliente> buscarPorId(Long id) {
             try{
-                Cliente cliente = this.manager.createQuery("SELECT c FROM Cliente c where c.id = :id", Cliente.class)
-                                .setParameter("id", id)
-                                .getSingleResult();
+                Cliente cliente = this.manager.find(Cliente.class, id);
                 return Optional.ofNullable(cliente);
             }
             catch (EntityNotFoundException ex) {
@@ -46,7 +53,7 @@ public class JPAClienteDao implements ClienteDao {
 	
         @Override
 	public List<Cliente> buscarTodos() {
-            return this.manager.createQuery("FROM Cliente", Cliente.class)
+            return this.manager.createQuery("SELECT c FROM Cliente c", Cliente.class)
                                 .getResultList();
 	}
 }

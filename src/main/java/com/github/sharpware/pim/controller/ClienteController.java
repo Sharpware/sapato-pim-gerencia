@@ -14,7 +14,9 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import com.github.sharpware.pim.dao.ClienteDao;
+import java.util.List;
 import java.util.Optional;
+import javax.transaction.Transactional;
 
 /**
  *
@@ -39,6 +41,7 @@ public class ClienteController {
     
     public void formulario() { }
     
+    @Transactional
     @Post("/cliente")
     public void salvar(Cliente cliente) {
     	dao.salvar(cliente);
@@ -47,7 +50,8 @@ public class ClienteController {
     
     @Get("/cliente")
     public void listar() {
-    	result.include("clientes", dao.buscarTodos());
+        List<Cliente> clientes = dao.buscarTodos();
+    	result.include("clientes", clientes);
     }
     
     @Get("/cliente/{id}")

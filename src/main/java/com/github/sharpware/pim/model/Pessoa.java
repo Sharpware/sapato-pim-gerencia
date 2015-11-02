@@ -1,12 +1,13 @@
 package com.github.sharpware.pim.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.persistence.*;
 
 @MappedSuperclass
-public abstract class Pessoa<T> {
+public abstract class Pessoa<T> implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -103,6 +104,7 @@ public abstract class Pessoa<T> {
     public Endereco getEndereco() {
         return endereco;
     }
+    
     public T setEndereco(Endereco endereco) {
         this.endereco = endereco;
         return (T) this;
@@ -112,4 +114,13 @@ public abstract class Pessoa<T> {
         this.telefones.add(telefone);
         return (T) this;
     }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" + "id=" + id + ", nome=" + nome +
+                ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + 
+                ", descricao=" + descricao + ", email=" + email + 
+                ", situacao=" + situacao + ", endereco=" + endereco + ", telefones=" + telefones + '}';
+    }
+    
 }
