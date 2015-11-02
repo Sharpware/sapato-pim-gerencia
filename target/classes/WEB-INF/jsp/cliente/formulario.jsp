@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrado de funcionario</title>
+        <title>Cadastrado de cliente</title>
     </head>	
     <body>
 		<form action="${linkTo[ClienteController].salvar}" method="post">

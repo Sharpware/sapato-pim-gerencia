@@ -12,7 +12,6 @@ import javax.inject.Inject;
 
 import com.github.sharpware.pim.dao.IDao;
 import com.github.sharpware.pim.dao.JPAFuncionarioDao;
-import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Funcionario;
 
 import br.com.caelum.vraptor.Controller;

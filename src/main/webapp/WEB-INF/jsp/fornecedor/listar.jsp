@@ -4,16 +4,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de funcionarios cadastrados</title>
+        <title>Lista de fornecedores cadastrados</title>
     </head>	
     <body>
 
-        <h2>Lista de funcionarios cadatrados</h2>
+        <h2>Lista de fornecedores cadatrados</h2>
         <ul>
-            <c:forEach items="${funcionarios}" var="funcionario">
+            <c:forEach items="${fornecedores}" var="fornecedor">
                 <li>
-                    ID: ${funcionario.id} Nome: ${funcionario.nome} CPF: ${funcionario.cpf} 
-                    <a${linkTo[FuncionarioController].editar(funcionario.id)}>Modificar</a>
+                    ID: ${fornecedor.id} Nome fantasia: ${fornecedor.nomeFantasia} CPF: ${fornecedor.cnpj} 
+                    <a${linkTo[FornecedorController].editar(fornecedor.id)}>Modificar</a>
                 </li>
             </c:forEach>
         </ul>
