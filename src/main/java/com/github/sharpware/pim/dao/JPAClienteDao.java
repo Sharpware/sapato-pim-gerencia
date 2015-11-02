@@ -21,7 +21,6 @@ public class JPAClienteDao implements IDao<Cliente> {
         this.manager = manager;
     }
 
-    @Deprecated
     public JPAClienteDao() {
         this(null);
     }

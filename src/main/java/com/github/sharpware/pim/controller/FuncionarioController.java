@@ -5,14 +5,19 @@
  */
 package com.github.sharpware.pim.controller;
 
+import java.util.List;
+import java.util.Optional;
+
+import javax.inject.Inject;
+
+import com.github.sharpware.pim.dao.IDao;
+import com.github.sharpware.pim.dao.JPAFuncionarioDao;
+import com.github.sharpware.pim.model.Cliente;
+import com.github.sharpware.pim.model.Funcionario;
+
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
-import com.github.sharpware.pim.dao.IDao;
-import com.github.sharpware.pim.dao.JPAFuncionarioDao;
-import com.github.sharpware.pim.model.Funcionario;
-import java.util.List;
-import javax.inject.Inject;
 
 /**
  *
@@ -41,5 +46,16 @@ public class FuncionarioController {
     public void listar() {
         List<Funcionario> funcionarios = dao.buscarTodos();
     	result.include("funcionarios", funcionarios);
+    }
+    
+    public void editar(Long id) {
+    	Optional<Funcionario> optionalFuncionario = dao.buscarPorId(id);
+        if (optionalFuncionario.isPresent()) {
+            Funcionario funcionario= optionalFuncionario.get();
+            result.include(funcionario);
+            result.redirectTo(this).formulario();
+        } else {
+            result.notFound();
+        }
     }
 }

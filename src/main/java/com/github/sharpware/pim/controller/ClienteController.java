@@ -29,7 +29,7 @@ public class ClienteController {
     private final IDao<Cliente> dao;
     private final Result result;
 
-    @Inject
+	@Inject
     public ClienteController(Result result) {
         this.dao = new JPAClienteDao();
         this.result = result;
@@ -56,7 +56,6 @@ public class ClienteController {
     
     @Get("/cliente/{id}")
     public void editar(Long id) {
-        
         Optional<Cliente> optionalCliente = dao.buscarPorId(id);
         if (optionalCliente.isPresent()) {
             Cliente cliente = optionalCliente.get();
