@@ -10,10 +10,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.EntityTransaction;
 
-import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Fornecedor;
 
-public class JPAForcecedorDao implements IDao<Fornecedor> {
+public class JPAForcecedorDao implements IFornecedorDao {
 
     private EntityManager manager;
 
@@ -52,7 +51,7 @@ public class JPAForcecedorDao implements IDao<Fornecedor> {
     
     @Override
     public List<Fornecedor> buscarTodos() {
-        return this.manager.createQuery("SELECT f FROM fornecedor f", Fornecedor.class)
+        return this.manager.createQuery("SELECT f FROM Fornecedor f", Fornecedor.class)
                             .getResultList();
     }
 

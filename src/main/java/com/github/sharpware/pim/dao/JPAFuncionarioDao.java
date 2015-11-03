@@ -20,7 +20,7 @@ import javax.transaction.Transactional;
  * @author George
  */
 @Transactional
-public class JPAFuncionarioDao implements IDao<Funcionario> {
+public class JPAFuncionarioDao implements IFuncionarioDao {
 
     private EntityManager manager;
     

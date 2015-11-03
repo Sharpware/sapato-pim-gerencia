@@ -12,7 +12,7 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.EntityTransaction;
 
-public class JPAClienteDao implements IDao<Cliente> {
+public class JPAClienteDao implements IClienteDao {
 	
     private EntityManager manager;
 

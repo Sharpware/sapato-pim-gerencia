@@ -14,7 +14,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import com.github.sharpware.pim.dao.*;
+import com.github.sharpware.pim.dao.IClienteDao;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,17 +26,17 @@ import java.util.Optional;
 @Controller
 public class ClienteController {
 	
-    private final IDao<Cliente> dao;
+    private final IClienteDao dao;
     private final Result result;
 
 	@Inject
-    public ClienteController(Result result) {
-        this.dao = new JPAClienteDao();
+    public ClienteController(IClienteDao dao, Result result) {
+        this.dao = dao;
         this.result = result;
     }
 
     public ClienteController() {
-        this(null);
+        this(null, null);
     }
     
     @Path("cliente/formulario")

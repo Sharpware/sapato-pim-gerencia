@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
-import com.github.sharpware.pim.dao.IDao;
+import com.github.sharpware.pim.dao.IFuncionarioDao;
 import com.github.sharpware.pim.dao.JPAFuncionarioDao;
 import com.github.sharpware.pim.model.Funcionario;
 
@@ -25,13 +25,17 @@ import br.com.caelum.vraptor.Result;
 @Controller
 public class FuncionarioController {
     
-    private final IDao<Funcionario> dao;
+    private final IFuncionarioDao dao;
     private final Result result;
 
     @Inject
-    public FuncionarioController(Result result) {
+    public FuncionarioController(IFuncionarioDao dao, Result result) {
         this.dao = new JPAFuncionarioDao();
         this.result = result;
+    }
+
+    public FuncionarioController() {
+        this(null, null);
     }
     
     @Path("funcionario/formulario")

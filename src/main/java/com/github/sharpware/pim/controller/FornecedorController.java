@@ -5,8 +5,7 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
-import com.github.sharpware.pim.dao.IDao;
-import com.github.sharpware.pim.dao.JPAForcecedorDao;
+import com.github.sharpware.pim.dao.*;
 import com.github.sharpware.pim.model.Fornecedor;
 
 import br.com.caelum.vraptor.Path;
@@ -14,13 +13,17 @@ import br.com.caelum.vraptor.Result;
 
 public class FornecedorController {
 
-	private final IDao<Fornecedor> dao;
+    private final IFornecedorDao dao;
     private final Result result;
 
     @Inject
-    public FornecedorController(Result result) {
-        this.dao = new JPAForcecedorDao();
+    public FornecedorController(IFornecedorDao dao, Result result) {
+        this.dao = dao;
         this.result = result;
+    }
+    
+    public FornecedorController() {
+        this(null, null);
     }
     
     @Path("funcionario/formulario")
