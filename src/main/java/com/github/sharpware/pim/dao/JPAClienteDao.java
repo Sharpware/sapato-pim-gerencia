@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import com.github.sharpware.pim.model.Cliente;
 import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.EntityTransaction;
 
 public class JPAClienteDao implements IClienteDao {
 	
@@ -27,14 +26,9 @@ public class JPAClienteDao implements IClienteDao {
     
     @Override
     public void salvar(Cliente cliente) {
-        EntityTransaction transaction = manager.getTransaction();
         try {
-            transaction.begin();
             manager.merge(requireNonNull(cliente));
-            transaction.commit();
         } catch (Exception ex) {
-            ex.printStackTrace();
-            transaction.rollback();
             throw new RuntimeException(ex);
         }
     }
