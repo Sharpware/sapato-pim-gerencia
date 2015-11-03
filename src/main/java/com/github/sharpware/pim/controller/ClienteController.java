@@ -15,6 +15,8 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import com.github.sharpware.pim.dao.IClienteDao;
+import com.github.sharpware.pim.model.Endereco;
+import com.github.sharpware.pim.model.Telefone;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,8 +45,8 @@ public class ClienteController {
     public void formulario() { }
     
     @Post("/cliente")
-    public void salvar(Cliente cliente) {
-    	dao.salvar(cliente);
+    public void salvar(Cliente cliente, List<Telefone> telefones) {
+        dao.salvar(cliente);
         result.redirectTo(this).listar();
     }
     
