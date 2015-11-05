@@ -31,7 +31,7 @@ public class ClienteController {
     private final IClienteDao dao;
     private final Result result;
 
-	@Inject
+    @Inject
     public ClienteController(IClienteDao dao, Result result) {
         this.dao = dao;
         this.result = result;

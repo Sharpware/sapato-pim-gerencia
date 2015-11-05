@@ -27,7 +27,8 @@ public class JPAClienteDao implements IClienteDao {
     @Override
     public void salvar(Cliente cliente) {
         try {
-            manager.merge(requireNonNull(cliente));
+            this.manager.merge(requireNonNull(cliente));
+            this.manager.flush();
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
