@@ -6,15 +6,10 @@
 package com.github.sharpware.pim.dao;
 
 import com.github.sharpware.pim.model.Cliente;
-import java.util.List;
-import java.util.Optional;
+
 
 /**
  *
- * @author kurosaki-x
+ * @author George
  */
-public interface IClienteDao {
-    void salvar(Cliente entidade);
-    Optional<Cliente> buscarPorId(Long id);
-    List<Cliente> buscarTodos();
-}
+public interface IClienteDao extends IDao<Cliente> { }

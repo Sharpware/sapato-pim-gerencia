@@ -6,15 +6,9 @@
 package com.github.sharpware.pim.dao;
 
 import com.github.sharpware.pim.model.Funcionario;
-import java.util.List;
-import java.util.Optional;
 
 /**
  *
- * @author kurosaki-x
+ * @author George
  */
-public interface IFuncionarioDao {
-    void salvar(Funcionario fornecedor);
-    Optional<Funcionario> buscarPorId(Long id);
-    List<Funcionario> buscarTodos();
-}
+public interface IFuncionarioDao extends IDao<Funcionario> { }

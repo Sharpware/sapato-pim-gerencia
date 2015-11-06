@@ -5,10 +5,16 @@
  */
 package com.github.sharpware.pim.dao;
 
-import com.github.sharpware.pim.model.Fornecedor;
+import java.util.List;
+import java.util.Optional;
 
 /**
  *
  * @author George
+ * @param <T>
  */
-public interface IFornecedorDao extends IDao<Fornecedor> { }
+public interface IDao<T> {
+    void salvar(T entidade);
+    Optional<T> buscarPorId(Long id);
+    List<T> buscarTodos();
+}
