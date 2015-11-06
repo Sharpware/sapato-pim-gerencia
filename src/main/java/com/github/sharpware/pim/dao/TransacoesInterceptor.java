@@ -42,7 +42,9 @@ public class TransacoesInterceptor {
             stack.next();
             transaction.commit();
         } finally {
-            transaction.rollback();
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
         }
     }
 }

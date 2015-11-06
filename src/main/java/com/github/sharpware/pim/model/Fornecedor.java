@@ -1,6 +1,7 @@
 package com.github.sharpware.pim.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.persistence.*;
 
@@ -94,6 +95,9 @@ public class Fornecedor {
         return this;
     }
     
+    public List<Telefone> getTelefone() {
+        return Collections.unmodifiableList(telefones);
+    }
     public Fornecedor addTelefone(Telefone telefone) {
         this.telefones.add(telefone);
         return this;

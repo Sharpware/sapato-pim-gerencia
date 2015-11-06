@@ -3,8 +3,10 @@ package com.github.sharpware.pim.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import javax.persistence.*;
+import org.hibernate.mapping.Collection;
 
 @MappedSuperclass
 public abstract class Pessoa<T> implements Serializable {
@@ -110,6 +112,9 @@ public abstract class Pessoa<T> implements Serializable {
         return (T) this;
     }
     
+    public List<Telefone> getTelefone() {
+        return Collections.unmodifiableList(telefones);
+    }
     public T addTelefone(Telefone telefone) {
         this.telefones.add(telefone);
         return (T) this;

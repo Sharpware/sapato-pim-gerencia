@@ -9,11 +9,8 @@
     <body>
         <form action="${linkTo[ClienteController].salvar}" method="post">
             <h2>Formulário de Cadastro de Cliente</h2>
+            <input type="hidden" name="cliente.id" value="${cliente.id}" />
             <ul>
-                <li>
-                    <p>ID:</p>
-                    <input type="text" name="cliente.id" value="${cliente.id}" disabled/>
-                </li>
                 <li>
                     <p>Nome:</p>
                     <input type="text" name="cliente.nome" value="${cliente.nome}" />
@@ -74,7 +71,6 @@
                     </li>
                 </ul>
             </div>
-            <!--
             <div class="telefones">
                 <ul>
                     <li>
@@ -91,7 +87,6 @@
                     </li>
                 </ul>
             </div>
-            -->
             <input type="submit" value="Salvar" />
         </form>
     </body>
