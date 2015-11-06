@@ -51,7 +51,7 @@ public class ClienteController {
         result.redirectTo(this).listar();
     }
     
-    @Get("/cliente")
+    @Get("/cliente/listar")
     public void listar() {
         List<Cliente> clientes = dao.buscarTodos();
     	result.include("clientes", clientes);

@@ -11,7 +11,9 @@
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/TipoTelefone.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Cliente.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/Situacao.java
+/home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/TransacoesInterceptor.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/FabricaDeConexao.java
+/home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/annotations/Transacional.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/dao/JPAForcecedorDao.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/controller/FuncionarioController.java
 /home/kurosaki-x/Área de Trabalho/sapato-pim-gerencia/src/main/java/com/github/sharpware/pim/model/TipoFuncionario.java

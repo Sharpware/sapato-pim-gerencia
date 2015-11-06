@@ -12,7 +12,7 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 
 public class JPAClienteDao implements IClienteDao {
-	
+    
     private EntityManager manager;
 
     @Inject
@@ -36,7 +36,9 @@ public class JPAClienteDao implements IClienteDao {
     @Override
     public Optional<Cliente> buscarPorId(Long id) {
         try {
-            Cliente cliente = this.manager.find(Cliente.class, id);
+            Cliente cliente = this.manager.createQuery("SELECT c FROM Cliente AS c where c.id = :id", Cliente.class)
+                                            .setParameter("id", id)
+                                            .getSingleResult();
             return Optional.ofNullable(cliente);
         } catch (EntityNotFoundException ex) {
             return Optional.empty();
