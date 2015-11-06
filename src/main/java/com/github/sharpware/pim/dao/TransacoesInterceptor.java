@@ -29,6 +29,10 @@ public class TransacoesInterceptor {
     public TransacoesInterceptor(EntityManager manager) {
         this.manager = manager;
     }
+
+    public TransacoesInterceptor() {
+        this(null);
+    }
     
     @AroundCall
     public void trataTransacao(SimpleInterceptorStack stack) {

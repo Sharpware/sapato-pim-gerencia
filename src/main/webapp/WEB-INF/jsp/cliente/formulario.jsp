@@ -11,6 +11,10 @@
             <h2>Formulário de Cadastro de Cliente</h2>
             <ul>
                 <li>
+                    <p>ID:</p>
+                    <input type="text" name="cliente.id" value="${cliente.id}" disabled/>
+                </li>
+                <li>
                     <p>Nome:</p>
                     <input type="text" name="cliente.nome" value="${cliente.nome}" />
                 </li>

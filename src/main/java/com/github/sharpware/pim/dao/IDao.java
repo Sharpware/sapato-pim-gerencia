@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  *
- * @author RodrigoFelipe
+ * @author George
  * @param <T>
  */
 public interface IDao<T> {
