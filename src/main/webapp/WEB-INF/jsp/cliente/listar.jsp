@@ -12,7 +12,7 @@
         <ul>
             <c:forEach items="${clientes}" var="cliente">
                 <li>
-                    ID: ${cliente.id} Nome: ${cliente.nome} CPF: ${cliente.cpf} 
+                    ID: ${cliente.id} Nome: ${cliente.nome} CPF: ${cliente.cpf}
                     <a href="${linkTo[ClienteController].editar(cliente.id)}">Modificar</a>
                 </li>
             </c:forEach>

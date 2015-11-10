@@ -36,9 +36,7 @@ public class JPAClienteDao implements IClienteDao {
     @Override
     public Optional<Cliente> buscarPorId(Long id) {
         try {
-            Cliente cliente = this.manager.createQuery("SELECT c FROM Cliente AS c where c.id = :id", Cliente.class)
-                                            .setParameter("id", id)
-                                            .getSingleResult();
+            Cliente cliente = this.manager.find(Cliente.class, id);
             return Optional.ofNullable(cliente);
         } catch (EntityNotFoundException ex) {
             return Optional.empty();

@@ -6,7 +6,6 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import javax.persistence.*;
-import org.hibernate.mapping.Collection;
 
 @MappedSuperclass
 public abstract class Pessoa<T> implements Serializable {
@@ -65,8 +64,8 @@ public abstract class Pessoa<T> implements Serializable {
     public String getCpf() {
         return cpf;
     }
-    
-	public T setCpf(String cpf) {
+
+    public T setCpf(String cpf) {
         this.cpf = cpf;
         return (T) this;
     }
@@ -97,16 +96,15 @@ public abstract class Pessoa<T> implements Serializable {
     
     public Situacao getSituacao() {
 		return situacao;
-	}
-	public T setSituacao(Situacao situacao) {
-		this.situacao = situacao;
-		return (T) this;
-	}
+    }
+    public T setSituacao(Situacao situacao) {
+            this.situacao = situacao;
+            return (T) this;
+    }
     
     public Endereco getEndereco() {
         return endereco;
     }
-    
     public T setEndereco(Endereco endereco) {
         this.endereco = endereco;
         return (T) this;

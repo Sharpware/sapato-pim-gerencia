@@ -17,7 +17,6 @@ import br.com.caelum.vraptor.Result;
 import com.github.sharpware.pim.annotations.Transacional;
 import com.github.sharpware.pim.dao.IClienteDao;
 import com.github.sharpware.pim.model.Telefone;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +47,7 @@ public class ClienteController {
     @Transacional
     @Post("/cliente")
     public void salvar(Cliente cliente, List<Telefone> telefones) {
+        
         dao.salvar(cliente);
         result.redirectTo(this).listar();
     }

@@ -13,8 +13,9 @@ import javax.persistence.*;
 
 /**
  *
- * @author RodrigoFelipe
+ * @author George
  */
+
 @Entity
 @Table(name="venda")
 public class Venda {
@@ -32,15 +33,15 @@ public class Venda {
     private double valorTotal;
     
     @OneToOne
-    @JoinColumn(name="id_cliente")
+    @JoinColumn
     private Cliente cliente;
     
     @OneToOne
-    @JoinColumn(name="id_funcionario")
+    @JoinColumn
     private Funcionario funcionario;
     
     @OneToMany
-    @JoinColumn(name="id_item_venda")
+    @JoinColumn
     private List<ItemVenda> itensVenda;
     
     @Enumerated(EnumType.STRING)

@@ -29,12 +29,8 @@ public class JPAForcecedorDao implements IFornecedorDao {
     public void salvar(Fornecedor fornecedor) {
         EntityTransaction transaction = manager.getTransaction();
         try {
-            transaction.begin();
             manager.merge(requireNonNull(fornecedor));
-            transaction.commit();
         } catch (Exception ex) {
-            ex.printStackTrace();
-            transaction.rollback();
             throw new RuntimeException(ex);
         }
     }
@@ -42,7 +38,7 @@ public class JPAForcecedorDao implements IFornecedorDao {
     @Override
     public Optional<Fornecedor> buscarPorId(Long id) {
         try {
-        	Fornecedor fornecedor = this.manager.find(Fornecedor.class, id);
+            Fornecedor fornecedor = this.manager.find(Fornecedor.class, id);
             return Optional.ofNullable(fornecedor);
         } catch (EntityNotFoundException ex) {
             return Optional.empty();
@@ -56,3 +52,4 @@ public class JPAForcecedorDao implements IFornecedorDao {
     }
 
 }
+//

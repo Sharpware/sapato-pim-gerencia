@@ -39,7 +39,7 @@
                 </li>
                 -->
             </ul>
-            <div class="endereco">
+            <div>
                 <ul>
                     <li>
                         <p>Logradouro:</p>
@@ -58,6 +58,10 @@
                         <input type="text" name="cliente.endereco.complemento" value="${cliente.endereco.complemento}" />
                     </li>
                     <li>
+                        <input type="text" name="cliente.endereco.complemento" value="${cliente.endereco.complemento}" />
+                        <a href="../../../../java/com/github/sharpware/pim/dao/IClienteDao.java"></a>
+                    </li>
+                    <li>
                         <p>Bairro:</p>
                         <input type="text" name="cliente.endereco.bairro" value="${cliente.endereco.bairro}" />
                     </li>
@@ -71,19 +75,19 @@
                     </li>
                 </ul>
             </div>
-            <div class="telefones">
+            <div>
                 <ul>
                     <li>
                         <p>Telefone residencial:</p>
-                        <input type="text" name="telefone.numero" value="${telefone.numero}" />
+                        <input type="text" name="telefone.numero" value="${numero}" />
                     </li>
                     <li>
                         <p>Telefone trabalho:</p>
-                        <input type="text" name="telefone.numero" value="${telefone.numero}" />
+                        <input type="text" name="telefone.numero" value="${numero}" />
                     </li>
                     <li>
                         <p>Celular:</p>
-                        <input type="text" name="telefone.numero" value="${telefone.numero}" />
+                        <input type="text" name="telefone.numero" value="${numero}" />
                     </li>
                 </ul>
             </div>
