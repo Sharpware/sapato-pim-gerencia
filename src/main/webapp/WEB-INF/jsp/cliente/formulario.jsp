@@ -1,97 +1,260 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrado de cliente</title>
-    </head>	
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Formulario</title>
+        <link href="/sapato-pim-gerencia/template/css/bootstrap.css" rel="stylesheet">
+        <link href="/sapato-pim-gerencia/template/css/style.css" rel="stylesheet" >
+        <link href="/sapato-pim-gerencia/template/css/sb-admin.css" rel="stylesheet">
+        <link href="/sapato-pim-gerencia/template/css/plugins/morris.css" rel="stylesheet">
+        <link href="/sapato-pim-gerencia/template/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    </head>
     <body>
-        <form action="${linkTo[ClienteController].salvar}" method="post">
-            <h2>Formulário de Cadastro de Cliente</h2>
-            <input type="hidden" name="cliente.id" value="${cliente.id}" />
-            <ul>
-                <li>
-                    <p>Nome:</p>
-                    <input type="text" name="cliente.nome" value="${cliente.nome}" />
-                </li>
-                <li>
-                    <p>CPF:</p>
-                    <input type="text" name="cliente.cpf" value="${cliente.cpf}" />
-                </li>
-                <li>
-                    <p>Data de nascimento:</p>
-                    <input type="text" name="cliente.dataNascimento" value="${cliente.dataNascimento}" />
-                </li>
-                <li>
-                    <p>Descrição:</p>
-                    <textarea name="cliente.descricao" >${cliente.descricao}</textarea>
-                </li>
-                <li>
-                    <p>Email:</p>
-                    <input type="text" name="cliente.email" value="${cliente.email}" />
-                </li>
-                <!--
-                <li>
-                    <p>Situação:</p>
-                    <input type="radio" name="cliente.situacao" value="${cliente.situacao}" checked />Ativo
-                    <input type="radio" name="cliente.situacao" value="${cliente.situacao}" />Inativo
-                </li>
-                -->
-            </ul>
-            <div>
-                <ul>
-                    <li>
-                        <p>Logradouro:</p>
-                        <input type="text" name="cliente.endereco.logradouro" value="${cliente.endereco.logradouro}" />
-                    </li>
-                    <li>
-                        <p>N°:</p>
-                        <input type="text" name="cliente.endereco.numero" value="${cliente.endereco.numero}" />
-                    </li>
-                    <li>
-                        <p>CEP:</p>
-                        <input type="text" name="cliente.endereco.cep" value="${cliente.endereco.cep}" />
-                    </li>
-                    <li>
-                        <p>Complemento:</p>
-                        <input type="text" name="cliente.endereco.complemento" value="${cliente.endereco.complemento}" />
-                    </li>
-                    <li>
-                        <input type="text" name="cliente.endereco.complemento" value="${cliente.endereco.complemento}" />
-                        <a href="../../../../java/com/github/sharpware/pim/dao/IClienteDao.java"></a>
-                    </li>
-                    <li>
-                        <p>Bairro:</p>
-                        <input type="text" name="cliente.endereco.bairro" value="${cliente.endereco.bairro}" />
-                    </li>
-                    <li>
-                        <p>Cidade:</p>
-                        <input type="text" name="cliente.endereco.cidade" value="${cliente.endereco.cidade}" />
-                    </li>
-                    <li>
-                        <p>UF:</p>
-                        <input type="text" name="cliente.endereco.uf" value="${cliente.endereco.uf}" />
+        <div id="wrapper">
+            <!--Menu feito para todas as paginas -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html" class="navbar-brand"><strong><span style="color:#006CCA">Sharp</span><span style="color:#009D73">Ware</span></strong></a>
+                </div>
+                <ul class="nav navbar-right top-nav">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i> Login
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+                            <li> <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="https://github.com/Sharpware">&nbsp;<i class="fa fa-github"></i> github</a></li>
+                        </ul>
                     </li>
                 </ul>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav side-nav" >
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#down-cliente" ><i class="fa fa-users fa-lg"></i>&nbsp;&nbsp;Cliente <i class="fa fa-caret-down pull-right"></i></a>
+                            <ul id="down-cliente" class="collapse">
+                                <li><a href="listar"><i class="fa fa-search"></i>&nbsp;Pesquisar Cliente</a></li>
+                                <li><a href="formulario"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar Cliente</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#down-fornecedor"><i class="fa fa-truck fa-lg"></i>&nbsp;&nbsp;Fornecedor <i class="fa fa-caret-down pull-right"></i></a>
+                            <ul id="down-fornecedor" class="collapse">
+                                <li><a href="PesquisarFornecedor.html"><i class="fa fa-search"></i>&nbsp;Pesquisar Fornecedor</a></li>
+                                <li><a href="CadastrarFornecedor.html"><i class="fa fa-ambulance"></i>&nbsp;Cadastrar Fornecedor</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#down-estoque"><i class="fa fa-shopping-cart fa-lg"></i>&nbsp;&nbsp;Estoque<i class="fa fa-caret-down pull-right"></i></a>
+                            <ul id="down-estoque" class="collapse">
+                                <li><a href="EntradaProduto.html"><i class="fa fa-cart-arrow-down"></i>&nbsp;Entrada de produto</a></li>
+                                <li><a href="PesquisarProduto.html"><i class="fa fa-search"></i>&nbsp;Pesquisa de produto</a></li>
+                                <li><a href="CadastrarFuncionario.html"><i class="fa fa-cart-plus"></i>&nbsp;Cadastro de Produto</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#down-gerencia"><i class="fa fa-suitcase fa-lg"></i>&nbsp;&nbsp;Gerencia<i class="fa fa-caret-down pull-right"></i></a>
+                            <ul id="down-gerencia" class="collapse">
+                                <li><a href="CadastrarFuncionario.html"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar funcionario</a></li>
+                                <li><a href="PesquisarFuncionario.html"><i class="fa fa-search"></i>&nbsp;Pesquisar funcionario</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#down-relatorios"><i class="fa fa-line-chart fa-lg"></i>&nbsp;&nbsp;Relatorios<i class="fa fa-caret-down pull-right"></i></a>
+                            <ul id="down-relatorios" class="collapse">
+                                <li><a href="RelatorioVendaPeriodo.html"><i class="fa fa-calendar-check-o"></i>&nbsp;Relatorio de vendas por periodo</a></li>
+                                <li><a href="RelatorioVendaVendedor.html"><i class="fa fa-balance-scale"></i>&nbsp;Relatorio de venda por vendedor</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>    
+                </div>
+            </nav>
+            <!--Menu feito para todas as paginas -->
+            <div id="page-wrapper">
+
+                <div id="div-cc-azul">
+
+                    <p class="lbl-cclient"><strong><em>Cadastro de Cliente</em></strong></p>
+
+
+                    <form class="form-inline" id="codigo-pp-left" action="${linkTo[ClienteController].salvar}" method="post">
+                        <input type="text" name="cliente.id" value="${cliente.id}" hidden="true" />
+                        <div class="form-group">
+                            <label for="exampleInputName1">Nome</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" name="cliente.nome" value="${cliente.nome}" maxlength="60" style="width: 300px">&nbsp;&nbsp;
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">Email</label>
+                            <br>
+                            <input type="email" class="form-control" id="exampleInputEmail2" name="cliente.email" value="${cliente.email}" placeholder="jane.doe@example.com" maxlength="40" style="width: 250px">&nbsp;&nbsp;
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">CPF</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" name="cliente.cpf" value="${cliente.cpf}" placeholder="---.---.---.--" maxlength="11" style="width: 130px">&nbsp;&nbsp;
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Data de Nascimento</label>
+                            <br>
+                            <input type="date" class="form-control" id="exampleInputName1" name="cliente.dataNascimento" value="${cliente.dataNascimento}" style="width: 160px">&nbsp;&nbsp;
+                        </div>
+
+                        <!--Situação-->
+                        <div class="form-group" id="div-status-cc">
+                            <p style="color:white"><strong>Situação</strong></p>
+                            <div class="radio">
+                                <label style="align: center">
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                    Ativo
+                                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                    Inativo
+                                </label>
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <!--Telefone-->
+                        <div class="form-group">
+                            <label for="exampleInputName1">Telefone Residencial</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Telefone Comercial</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Celular</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Cel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <!--Endereco-->
+                        <div class="form-group">
+                            <label for="exampleInputName1">Logradouro</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="100" style="width: 210px">&nbsp;&nbsp;
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Número</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="100" style="width: 90px">&nbsp;&nbsp;
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Complemento</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 200px">&nbsp;&nbsp;
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Bairro</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 180px">&nbsp;&nbsp;
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Cidade</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 250px">&nbsp;&nbsp;
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">CEP</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="-----_---" maxlength="8" style="width: 90px">&nbsp;&nbsp;
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">UF</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" maxlength="2" style="width: 50px">&nbsp;&nbsp;
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Observação</label>
+                            <br>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="500" style="width: 706px">&nbsp;&nbsp; 
+                        </div>
+
+                        <button type="submit" class="btn btn-info" id="btn-cc"><strong>Cadastrar Cliente</strong></button>
+
+                    </form>
+
+
+
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </div>
-            <div>
-                <ul>
-                    <li>
-                        <p>Telefone residencial:</p>
-                        <input type="text" name="telefone.numero" value="${numero}" />
-                    </li>
-                    <li>
-                        <p>Telefone trabalho:</p>
-                        <input type="text" name="telefone.numero" value="${numero}" />
-                    </li>
-                    <li>
-                        <p>Celular:</p>
-                        <input type="text" name="telefone.numero" value="${numero}" />
-                    </li>
-                </ul>
-            </div>
-            <input type="submit" value="Salvar" />
-        </form>
+        </div>
+
+        <script type="text/javascript" src="/sapato-pim-gerencia/template/js/jquery.js"></script>
+        <script type="text/javascript" src="/sapato-pim-gerencia/template/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/sapato-pim-gerencia/template/js/plugins/morris/raphael.min.js"></script>
+        <script type="text/javascript" src="/sapato-pim-gerencia/template/js/plugins/morris/morris.min.js"></script>
     </body>
 </html>
