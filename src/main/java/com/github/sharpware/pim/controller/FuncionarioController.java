@@ -15,6 +15,7 @@ import com.github.sharpware.pim.dao.JPAFuncionarioDao;
 import com.github.sharpware.pim.model.Funcionario;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 
@@ -43,14 +44,16 @@ public class FuncionarioController {
     
     public void salvar(Funcionario funcionario) {
         dao.salvar(funcionario);
-        result.redirectTo(this).listar();
+        result.redirectTo(this).pesquisar();
     }
     
-    public void listar() {
+    @Get("funcionario/pesquisar")
+    public void pesquisar() {
         List<Funcionario> funcionarios = dao.buscarTodos();
     	result.include("funcionarios", funcionarios);
     }
     
+    @Get("/funcionario/{id}")
     public void editar(Long id) {
     	Optional<Funcionario> optionalFuncionario = dao.buscarPorId(id);
         if (optionalFuncionario.isPresent()) {

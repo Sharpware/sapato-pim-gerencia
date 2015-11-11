@@ -49,8 +49,8 @@
                         <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#down-fornecedor"><i class="fa fa-truck fa-lg"></i>&nbsp;&nbsp;Fornecedor <i class="fa fa-caret-down pull-right"></i></a>
                             <ul id="down-fornecedor" class="collapse">
-                                <li><a href="PesquisarFornecedor.html"><i class="fa fa-search"></i>&nbsp;Pesquisar Fornecedor</a></li>
-                                <li><a href="CadastrarFornecedor.html"><i class="fa fa-ambulance"></i>&nbsp;Cadastrar Fornecedor</a></li>
+                                <li><a href="/sapato-pim-gerencia/fornecedor/pesquisar"><i class="fa fa-search"></i>&nbsp;Pesquisar Fornecedor</a></li>
+                                <li><a href="/sapato-pim-gerencia/fornecedor/formulario"><i class="fa fa-ambulance"></i>&nbsp;Cadastrar Fornecedor</a></li>
                             </ul>
                         </li>
                         <li>
@@ -82,7 +82,7 @@
             <!--Menu feito para todas as paginas -->
             <div id="page-wrapper">
 
-               <div id="div-cc-azul">
+                <div id="div-cc-azul">
 
                     <p class="lbl-cclient"><strong><em>Cadastro de Cliente</em></strong></p>
 
@@ -122,11 +122,11 @@
                             <p style="color:white"><strong>Situação</strong></p>
                             <div class="radio">
                                 <label style="align: center">
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                    <input type="radio" name="optionsRadios" id="ativo" value="option1" checked>
                                     Ativo
                                 </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
                                 <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                    <input type="radio" name="optionsRadios" id="inativo" value="option2">
                                     Inativo
                                 </label>
                             </div>
@@ -215,7 +215,7 @@
                         <button type="submit" class="btn btn-info" id="btn-cc"><strong>Cadastrar Cliente</strong></button>
 
                     </form>
-                        
+
                 </div>
                 <br>
                 <br>

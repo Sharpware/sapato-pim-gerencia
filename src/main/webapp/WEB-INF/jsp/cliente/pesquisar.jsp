@@ -43,8 +43,8 @@
                         <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#down-cliente" ><i class="fa fa-users fa-lg"></i>&nbsp;&nbsp;Cliente <i class="fa fa-caret-down pull-right"></i></a>
                             <ul id="down-cliente" class="collapse">
-                                <li><a href="PesquisarCliente.html"><i class="fa fa-search"></i>&nbsp;Pesquisar Cliente</a></li>
-                                <li><a href="CadastrarCliente.html"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar Cliente</a></li>
+                                <li><a href="pesquisar"><i class="fa fa-search"></i>&nbsp;Pesquisar Cliente</a></li>
+                                <li><a href="formulario"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar Cliente</a></li>
                             </ul>
                         </li>
                         <li>
@@ -105,6 +105,7 @@
                         <div class="form-group" id="div-status-pc">
                             <p style="color:white" class="texto-status-pc"><strong>Status</strong></p>
 
+                            
                             <div class="radio">
                                 <label class="texto-status-pc">
                                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
@@ -163,7 +164,7 @@
                                         <c:forEach items="${clientes}" var="cliente">
                                             <tr>
                                                 <td>
-                                                    <${cliente.id}
+                                                    <input type="radio" name="cliente.id"/>${cliente.id}
                                                     &nbsp;
                                                 </td>
                                                 <td>
