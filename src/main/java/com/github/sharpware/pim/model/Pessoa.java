@@ -25,8 +25,8 @@ public abstract class Pessoa<T> implements Serializable {
     @Column(name="data_nascimento")
     private Calendar dataNascimento;
     
-    @Column(name="descricao")
-    private String descricao;
+    @Column(name="observacao", columnDefinition = "text")
+    private String observacao;
     
     @Column(name="email")
     private String email;
@@ -77,15 +77,7 @@ public abstract class Pessoa<T> implements Serializable {
         this.dataNascimento = dataNascimento;
         return (T) this;
     }
-
-    public String getDescricao() {
-        return descricao;
-    }
-    public T setDescricao(String descricao) {
-        this.descricao = descricao;
-        return (T) this;
-    }
-
+    
     public String getEmail() {
         return email;
     }
@@ -100,6 +92,14 @@ public abstract class Pessoa<T> implements Serializable {
     public T setSituacao(Situacao situacao) {
             this.situacao = situacao;
             return (T) this;
+    }
+    
+    public String getObservacao() {
+        return observacao;
+    }
+    public T setObservacao(String observacao) {
+        this.observacao = observacao;
+        return (T) this;
     }
     
     public Endereco getEndereco() {
@@ -122,7 +122,7 @@ public abstract class Pessoa<T> implements Serializable {
     public String toString() {
         return "Pessoa{" + "id=" + id + ", nome=" + nome +
                 ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + 
-                ", descricao=" + descricao + ", email=" + email + 
+                ", observacao=" + observacao + ", email=" + email + 
                 ", situacao=" + situacao + ", endereco=" + endereco + ", telefones=" + telefones + '}';
     }
     

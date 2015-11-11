@@ -42,7 +42,7 @@
                         <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#down-cliente" ><i class="fa fa-users fa-lg"></i>&nbsp;&nbsp;Cliente <i class="fa fa-caret-down pull-right"></i></a>
                             <ul id="down-cliente" class="collapse">
-                                <li><a href="listar"><i class="fa fa-search"></i>&nbsp;Pesquisar Cliente</a></li>
+                                <li><a href="pesquisar"><i class="fa fa-search"></i>&nbsp;Pesquisar Cliente</a></li>
                                 <li><a href="formulario"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar Cliente</a></li>
                             </ul>
                         </li>
@@ -82,7 +82,7 @@
             <!--Menu feito para todas as paginas -->
             <div id="page-wrapper">
 
-                <div id="div-cc-azul">
+               <div id="div-cc-azul">
 
                     <p class="lbl-cclient"><strong><em>Cadastro de Cliente</em></strong></p>
 
@@ -161,25 +161,25 @@
                         <div class="form-group">
                             <label for="exampleInputName1">Logradouro</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="100" style="width: 210px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="endereco.logradouro" value="${cliente.endereco.logradouro}" placeholder="Endereço" maxlength="100" style="width: 210px">&nbsp;&nbsp;
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputName1">Número</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="100" style="width: 90px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="endereco.numero" value="${cliente.endereco.numero}" placeholder="Endereço" maxlength="100" style="width: 90px">&nbsp;&nbsp;
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputName1">Complemento</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 200px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="endereco.complemento" value="${cliente.endereco.complemento}" maxlength="100" style="width: 200px">&nbsp;&nbsp;
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputName1">Bairro</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 180px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="endereco.bairro" value="${cliente.endereco.bairro}"  maxlength="100" style="width: 180px">&nbsp;&nbsp;
                         </div>
 
                         <br>
@@ -188,19 +188,19 @@
                         <div class="form-group">
                             <label for="exampleInputName1">Cidade</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 250px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="endereco.cidade" value="${cliente.endereco.cidade}" maxlength="100" style="width: 250px">&nbsp;&nbsp;
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputName1">CEP</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="-----_---" maxlength="8" style="width: 90px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="endereco.cep" value="${cliente.endereco.cep}" placeholder="-----_---" maxlength="8" style="width: 90px">&nbsp;&nbsp;
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputName1">UF</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" maxlength="2" style="width: 50px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="endereco.uf" value="${cliente.endereco.uf}" maxlength="2" style="width: 50px">&nbsp;&nbsp;
                         </div>
 
                         <br>
@@ -209,15 +209,13 @@
                         <div class="form-group">
                             <label for="exampleInputName1">Observação</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="500" style="width: 706px">&nbsp;&nbsp; 
+                            <input type="text" class="form-control" id="exampleInputName1" name="cliente.observacao" value="${cliente.observacao}" maxlength="500" style="width: 706px">&nbsp;&nbsp; 
                         </div>
 
                         <button type="submit" class="btn btn-info" id="btn-cc"><strong>Cadastrar Cliente</strong></button>
 
                     </form>
-
-
-
+                        
                 </div>
                 <br>
                 <br>

@@ -49,11 +49,11 @@ public class ClienteController {
     public void salvar(Cliente cliente, Endereco endereco) {
         cliente.setEndereco(endereco);
         dao.salvar(cliente);
-        result.redirectTo(this).listar();
+        result.redirectTo(this).pesquisar();
     }
     
-    @Get("/cliente/listar")
-    public void listar() {
+    @Get("/cliente/pesquisar")
+    public void pesquisar() {
         List<Cliente> clientes = dao.buscarTodos();
     	result.include("clientes", clientes);
     }

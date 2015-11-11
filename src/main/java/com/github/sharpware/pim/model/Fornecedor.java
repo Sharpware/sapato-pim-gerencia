@@ -23,15 +23,18 @@ public class Fornecedor {
     @Column(name="cnpj")
     private String cnpj;
     
-    @Column(name="descricao")
-    private String descricao;
+    @Column(name="observacao", columnDefinition = "text")
+    private String observacao;
     
     @Column(name="email_primario")
     private String emailPrimario;
     
     @Column(name="email_secundario")
     private String emailSecundario;
-
+    
+    @Embedded
+    private Endereco endereco;
+    
     @OneToMany
     @JoinColumn(name="telefone")
     private List<Telefone> telefones;
@@ -71,14 +74,14 @@ public class Fornecedor {
         return this;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getObservacao() {
+        return observacao;
     }
-    public Fornecedor setDescricao(String descricao) {
-        this.descricao = descricao;
+    public Fornecedor setObservacao(String observacao) {
+        this.observacao = observacao;
         return this;
     }
-
+    
     public String getEmailPrimario() {
         return emailPrimario;
     }
@@ -92,6 +95,14 @@ public class Fornecedor {
     }
     public Fornecedor setEmailSecundario(String emailSecundario) {
         this.emailSecundario = emailSecundario;
+        return this;
+    }
+    
+        public Endereco getEndereco() {
+        return endereco;
+    }
+    public Fornecedor setEndereco(Endereco endereco) {
+        this.endereco = endereco;
         return this;
     }
     
