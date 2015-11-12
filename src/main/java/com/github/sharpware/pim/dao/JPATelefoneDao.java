@@ -5,13 +5,13 @@
  */
 package com.github.sharpware.pim.dao;
 
+import com.github.sharpware.pim.model.Cliente;
+import com.github.sharpware.pim.model.Fornecedor;
+import com.github.sharpware.pim.model.Funcionario;
 import com.github.sharpware.pim.model.Telefone;
-import java.util.List;
-import static java.util.Objects.requireNonNull;
-import java.util.Optional;
+import java.util.function.Function;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
 
 /**
  *
@@ -29,30 +29,27 @@ public class JPATelefoneDao implements ITelefoneDao {
     public JPATelefoneDao() {
         this(null);
     }
-    
+
     @Override
-    public void salvar(Telefone telefone) {
-       try {
-           this.manager.merge(requireNonNull(telefone));
-       } catch (Exception ex) {
-            throw new RuntimeException(ex);
-       }
+    public void salvarClienteTelefone(Cliente cliente, long id) {
+        cliente.getTelefone().stream().map(telefone -> {
+            JPATelefoneDao.this.manager.merge(telefone);
+            return telefone;
+        }).forEach((_item) -> {
+            this.manager.createNativeQuery("INSERT INTO telefone_cliente where "
+                    + "id_cliente := id_cliente and id_telefone := id_telefone")
+                    .setParameter("id_cliente", cliente.getId())
+                    .setParameter("id_telefone", id);
+        });
     }
 
     @Override
-    public Optional<Telefone> buscarPorId(Long id) {
-        try {
-            Telefone telefone = this.manager.find(Telefone.class, id);
-            return Optional.ofNullable(telefone);
-        } catch (EntityNotFoundException ex) {
-            return Optional.empty();
-        }
+    public void salvarFuncionarioTelefone(Funcionario funcionario, long id) {
+
     }
 
     @Override
-    public List<Telefone> buscarTodos() {
-        return this.manager.createQuery("SELECT t FROM Telefone t", Telefone.class)
-                            .getResultList();
+    public void salvarFornecedorTelefone(Fornecedor fornecedor, long id) {
+
     }
-    
 }

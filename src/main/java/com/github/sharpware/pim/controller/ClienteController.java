@@ -17,6 +17,8 @@ import br.com.caelum.vraptor.Result;
 import com.github.sharpware.pim.annotations.Transacional;
 import com.github.sharpware.pim.dao.IClienteDao;
 import com.github.sharpware.pim.model.Endereco;
+import com.github.sharpware.pim.model.Situacao;
+import com.github.sharpware.pim.model.Telefone;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,8 +48,13 @@ public class ClienteController {
     
     @Transacional
     @Post("/cliente")
-    public void salvar(Cliente cliente, Endereco endereco) {
+    public void salvar(Cliente cliente, Endereco endereco
+            ,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
+        cliente.setSituacao(Situacao.ATIVO);
         cliente.setEndereco(endereco);
+        cliente.addTelefone(telefone1);
+        cliente.addTelefone(telefone2);
+        cliente.addTelefone(telefone3);
         dao.salvar(cliente);
         result.redirectTo(this).pesquisar();
     }

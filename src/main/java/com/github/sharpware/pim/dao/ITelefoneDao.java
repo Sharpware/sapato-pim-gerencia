@@ -5,10 +5,17 @@
  */
 package com.github.sharpware.pim.dao;
 
-import com.github.sharpware.pim.model.Telefone;
+import com.github.sharpware.pim.model.Cliente;
+import com.github.sharpware.pim.model.Fornecedor;
+import com.github.sharpware.pim.model.Funcionario;
+
 
 /**
  *
  * @author George
  */
-public interface ITelefoneDao extends IDao<Telefone> { }
+public interface ITelefoneDao {
+    void salvarClienteTelefone(Cliente cliente, long id);
+    void salvarFuncionarioTelefone(Funcionario funcionario, long id);
+    void salvarFornecedorTelefone(Fornecedor fornecedor, long id);
+}

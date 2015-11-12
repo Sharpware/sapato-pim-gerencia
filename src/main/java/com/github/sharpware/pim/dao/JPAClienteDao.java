@@ -14,20 +14,23 @@ import javax.persistence.EntityNotFoundException;
 public class JPAClienteDao implements IClienteDao {
     
     private EntityManager manager;
+    private ITelefoneDao dao;
 
     @Inject
-    public JPAClienteDao(EntityManager manager) {
+    public JPAClienteDao(EntityManager manager, ITelefoneDao dao) {
         this.manager = manager;
+        this.dao = dao;
     }
 
     public JPAClienteDao() {
-        this(null);
+        this(null, null);
     }
     
     @Override
     public void salvar(Cliente cliente) {
         try {
             this.manager.merge(requireNonNull(cliente));
+            
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

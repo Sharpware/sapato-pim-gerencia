@@ -139,19 +139,19 @@
                         <div class="form-group">
                             <label for="exampleInputName1">Telefone Residencial</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="telefone1" placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputName1">Telefone Comercial</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="telefone2" placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputName1">Celular</label>
                             <br>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Cel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                            <input type="text" class="form-control" id="exampleInputName1" name="telefone3" placeholder="DDD + Cel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
                         </div>
 
                         <br>
