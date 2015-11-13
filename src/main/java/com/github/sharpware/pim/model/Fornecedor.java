@@ -23,7 +23,7 @@ public class Fornecedor {
     @Column(name="cnpj")
     private String cnpj;
     
-    @Column(name="observacao", columnDefinition = "text")
+    @Column(name="observacao", columnDefinition="text")
     private String observacao;
     
     @Column(name="email_primario")
@@ -36,8 +36,8 @@ public class Fornecedor {
     private Endereco endereco;
     
     @OneToMany
-    @JoinColumn(name="telefone")
-    private List<Telefone> telefones;
+    @JoinTable(name="telefone_fornecedor")
+    private final List<Telefone> telefones;
     
     public Fornecedor() {
         this.telefones = new ArrayList<>();

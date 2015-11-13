@@ -38,14 +38,6 @@ public abstract class Pessoa<T> implements Serializable {
     @Embedded
     private Endereco endereco;
     
-    @OneToMany
-    @JoinColumn(name="id")
-    private List<Telefone> telefones;
-
-    public Pessoa() {
-        this.telefones = new ArrayList<>();
-    }
-    
     public Long getId() {
         return id;
     }
@@ -109,21 +101,4 @@ public abstract class Pessoa<T> implements Serializable {
         this.endereco = endereco;
         return (T) this;
     }
-    
-    public List<Telefone> getTelefone() {
-        return Collections.unmodifiableList(telefones);
-    }
-    public T addTelefone(Telefone telefone) {
-        this.telefones.add(telefone);
-        return (T) this;
-    }
-
-    @Override
-    public String toString() {
-        return "Pessoa{" + "id=" + id + ", nome=" + nome +
-                ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + 
-                ", observacao=" + observacao + ", email=" + email + 
-                ", situacao=" + situacao + ", endereco=" + endereco + ", telefones=" + telefones + '}';
-    }
-    
 }

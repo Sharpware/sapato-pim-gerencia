@@ -5,25 +5,32 @@
  */
 package com.github.sharpware.pim.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import javax.persistence.*;
 
-/**
- *
- * @author RodrigoFelipe
- */
 @Entity
-@Table(name="funcionario")
+@Table(name = "funcionario")
 public class Funcionario extends Pessoa<Funcionario> {
 
-    @Column(name="login")
+    @Column(name = "login")
     private String login;
-    
-    @Column(name="senha")
+
+    @Column(name = "senha")
     private String senha;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="tipo_funcionario")
+    @Column(name = "tipo_funcionario")
     private TipoFuncionario tipoFuncionario;
+
+    @OneToMany
+    @JoinTable(name="telefone_funcionario")
+    private final List<Telefone> telefones;
+
+    public Funcionario() {
+        telefones = new ArrayList<>();
+    }
 
     public String getLogin() {
         return login;
@@ -40,12 +47,20 @@ public class Funcionario extends Pessoa<Funcionario> {
         this.senha = senha;
         return this;
     }
-    
+
     public TipoFuncionario getTipoFuncionario() {
         return tipoFuncionario;
     }
     public Funcionario setTipoFuncionario(TipoFuncionario tipoFuncionario) {
         this.tipoFuncionario = tipoFuncionario;
+        return this;
+    }
+
+    public List<Telefone> getTelefone() {
+        return Collections.unmodifiableList(telefones);
+    }
+    public Funcionario addTelefone(Telefone telefone) {
+        this.telefones.add(telefone);
         return this;
     }
 }

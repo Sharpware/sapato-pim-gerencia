@@ -15,7 +15,7 @@ import com.github.sharpware.pim.model.Funcionario;
  * @author George
  */
 public interface ITelefoneDao {
-    void salvarClienteTelefone(Cliente cliente, long id);
-    void salvarFuncionarioTelefone(Funcionario funcionario, long id);
-    void salvarFornecedorTelefone(Fornecedor fornecedor, long id);
+    void salvarClienteTelefone(Cliente cliente);
+    void salvarFuncionarioTelefone(Funcionario funcionario);
+    void salvarFornecedorTelefone(Fornecedor fornecedor);
 }

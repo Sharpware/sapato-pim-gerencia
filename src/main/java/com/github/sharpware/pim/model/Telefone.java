@@ -5,6 +5,7 @@
  */
 package com.github.sharpware.pim.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -13,7 +14,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="telefone")
-public class Telefone {
+public class Telefone implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

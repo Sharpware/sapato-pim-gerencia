@@ -19,6 +19,7 @@ import com.github.sharpware.pim.dao.IClienteDao;
 import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Situacao;
 import com.github.sharpware.pim.model.Telefone;
+import com.github.sharpware.pim.model.TipoTelefone;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,6 +53,9 @@ public class ClienteController {
             ,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
         cliente.setSituacao(Situacao.ATIVO);
         cliente.setEndereco(endereco);
+        telefone1.setTipoTelefone(TipoTelefone.RESIDENCIAL);
+        telefone2.setTipoTelefone(TipoTelefone.TRABALHO);
+        telefone3.setTipoTelefone(TipoTelefone.CELULAR);
         cliente.addTelefone(telefone1);
         cliente.addTelefone(telefone2);
         cliente.addTelefone(telefone3);
