@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.github.sharpware.pim.model.Cliente;
+import com.github.sharpware.pim.model.Telefone;
+import java.util.ArrayList;
 import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 

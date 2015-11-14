@@ -27,7 +27,7 @@ public class Telefone implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_telefone")
     private TipoTelefone tipoTelefone;
-
+    
     public long getId() {
         return id;
     }

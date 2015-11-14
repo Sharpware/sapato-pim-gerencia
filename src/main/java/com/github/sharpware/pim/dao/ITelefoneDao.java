@@ -8,6 +8,8 @@ package com.github.sharpware.pim.dao;
 import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Fornecedor;
 import com.github.sharpware.pim.model.Funcionario;
+import com.github.sharpware.pim.model.Telefone;
+import java.util.List;
 
 
 /**

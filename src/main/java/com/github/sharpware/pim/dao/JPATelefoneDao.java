@@ -9,8 +9,8 @@ import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Fornecedor;
 import com.github.sharpware.pim.model.Funcionario;
 import com.github.sharpware.pim.model.Telefone;
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
@@ -22,7 +22,7 @@ public class JPATelefoneDao implements ITelefoneDao {
 
     private final JPATelefoneDao that = this;
     private EntityManager manager; 
-
+    
     @Inject
     public JPATelefoneDao(EntityManager manager) {
         this.manager = manager;
@@ -38,10 +38,10 @@ public class JPATelefoneDao implements ITelefoneDao {
         .stream()
         .map((telefone) -> that.manager.merge(telefone))
         .forEach((telefone) -> {
-            that.manager.createNativeQuery("INSERT INTO `telefone_cliente`"
-                    + "(`cliente_id`, `telefones_id`) VALUES (id_cliente, id_telefone)")
-                    .setParameter("id_cliente", cliente.getId())
-                    .setParameter("id_telefone", telefone.getId());
+            that.manager.createNativeQuery("INSERT INTO telefone_cliente"
+                    + "(cliente_id, telefones_id) VALUES (:cliente_id, :telefones_id)")
+                    .setParameter("cliente_id", cliente.getId())
+                    .setParameter("telefones_id", telefone.getId());
         });
     }
 

@@ -16,6 +16,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import com.github.sharpware.pim.annotations.Transacional;
 import com.github.sharpware.pim.dao.IClienteDao;
+import com.github.sharpware.pim.dao.ITelefoneDao;
 import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Situacao;
 import com.github.sharpware.pim.model.Telefone;
@@ -32,8 +33,8 @@ import java.util.Optional;
 public class ClienteController {
 	
     private final IClienteDao dao;
-    private final Result result;
-
+    private final Result result;    
+    
     @Inject
     public ClienteController(IClienteDao dao, Result result) {
         this.dao = dao;
@@ -59,7 +60,7 @@ public class ClienteController {
         cliente.addTelefone(telefone1);
         cliente.addTelefone(telefone2);
         cliente.addTelefone(telefone3);
-        dao.salvar(cliente);
+        this.dao.salvar(cliente);
         result.redirectTo(this).pesquisar();
     }
     
