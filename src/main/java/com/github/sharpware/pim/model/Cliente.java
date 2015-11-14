@@ -10,7 +10,8 @@ import javax.persistence.*;
 public class Cliente extends Pessoa<Cliente> {
 
     @OneToMany
-    @JoinTable(name="telefone_cliente")
+    @JoinTable(name="telefone_cliente",
+                joinColumns = @JoinColumn(name="id", referencedColumnName="id_cliente"))
     private final List<Telefone> telefones;
     
     public Cliente() {

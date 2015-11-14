@@ -20,7 +20,8 @@ import javax.persistence.EntityManager;
  */
 public class JPATelefoneDao implements ITelefoneDao {
 
-    private EntityManager manager;
+    private final JPATelefoneDao that = this;
+    private EntityManager manager; 
 
     @Inject
     public JPATelefoneDao(EntityManager manager) {
@@ -33,12 +34,12 @@ public class JPATelefoneDao implements ITelefoneDao {
 
     @Override
     public void salvarClienteTelefone(Cliente cliente) {
-        cliente.getTelefone().stream().map((telefone) -> {
-            this.manager.merge(telefone);
-            return telefone;
-        }).forEach((telefone) -> {
-            JPATelefoneDao.this.manager.createNativeQuery("INSERT INTO telefone_cliente where "
-                    + "id_cliente := id_cliente and id_telefone := id_telefone")
+        cliente.getTelefone()
+        .stream()
+        .map((telefone) -> that.manager.merge(telefone))
+        .forEach((telefone) -> {
+            that.manager.createNativeQuery("INSERT INTO `telefone_cliente`"
+                    + "(`cliente_id`, `telefones_id`) VALUES (id_cliente, id_telefone)")
                     .setParameter("id_cliente", cliente.getId())
                     .setParameter("id_telefone", telefone.getId());
         });
