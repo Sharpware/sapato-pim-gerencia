@@ -13,17 +13,21 @@ import com.github.sharpware.pim.model.Fornecedor;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import com.github.sharpware.pim.model.Endereco;
+import com.github.sharpware.pim.model.Telefone;
+import java.util.ArrayList;
 
 @Controller
 public class FornecedorController {
 
     private final IFornecedorDao dao;
     private final Result result;
+    private final List<Telefone> telefones;
 
     @Inject
     public FornecedorController(IFornecedorDao dao, Result result) {
         this.dao = dao;
         this.result = result;
+        this.telefones = new ArrayList<>();
     }
     
     public FornecedorController() {
@@ -35,7 +39,7 @@ public class FornecedorController {
     
     public void salvar(Fornecedor fornecedor, Endereco endereco) {
         fornecedor.setEndereco(endereco);
-        dao.salvar(fornecedor);
+        dao.salvar(fornecedor, telefones);
         result.redirectTo(this).pesquisar();
     }
     

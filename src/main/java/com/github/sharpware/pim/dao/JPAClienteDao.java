@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 
 import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Telefone;
-import java.util.ArrayList;
 import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 
@@ -19,7 +18,7 @@ public class JPAClienteDao implements IClienteDao {
     private ITelefoneDao dao;
 
     @Inject
-    public JPAClienteDao(EntityManager manager, ITelefoneDao dao) {
+    public JPAClienteDao(EntityManager manager, ITelefoneDao<Cliente> dao) {
         this.manager = manager;
         this.dao = dao;
     }
@@ -29,10 +28,10 @@ public class JPAClienteDao implements IClienteDao {
     }
     
     @Override
-    public void salvar(Cliente cliente) {
+    public void salvar(Cliente cliente, List<Telefone> telefones) {
         try {
             this.manager.merge(requireNonNull(cliente));
-            this.dao.salvarClienteTelefone(cliente);
+            this.dao.salvarTelefone(cliente, telefones);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

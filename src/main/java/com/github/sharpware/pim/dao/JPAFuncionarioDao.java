@@ -6,6 +6,7 @@
 package com.github.sharpware.pim.dao;
 
 import com.github.sharpware.pim.model.Funcionario;
+import com.github.sharpware.pim.model.Telefone;
 import java.util.List;
 import static java.util.Objects.requireNonNull;
 import java.util.Optional;
@@ -23,25 +24,24 @@ import javax.transaction.Transactional;
 public class JPAFuncionarioDao implements IFuncionarioDao {
 
     private EntityManager manager;
-    
+
     @Inject
     public JPAFuncionarioDao(EntityManager manager) {
         this.manager = manager;
     }
-    
+
     public JPAFuncionarioDao() {
         this(null);
     }
-    
+
     @Override
-    public void salvar(Funcionario entidade) {
+    public void salvar(Funcionario funcionario, List<Telefone> telefones) {
         EntityTransaction transaction = manager.getTransaction();
         try {
             transaction.begin();
-            manager.merge(requireNonNull(entidade));
+            manager.merge(requireNonNull(funcionario));
             transaction.commit();
         } catch (Exception ex) {
-            ex.printStackTrace();
             transaction.rollback();
             throw new RuntimeException(ex);
         }
@@ -60,7 +60,7 @@ public class JPAFuncionarioDao implements IFuncionarioDao {
     @Override
     public List<Funcionario> buscarTodos() {
         return this.manager.createQuery("SELECT f FROM Funcionario f", Funcionario.class)
-                            .getResultList();
+                .getResultList();
     }
-    
+
 }

@@ -5,6 +5,7 @@
  */
 package com.github.sharpware.pim.dao;
 
+import com.github.sharpware.pim.model.Telefone;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +15,7 @@ import java.util.Optional;
  * @param <T>
  */
 public interface IDao<T> {
-    void salvar(T entidade);
+    void salvar(T entidade, List<Telefone> telefones);
     Optional<T> buscarPorId(Long id);
     List<T> buscarTodos();
 }

@@ -5,9 +5,6 @@
  */
 package com.github.sharpware.pim.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -23,14 +20,6 @@ public class Funcionario extends Pessoa<Funcionario> {
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_funcionario")
     private TipoFuncionario tipoFuncionario;
-
-    @OneToMany
-    @JoinTable(name="telefone_funcionario")
-    private final List<Telefone> telefones;
-
-    public Funcionario() {
-        telefones = new ArrayList<>();
-    }
 
     public String getLogin() {
         return login;
@@ -53,14 +42,6 @@ public class Funcionario extends Pessoa<Funcionario> {
     }
     public Funcionario setTipoFuncionario(TipoFuncionario tipoFuncionario) {
         this.tipoFuncionario = tipoFuncionario;
-        return this;
-    }
-
-    public List<Telefone> getTelefone() {
-        return Collections.unmodifiableList(telefones);
-    }
-    public Funcionario addTelefone(Telefone telefone) {
-        this.telefones.add(telefone);
         return this;
     }
 }

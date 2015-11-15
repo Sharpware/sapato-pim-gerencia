@@ -11,6 +11,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.EntityTransaction;
 
 import com.github.sharpware.pim.model.Fornecedor;
+import com.github.sharpware.pim.model.Telefone;
 
 public class JPAForcecedorDao implements IFornecedorDao {
 
@@ -26,7 +27,7 @@ public class JPAForcecedorDao implements IFornecedorDao {
     }
     
     @Override
-    public void salvar(Fornecedor fornecedor) {
+    public void salvar(Fornecedor fornecedor, List<Telefone> telefones) {
         EntityTransaction transaction = manager.getTransaction();
         try {
             manager.merge(requireNonNull(fornecedor));

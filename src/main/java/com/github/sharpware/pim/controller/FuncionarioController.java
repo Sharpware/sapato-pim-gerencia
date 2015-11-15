@@ -18,6 +18,8 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
+import com.github.sharpware.pim.model.Telefone;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,11 +30,13 @@ public class FuncionarioController {
     
     private final IFuncionarioDao dao;
     private final Result result;
+    private final List<Telefone> telefones;
 
     @Inject
     public FuncionarioController(IFuncionarioDao dao, Result result) {
         this.dao = new JPAFuncionarioDao();
         this.result = result;
+        this.telefones = new ArrayList<>();
     }
 
     public FuncionarioController() {
@@ -43,7 +47,7 @@ public class FuncionarioController {
     public void formulario() { }
     
     public void salvar(Funcionario funcionario) {
-        dao.salvar(funcionario);
+        dao.salvar(funcionario, telefones);
         result.redirectTo(this).pesquisar();
     }
     

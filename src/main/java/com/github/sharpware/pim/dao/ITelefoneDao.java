@@ -5,9 +5,6 @@
  */
 package com.github.sharpware.pim.dao;
 
-import com.github.sharpware.pim.model.Cliente;
-import com.github.sharpware.pim.model.Fornecedor;
-import com.github.sharpware.pim.model.Funcionario;
 import com.github.sharpware.pim.model.Telefone;
 import java.util.List;
 
@@ -15,9 +12,8 @@ import java.util.List;
 /**
  *
  * @author George
+ * @param <T>
  */
-public interface ITelefoneDao {
-    void salvarClienteTelefone(Cliente cliente);
-    void salvarFuncionarioTelefone(Funcionario funcionario);
-    void salvarFornecedorTelefone(Fornecedor fornecedor);
+public interface ITelefoneDao<T> {
+    void salvarTelefone(T entidade, List<Telefone> telefones);
 }

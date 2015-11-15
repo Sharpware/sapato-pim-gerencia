@@ -6,10 +6,7 @@
 package com.github.sharpware.pim.dao;
 
 import com.github.sharpware.pim.model.Cliente;
-import com.github.sharpware.pim.model.Fornecedor;
-import com.github.sharpware.pim.model.Funcionario;
 import com.github.sharpware.pim.model.Telefone;
-import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -18,23 +15,23 @@ import javax.persistence.EntityManager;
  *
  * @author George
  */
-public class JPATelefoneDao implements ITelefoneDao {
+public class JPATelefoneClienteDao implements ITelefoneDao<Cliente> {
 
-    private final JPATelefoneDao that = this;
+    private final JPATelefoneClienteDao that = this;
     private EntityManager manager; 
     
     @Inject
-    public JPATelefoneDao(EntityManager manager) {
+    public JPATelefoneClienteDao(EntityManager manager) {
         this.manager = manager;
     }
 
-    public JPATelefoneDao() {
+    public JPATelefoneClienteDao() {
         this(null);
     }
 
     @Override
-    public void salvarClienteTelefone(Cliente cliente) {
-        cliente.getTelefone()
+    public void salvarTelefone(Cliente cliente, List<Telefone> telefones) {
+        telefones
         .stream()
         .map((telefone) -> that.manager.merge(telefone))
         .forEach((telefone) -> {
@@ -43,15 +40,5 @@ public class JPATelefoneDao implements ITelefoneDao {
                     .setParameter("cliente_id", cliente.getId())
                     .setParameter("telefones_id", telefone.getId());
         });
-    }
-
-    @Override
-    public void salvarFuncionarioTelefone(Funcionario funcionario) {
-
-    }
-
-    @Override
-    public void salvarFornecedorTelefone(Fornecedor fornecedor) {
-
     }
 }
