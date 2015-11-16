@@ -8,33 +8,31 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.github.sharpware.pim.model.Cliente;
+import com.github.sharpware.pim.model.Telefone;
 import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.EntityTransaction;
 
-public class JPAClienteDao implements IDao<Cliente> {
-	
+public class JPAClienteDao implements IClienteDao {
+    
     private EntityManager manager;
+    private ITelefoneDao dao;
 
     @Inject
-    public JPAClienteDao(EntityManager manager) {
+    public JPAClienteDao(EntityManager manager, ITelefoneDao<Cliente> dao) {
         this.manager = manager;
+        this.dao = dao;
     }
 
     public JPAClienteDao() {
-        this(null);
+        this(null, null);
     }
     
     @Override
-    public void salvar(Cliente cliente) {
-        EntityTransaction transaction = manager.getTransaction();
+    public void salvar(Cliente cliente, List<Telefone> telefones) {
         try {
-            transaction.begin();
-            manager.merge(requireNonNull(cliente));
-            transaction.commit();
+            this.manager.merge(requireNonNull(cliente));
+            this.dao.salvarTelefone(cliente, telefones);
         } catch (Exception ex) {
-            ex.printStackTrace();
-            transaction.rollback();
             throw new RuntimeException(ex);
         }
     }

@@ -1,9 +1,7 @@
 package com.github.sharpware.pim.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import javax.persistence.*;
 
 @MappedSuperclass
@@ -24,8 +22,8 @@ public abstract class Pessoa<T> implements Serializable {
     @Column(name="data_nascimento")
     private Calendar dataNascimento;
     
-    @Column(name="descricao")
-    private String descricao;
+    @Column(name="observacao", columnDefinition = "text")
+    private String observacao;
     
     @Column(name="email")
     private String email;
@@ -36,14 +34,6 @@ public abstract class Pessoa<T> implements Serializable {
     
     @Embedded
     private Endereco endereco;
-    
-    @OneToMany
-    @JoinColumn(name="id")
-    private List<Telefone> telefones;
-
-    public Pessoa() {
-        this.telefones = new ArrayList<>();
-    }
     
     public Long getId() {
         return id;
@@ -63,8 +53,8 @@ public abstract class Pessoa<T> implements Serializable {
     public String getCpf() {
         return cpf;
     }
-    
-	public T setCpf(String cpf) {
+
+    public T setCpf(String cpf) {
         this.cpf = cpf;
         return (T) this;
     }
@@ -76,15 +66,7 @@ public abstract class Pessoa<T> implements Serializable {
         this.dataNascimento = dataNascimento;
         return (T) this;
     }
-
-    public String getDescricao() {
-        return descricao;
-    }
-    public T setDescricao(String descricao) {
-        this.descricao = descricao;
-        return (T) this;
-    }
-
+    
     public String getEmail() {
         return email;
     }
@@ -95,32 +77,25 @@ public abstract class Pessoa<T> implements Serializable {
     
     public Situacao getSituacao() {
 		return situacao;
-	}
-	public T setSituacao(Situacao situacao) {
-		this.situacao = situacao;
-		return (T) this;
-	}
+    }
+    public T setSituacao(Situacao situacao) {
+            this.situacao = situacao;
+            return (T) this;
+    }
+    
+    public String getObservacao() {
+        return observacao;
+    }
+    public T setObservacao(String observacao) {
+        this.observacao = observacao;
+        return (T) this;
+    }
     
     public Endereco getEndereco() {
         return endereco;
     }
-    
     public T setEndereco(Endereco endereco) {
         this.endereco = endereco;
         return (T) this;
     }
-    
-    public T addTelefone(Telefone telefone) {
-        this.telefones.add(telefone);
-        return (T) this;
-    }
-
-    @Override
-    public String toString() {
-        return "Pessoa{" + "id=" + id + ", nome=" + nome +
-                ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + 
-                ", descricao=" + descricao + ", email=" + email + 
-                ", situacao=" + situacao + ", endereco=" + endereco + ", telefones=" + telefones + '}';
-    }
-    
 }

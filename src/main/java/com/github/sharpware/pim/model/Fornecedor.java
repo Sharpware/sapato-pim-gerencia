@@ -1,12 +1,11 @@
 package com.github.sharpware.pim.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
 @Table(name="fornecedor")
-public class Fornecedor {
+public class Fornecedor implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -22,22 +21,17 @@ public class Fornecedor {
     @Column(name="cnpj")
     private String cnpj;
     
-    @Column(name="descricao")
-    private String descricao;
+    @Column(name="observacao", columnDefinition="text")
+    private String observacao;
     
     @Column(name="email_primario")
     private String emailPrimario;
     
     @Column(name="email_secundario")
     private String emailSecundario;
-
-    @OneToMany
-    @JoinColumn(name="telefone")
-    private List<Telefone> telefones;
     
-    public Fornecedor() {
-        this.telefones = new ArrayList<>();
-    }
+    @Embedded
+    private Endereco endereco;
     
     public Long getId() {
         return id;
@@ -70,14 +64,14 @@ public class Fornecedor {
         return this;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getObservacao() {
+        return observacao;
     }
-    public Fornecedor setDescricao(String descricao) {
-        this.descricao = descricao;
+    public Fornecedor setObservacao(String observacao) {
+        this.observacao = observacao;
         return this;
     }
-
+    
     public String getEmailPrimario() {
         return emailPrimario;
     }
@@ -94,8 +88,11 @@ public class Fornecedor {
         return this;
     }
     
-    public Fornecedor addTelefone(Telefone telefone) {
-        this.telefones.add(telefone);
+        public Endereco getEndereco() {
+        return endereco;
+    }
+    public Fornecedor setEndereco(Endereco endereco) {
+        this.endereco = endereco;
         return this;
     }
 }

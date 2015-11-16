@@ -1,41 +1,55 @@
 package com.github.sharpware.pim.controller;
 
+import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
 
-import com.github.sharpware.pim.dao.IDao;
-import com.github.sharpware.pim.dao.JPAForcecedorDao;
+import com.github.sharpware.pim.dao.*;
 import com.github.sharpware.pim.model.Fornecedor;
 
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
+import com.github.sharpware.pim.model.Endereco;
+import com.github.sharpware.pim.model.Telefone;
+import java.util.ArrayList;
 
+@Controller
 public class FornecedorController {
 
-	private final IDao<Fornecedor> dao;
+    private final IFornecedorDao dao;
     private final Result result;
+    private final List<Telefone> telefones;
 
     @Inject
-    public FornecedorController(Result result) {
-        this.dao = new JPAForcecedorDao();
+    public FornecedorController(IFornecedorDao dao, Result result) {
+        this.dao = dao;
         this.result = result;
+        this.telefones = new ArrayList<>();
     }
     
-    @Path("funcionario/formulario")
+    public FornecedorController() {
+        this(null, null);
+    }
+    
+    @Path("fornecedor/formulario")
     public void formulario() { }
     
-    public void salvar(Fornecedor fornecedor) {
-        dao.salvar(fornecedor);
-        result.redirectTo(this).listar();
+    public void salvar(Fornecedor fornecedor, Endereco endereco) {
+        fornecedor.setEndereco(endereco);
+        dao.salvar(fornecedor, telefones);
+        result.redirectTo(this).pesquisar();
     }
     
-    public void listar() {
+    @Get("fornecedor/pesquisar")
+    public void pesquisar() {
         List<Fornecedor> fornecedores = dao.buscarTodos();
     	result.include("fornecedores", fornecedores);
     }
     
+    @Get("/fornecedor/{id}")
     public void editar(Long id) {
     	Optional<Fornecedor> optionalFornecedor = dao.buscarPorId(id);
         if (optionalFornecedor.isPresent()) {

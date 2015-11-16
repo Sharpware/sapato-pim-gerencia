@@ -7,22 +7,18 @@ package com.github.sharpware.pim.model;
 
 import javax.persistence.*;
 
-/**
- *
- * @author RodrigoFelipe
- */
 @Entity
-@Table(name="funcionario")
+@Table(name = "funcionario")
 public class Funcionario extends Pessoa<Funcionario> {
 
-    @Column(name="login")
+    @Column(name = "login")
     private String login;
-    
-    @Column(name="senha")
+
+    @Column(name = "senha")
     private String senha;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="tipo_funcionario")
+    @Column(name = "tipo_funcionario")
     private TipoFuncionario tipoFuncionario;
 
     public String getLogin() {
@@ -40,7 +36,7 @@ public class Funcionario extends Pessoa<Funcionario> {
         this.senha = senha;
         return this;
     }
-    
+
     public TipoFuncionario getTipoFuncionario() {
         return tipoFuncionario;
     }

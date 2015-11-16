@@ -10,13 +10,16 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
-import com.github.sharpware.pim.dao.IDao;
+import com.github.sharpware.pim.dao.IFuncionarioDao;
 import com.github.sharpware.pim.dao.JPAFuncionarioDao;
 import com.github.sharpware.pim.model.Funcionario;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
+import com.github.sharpware.pim.model.Telefone;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,28 +28,36 @@ import br.com.caelum.vraptor.Result;
 @Controller
 public class FuncionarioController {
     
-    private final IDao<Funcionario> dao;
+    private final IFuncionarioDao dao;
     private final Result result;
+    private final List<Telefone> telefones;
 
     @Inject
-    public FuncionarioController(Result result) {
+    public FuncionarioController(IFuncionarioDao dao, Result result) {
         this.dao = new JPAFuncionarioDao();
         this.result = result;
+        this.telefones = new ArrayList<>();
+    }
+
+    public FuncionarioController() {
+        this(null, null);
     }
     
     @Path("funcionario/formulario")
     public void formulario() { }
     
     public void salvar(Funcionario funcionario) {
-        dao.salvar(funcionario);
-        result.redirectTo(this).listar();
+        dao.salvar(funcionario, telefones);
+        result.redirectTo(this).pesquisar();
     }
     
-    public void listar() {
+    @Get("funcionario/pesquisar")
+    public void pesquisar() {
         List<Funcionario> funcionarios = dao.buscarTodos();
     	result.include("funcionarios", funcionarios);
     }
     
+    @Get("/funcionario/{id}")
     public void editar(Long id) {
     	Optional<Funcionario> optionalFuncionario = dao.buscarPorId(id);
         if (optionalFuncionario.isPresent()) {

@@ -10,10 +10,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.EntityTransaction;
 
-import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Fornecedor;
+import com.github.sharpware.pim.model.Telefone;
 
-public class JPAForcecedorDao implements IDao<Fornecedor> {
+public class JPAForcecedorDao implements IFornecedorDao {
 
     private EntityManager manager;
 
@@ -27,15 +27,11 @@ public class JPAForcecedorDao implements IDao<Fornecedor> {
     }
     
     @Override
-    public void salvar(Fornecedor fornecedor) {
+    public void salvar(Fornecedor fornecedor, List<Telefone> telefones) {
         EntityTransaction transaction = manager.getTransaction();
         try {
-            transaction.begin();
             manager.merge(requireNonNull(fornecedor));
-            transaction.commit();
         } catch (Exception ex) {
-            ex.printStackTrace();
-            transaction.rollback();
             throw new RuntimeException(ex);
         }
     }
@@ -43,7 +39,7 @@ public class JPAForcecedorDao implements IDao<Fornecedor> {
     @Override
     public Optional<Fornecedor> buscarPorId(Long id) {
         try {
-        	Fornecedor fornecedor = this.manager.find(Fornecedor.class, id);
+            Fornecedor fornecedor = this.manager.find(Fornecedor.class, id);
             return Optional.ofNullable(fornecedor);
         } catch (EntityNotFoundException ex) {
             return Optional.empty();
@@ -52,8 +48,9 @@ public class JPAForcecedorDao implements IDao<Fornecedor> {
     
     @Override
     public List<Fornecedor> buscarTodos() {
-        return this.manager.createQuery("SELECT f FROM fornecedor f", Fornecedor.class)
+        return this.manager.createQuery("SELECT f FROM Fornecedor f", Fornecedor.class)
                             .getResultList();
     }
 
 }
+//

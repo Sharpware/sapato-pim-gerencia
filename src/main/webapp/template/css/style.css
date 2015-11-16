@@ -13,6 +13,8 @@
     color: #fff;
 }
 
+/* TELA ↓ PESQUISAR PRODUTO */
+
 #div-pesquisa-produto-azul {
     background-color: #009FAB;
     width:500px;
@@ -32,7 +34,7 @@
     background-color: #C7C7C7;
     width:340px;
     height:220px;
-    margin-right: 250px;
+    margin-right: 285px;
     float:right;
     box-shadow: -2px -2px 1px;
     border-bottom-style: solid;
@@ -43,16 +45,145 @@
     border-right-color: white;
 }
 
-#div-pesquisa-produto-branco {
+#grid-pesquisa-produto {
     background-color: white;
-    width: 900px;
+    width: 865px;
     height: 180px;
     margin-left: 45px;
     margin-top: 20px;
-    float: left;  
+    float: left;
+    
 }
 
 #img-sport4you {
     margin-left: 35px;
     float: left;
 }
+
+.wrapper{
+   float: left;
+   left: 269px;
+   width: 863px;
+   margin-bottom: 1px;
+   background-color: #cccccc;
+
+}
+
+.tabela-pesquisa-produto{
+    float: left;
+    margin-left: 45px;
+    border-color: black;
+    background-color: white;
+    
+}
+
+#div-pesquisa-produto{
+   float: left;
+   left: 269px;
+   width: 861px;
+   margin-bottom: 1px;
+   background-color: #cccccc;
+}
+
+#codigo-pp-left{
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    
+}
+
+#codigo-pp-right{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+    
+}
+
+/* TELA ↑ PESQUISAR PRODUTO */
+
+/* TELA ↓ CADASTRAR CLIENTE */
+
+.lbl-cclient{
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+#div-cc-azul{
+    background-color: #009FAB;
+    width: 950px;
+    height: 550px;
+    float: left;
+    margin-left: 47px;
+    margin-top: 25px;
+    border-width: thin;
+    border-style: solid;
+    border-color: black;
+}
+
+#div-status-cc{
+    width: 200px;
+    height: 58px;
+    text-align: center;
+    border-color: white;
+    border-style: solid;
+    border-width: thin;
+}
+
+/* TELA ↑ CADASTRAR CLIENTE */
+
+/* TELA ↓ PESQUISAR CLIENTE */
+
+#div-pc-azul{
+    background-color: #009FAB;
+    width: 950px;
+    height: 550px;
+    float: left;
+    margin-left: 47px;
+    margin-top: 25px;
+    border-width: thin;
+    border-style: solid;
+    border-color: black;
+}
+
+#div-status-pc{
+    width: 200px;
+    height: 100px;
+    text-align: left;
+    border-color: white;
+    border-style: solid;
+    border-width: thin;
+}
+
+.texto-status-pc{
+    margin-left: 15px;
+}
+
+#grid-pc-branco{
+    background-color: white;
+    width: 865px;
+    height: 180px;
+    margin-left: 20px;
+    margin-top: 20px;
+    float: left;
+}
+
+#btn-pc{
+    float: left;
+    margin-left: 20px;
+    background-color: #00417A;
+}
+
+#btn-pp{
+    float: right;
+    background-color: #00417A;
+}
+
+#btn-cc{
+    float: right;
+    margin-right: 20px;
+    
+}
+
+
+/* TELA ↑ PESQUISAR CLIENTE */

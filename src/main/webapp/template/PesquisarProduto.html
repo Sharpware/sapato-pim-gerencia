@@ -81,21 +81,162 @@
             
             <!--Menu feito para todas as paginas -->
             
+            <!-- LABEL PESQUISAR PRODUTO AZUL -->
+            
             <div id="page-wrapper" style="background-color:#AADBFF">
                 <p style="color:#00959F; font-size:40px; text-align:center"><strong><em>PESQUISAR PRODUTO</em></strong></p>
+                
+                <!-- DIV AZUL COM -->
 
                 <div id="div-pesquisa-produto-azul">
+                   
+                    <form id="codigo-pp-left">
+                     
+                      <div class="form-group" >
+                        <label for="exampleInputEmail1">Código</label>
+                        <input class="form-control" type="text" id="formGroupInputSmall" placeholder="Código do produto">
+                      </div>
+                      
+                      <!-- COLOCAR COMBOBOX AQUI DENTRO -->
+                      
+                      <label for="exampleInputEmail1">Tipo</label>
+                      <select class="form-control">
+                          <option>--Todos--</option>
+                          <option>Basquete</option>
+                          <option>Chuteira de campo</option>
+                          <option>Chuteira de salão</option>
+                          <option>Corrida performance</option>
+                          <option>Corrida ou caminhada</option>
+                          <option>Fitness e musculação</option>
+                          <option>Skate</option>
+                          <option>Surf</option>
+                          <option>Vôlei</option>
+                          
+                      </select>
+                      
+                      <label for="exampleInputEmail1">Marca</label>
+                      <select class="form-control">
+                          <option>--Todos--</option>
+                          <option>Adidas</option>
+                          <option>Asics</option>
+                          <option>Mizuno</option>
+                          <option>Nike</option>
+                          <option>Oakley</option>
+                          <option>Olympikus</option>
+                          <option>Puma</option>
+                          <option>Timberland</option>
+                          
+                      </select>
+                      
+                      <!-- COLOCAR COMBOBOX AQUI DENTRO -->
+                    </form>
+                      
+                      <form id="codigo-pp-right">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Nome do Produto</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="">
+                      </div>
+                      
+                      <!-- COLOCAR COMBOBOX AQUI DENTRO -->
+                      
+                      <label for="exampleInputEmail1">Tamanho</label>
+                      <select class="form-control">
+                          <option>--Todos--</option>
+                          <option>34-35</option>
+                          <option>35-36</option>
+                          <option>36-37</option>
+                          <option>37-38</option>
+                          <option>38-39</option>
+                          <option>39-40</option>
+                          <option>40-41</option>
+                          <option>41-42</option>
+                          <option>42-43</option>
+                          <option>43-44</option>
+                          <option>44-45</option>
+                          <option>45+</option>
+                          
+                      </select>                      
+                      
+                      <!-- COLOCAR COMBOBOX AQUI DENTRO -->
+                    </form>
                     
                 </div>
+                
+                <!-- DIV CINZA (IMAGEM DE PRODUTOS) -->
                 
                 <div id="div-pesquisa-produto-cinza">
                     
                 </div>
                 
-                <div id="div-pesquisa-produto-branco">
-
-                </div>
+                <!-- PAINEL BRANCO -->
                 
+                <div id="grid-pesquisa-produto" class="panel panel-default">
+
+                  <!-- Tables no PAINEL BRANCO -->
+                  <table class="table" border="1px">
+                        <div>
+                            <div>
+
+            <thead>
+                <tr>
+                    <th>
+                        Código
+                    </th>
+                                
+                    <th>
+                        Tipo
+                    </th>
+                    <th>
+                        Nome do Produto
+                    </th>
+                    <th>
+                        Descrição
+                    </th>
+                    <th>
+                        Tamanho
+                    </th>
+                    <th>
+                        Valor
+                    </th>
+                    <th>
+                        Quantidade
+                    </th>
+                
+            </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                </tbody>
+                                 
+                            </div>
+                            
+                  </table>
+                </div>
+
                 <br>
                 <br>
                 <br>
@@ -112,11 +253,11 @@
                 <br>
                 <br>
                 <br>
-                <button type="button" class="btn btn-info" style="float: right"><strong>Pesquisar produto</strong></button>
+                <button type="button" class="btn btn-info" id="btn-pp"><strong>Pesquisar produto</strong></button>
                 <br>
                 <br>
                 <br>
-                <button type="button" class="btn btn-info" style="float: right"><strong>Finalizar pesquisa</strong></button>
+                <button type="button" class="btn btn-info" id="btn-pp"><strong>Finalizar pesquisa</strong></button>
                 <br>
                 <img src="imagens/sport4you.png" id="img-sport4you"></a>
                 <br>
@@ -125,9 +266,8 @@
                 <br>
                 <br>
                 <br>
+                <br>
 
-            </div>
-        </div>
 
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
