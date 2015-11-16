@@ -24,44 +24,55 @@ import java.util.Optional;
  * @author George
  */
 @Controller
-public class ClienteController {
-	
+public class ClienteController
+{
+
     private final IDao<Cliente> dao;
     private final Result result;
 
-	@Inject
-    public ClienteController(Result result) {
+    @Inject
+    public ClienteController(Result result)
+    {
         this.dao = new JPAClienteDao();
         this.result = result;
     }
 
-    public ClienteController() {
+    public ClienteController()
+    {
         this(null);
     }
-    
+
     @Path("cliente/formulario")
-    public void formulario() { }
-    
+    public void formulario()
+    {
+    }
+
     @Post("/cliente")
-    public void salvar(Cliente cliente) {
-    	dao.salvar(cliente);
+    public void salvar(Cliente cliente)
+    {
+        dao.salvar(cliente);
         result.redirectTo(this).listar();
     }
-    
+
     @Get("/cliente")
-    public void listar() {
+    public void listar()
+    {
         List<Cliente> clientes = dao.buscarTodos();
-    	result.include("clientes", clientes);
+        result.include("clientes", clientes);
     }
-    
+
     @Get("/cliente/{id}")
-    public void editar(Long id) {
+    public void editar(Long id)
+    {
         Optional<Cliente> optionalCliente = dao.buscarPorId(id);
-        if (optionalCliente.isPresent()) {
+        if (optionalCliente.isPresent())
+        {
             Cliente cliente = optionalCliente.get();
             result.include(cliente);
             result.redirectTo(this).formulario();
-        } else {
+        }
+        else
+        {
             result.notFound();
         }
     }
