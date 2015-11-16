@@ -28,7 +28,6 @@ public class JPAForcecedorDao implements IFornecedorDao {
     
     @Override
     public void salvar(Fornecedor fornecedor, List<Telefone> telefones) {
-        EntityTransaction transaction = manager.getTransaction();
         try {
             manager.merge(requireNonNull(fornecedor));
         } catch (Exception ex) {
@@ -51,6 +50,4 @@ public class JPAForcecedorDao implements IFornecedorDao {
         return this.manager.createQuery("SELECT f FROM Fornecedor f", Fornecedor.class)
                             .getResultList();
     }
-
 }
-//

@@ -36,9 +36,10 @@ public class JPATelefoneClienteDao implements ITelefoneDao<Cliente> {
         .map((telefone) -> that.manager.merge(telefone))
         .forEach((telefone) -> {
             that.manager.createNativeQuery("INSERT INTO telefone_cliente"
-                    + "(cliente_id, telefones_id) VALUES (:cliente_id, :telefones_id)")
+                    + "(cliente_id, telefone_id) VALUES (:cliente_id, :telefone_id)")
                     .setParameter("cliente_id", cliente.getId())
-                    .setParameter("telefones_id", telefone.getId());
+                    .setParameter("telefone_id", telefone.getId())
+                    .executeUpdate();
         });
     }
 }

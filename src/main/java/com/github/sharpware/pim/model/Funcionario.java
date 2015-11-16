@@ -7,6 +7,7 @@ package com.github.sharpware.pim.model;
 
 import javax.persistence.*;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "funcionario")
 public class Funcionario extends Pessoa<Funcionario> {

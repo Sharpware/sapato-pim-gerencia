@@ -3,6 +3,7 @@ package com.github.sharpware.pim.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="fornecedor")
 public class Fornecedor implements Serializable {

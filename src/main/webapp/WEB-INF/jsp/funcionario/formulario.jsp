@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrado de funcionario</title>
+        <c:import url="/WEB-INF/jsp/menu/template.jsp" />
     </head>	
     <body>
+    <c:import url="/WEB-INF/jsp/menu/menu.jsp" />
 		<form action="${linkTo[FuncionarioController].salvar}" method="post">
 		    <h2>Formulário de Cadastro de Funcionario</h2>
 		    <ul>
@@ -102,5 +102,6 @@
 		    </div>
 		    <input type="submit" value="Salvar" />
 		</form>
+		<c:import url="/WEB-INF/jsp/menu/script.jsp" />
 	</body>
 </html>

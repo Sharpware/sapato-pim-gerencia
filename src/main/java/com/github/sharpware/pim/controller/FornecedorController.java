@@ -1,20 +1,21 @@
 package com.github.sharpware.pim.controller;
 
-import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Get;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
 
-import com.github.sharpware.pim.dao.*;
-import com.github.sharpware.pim.model.Fornecedor;
-
-import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Result;
+import com.github.sharpware.pim.dao.IFornecedorDao;
 import com.github.sharpware.pim.model.Endereco;
+import com.github.sharpware.pim.model.Fornecedor;
 import com.github.sharpware.pim.model.Telefone;
-import java.util.ArrayList;
+
+import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Result;
 
 @Controller
 public class FornecedorController {
@@ -37,6 +38,7 @@ public class FornecedorController {
     @Path("fornecedor/formulario")
     public void formulario() { }
     
+    @Post("fornecedor/")
     public void salvar(Fornecedor fornecedor, Endereco endereco) {
         fornecedor.setEndereco(endereco);
         dao.salvar(fornecedor, telefones);

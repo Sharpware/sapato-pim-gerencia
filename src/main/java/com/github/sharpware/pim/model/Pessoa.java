@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.*;
 
+@SuppressWarnings("serial")
 @MappedSuperclass
 public abstract class Pessoa<T> implements Serializable {
     
@@ -53,8 +54,7 @@ public abstract class Pessoa<T> implements Serializable {
     public String getCpf() {
         return cpf;
     }
-
-    public T setCpf(String cpf) {
+	public T setCpf(String cpf) {
         this.cpf = cpf;
         return (T) this;
     }
@@ -62,7 +62,7 @@ public abstract class Pessoa<T> implements Serializable {
     public Calendar getDataNascimento() {
         return dataNascimento;
     }
-    public T setDataNascimento(Calendar dataNascimento) {
+	public T setDataNascimento(Calendar dataNascimento) {
         this.dataNascimento = dataNascimento;
         return (T) this;
     }
@@ -70,7 +70,7 @@ public abstract class Pessoa<T> implements Serializable {
     public String getEmail() {
         return email;
     }
-    public T setEmail(String email) {
+	public T setEmail(String email) {
         this.email = email;
         return (T) this;
     }
@@ -78,9 +78,9 @@ public abstract class Pessoa<T> implements Serializable {
     public Situacao getSituacao() {
 		return situacao;
     }
-    public T setSituacao(Situacao situacao) {
-            this.situacao = situacao;
-            return (T) this;
+	public T setSituacao(Situacao situacao) {
+        this.situacao = situacao;
+        return (T) this;
     }
     
     public String getObservacao() {
