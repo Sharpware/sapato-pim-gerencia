@@ -7,7 +7,7 @@ package com.github.sharpware.pim.model;
 
 /**
  *
- * @author RodrigoFelipe
+ * @author George
  */
 public enum TipoProduto {
     CORRIDA_CAMINHADA("CorridaCaminhada"),

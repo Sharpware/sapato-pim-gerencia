@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 /**
  *
- * @author Christopher
+ * @author George
  */
 @Entity
 @Table(name="produto")

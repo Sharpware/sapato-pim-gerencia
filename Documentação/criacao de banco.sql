@@ -6,6 +6,7 @@ CREATE TABLE `produto` (
   `codigo_barra` varchar(25) NOT NULL,
   `preco_custo` double NOT NULL,
   `descricao` varchar(300) DEFAULT NULL,
+  tipo_produto varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -15,7 +16,6 @@ CREATE TABLE `telefone` (
   `tipo_telefone` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -35,17 +35,7 @@ CREATE TABLE `cliente` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `telefone_cliente` (
-  `cliente_id` int(11) NOT NULL,
-  `telefone_id` int(11) NOT NULL,
-  PRIMARY KEY (`cliente_id`,`telefone_id`),
-  KEY `telefone_id` (`telefone_id`),
-  CONSTRAINT `telefone_cliente_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
-  CONSTRAINT `telefone_cliente_ibfk_2` FOREIGN KEY (`telefone_id`) REFERENCES `telefone` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `funcionario` (
-    
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(16) NOT NULL,
   `senha` varchar(20) NOT NULL,
@@ -62,6 +52,7 @@ CREATE TABLE `funcionario` (
   `bairro` varchar(50) DEFAULT NULL,
   `uf` varchar(5) DEFAULT NULL,
   `cidade` varchar(50) DEFAULT NULL,
+  tipo_funcionario varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -113,4 +104,29 @@ CREATE TABLE `itens_venda` (
   CONSTRAINT `itens_venda_ibfk_2` FOREIGN KEY (`venda_id`) REFERENCES `venda` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `telefone_cliente` (
+  `cliente_id` int(11) NOT NULL,
+  `telefone_id` int(11) NOT NULL,
+  PRIMARY KEY (`cliente_id`,`telefone_id`),
+  KEY `telefone_id` (`telefone_id`),
+  CONSTRAINT `telefone_cliente_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
+  CONSTRAINT `telefone_cliente_ibfk_2` FOREIGN KEY (`telefone_id`) REFERENCES `telefone` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `telefone_funcionario` (
+  `funcionario_id` int(11) NOT NULL,
+  `telefone_id` int(11) NOT NULL,
+  PRIMARY KEY (`funcionario_id`,`telefone_id`),
+  KEY `telefone_id` (`telefone_id`),
+  CONSTRAINT `telefone_funcionario_ibfk_1` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionario` (`id`),
+  CONSTRAINT `telefone_funcionario_ibfk_2` FOREIGN KEY (`telefone_id`) REFERENCES `telefone` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `telefone_fornecedor` (
+  `fornecedor_id` int(11) NOT NULL,
+  `telefone_id` int(11) NOT NULL,
+  PRIMARY KEY (`fornecedor_id`,`telefone_id`),
+  KEY `telefone_id` (`telefone_id`),
+  CONSTRAINT `telefone_fornecedor_ibfk_1` FOREIGN KEY (`fornecedor_id`) REFERENCES `fornecedor` (`id`),
+  CONSTRAINT `telefone_fornecedor_ibfk_2` FOREIGN KEY (`telefone_id`) REFERENCES `telefone` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

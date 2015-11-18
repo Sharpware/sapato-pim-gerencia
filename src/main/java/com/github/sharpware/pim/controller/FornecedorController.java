@@ -39,8 +39,14 @@ public class FornecedorController {
     public void formulario() { }
     
     @Post("fornecedor/")
-    public void salvar(Fornecedor fornecedor, Endereco endereco) {
+    public void salvar(Fornecedor fornecedor, Endereco endereco
+    					,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
         fornecedor.setEndereco(endereco);
+        
+        telefones.add(telefone1);
+        telefones.add(telefone2);
+        telefones.add(telefone3);
+        
         dao.salvar(fornecedor, telefones);
         result.redirectTo(this).pesquisar();
     }

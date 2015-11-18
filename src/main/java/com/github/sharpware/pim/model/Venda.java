@@ -10,12 +10,10 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.*;
-
 /**
  *
  * @author George
  */
-
 @Entity
 @Table(name="venda")
 public class Venda {
@@ -42,11 +40,7 @@ public class Venda {
     
     @OneToMany
     @JoinColumn
-    private List<ItemVenda> itensVenda;
-    
-    @Enumerated(EnumType.STRING)
-    @Column(name="tipo_venda")
-    private TipoVenda tipoVenda;
+    private List<ItensVenda> itensVenda;
 
     public Venda() {
         this.itensVenda = new ArrayList<>();
@@ -91,19 +85,11 @@ public class Venda {
         return this;
     }
 
-    public List<ItemVenda> getItemVenda() {
+    public List<ItensVenda> getItemVenda() {
         return itensVenda;
     }
-    public Venda setItemVenda(List<ItemVenda> itensVenda) {
+    public Venda setItemVenda(List<ItensVenda> itensVenda) {
         this.itensVenda = itensVenda;
-        return this;
-    }
-
-    public TipoVenda getTipoVenda() {
-        return tipoVenda;
-    }
-    public Venda setTipoVenda(TipoVenda tipoVenda) {
-        this.tipoVenda = tipoVenda;
         return this;
     }
 }

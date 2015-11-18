@@ -5,6 +5,7 @@
  */
 package com.github.sharpware.pim.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,14 +13,16 @@ import javax.inject.Inject;
 
 import com.github.sharpware.pim.dao.IFuncionarioDao;
 import com.github.sharpware.pim.dao.JPAFuncionarioDao;
+import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Funcionario;
+import com.github.sharpware.pim.model.Situacao;
+import com.github.sharpware.pim.model.Telefone;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import com.github.sharpware.pim.model.Telefone;
-import java.util.ArrayList;
 
 /**
  *
@@ -43,15 +46,25 @@ public class FuncionarioController {
         this(null, null);
     }
     
-    @Path("funcionario/formulario")
+    @Path("/funcionario/formulario")
     public void formulario() { }
     
-    public void salvar(Funcionario funcionario) {
+    @Post("/funcionario")
+    public void salvar(Funcionario funcionario, Endereco endereco
+    					,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
+    	
+    	funcionario.setSituacao(Situacao.ATIVO);
+    	funcionario.setEndereco(endereco);
+    	
+    	telefones.add(telefone1);
+    	telefones.add(telefone2);
+    	telefones.add(telefone3);
+    	
         dao.salvar(funcionario, telefones);
         result.redirectTo(this).pesquisar();
     }
     
-    @Get("funcionario/pesquisar")
+    @Get("/funcionario/pesquisar")
     public void pesquisar() {
         List<Funcionario> funcionarios = dao.buscarTodos();
     	result.include("funcionarios", funcionarios);

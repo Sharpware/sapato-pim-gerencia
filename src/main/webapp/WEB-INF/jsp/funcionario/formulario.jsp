@@ -4,104 +4,82 @@
 <html>
     <head>
         <c:import url="/WEB-INF/jsp/menu/template.jsp" />
+        <title>Formulário de Cliente</title>
     </head>	
     <body>
-    <c:import url="/WEB-INF/jsp/menu/menu.jsp" />
-		<form action="${linkTo[FuncionarioController].salvar}" method="post">
-		    <h2>Formulário de Cadastro de Funcionario</h2>
-		    <ul>
-		        <li>
-		            <p>Nome:</p>
-		            <input type="text" name="funcionario.nome" value="${funcionario.nome}" />
-		        </li>
-		        <li>
-		            <p>CPF:</p>
-		            <input type="text" name="funcionario.cpf" value="${funcionario.cpf}" />
-		        </li>
-		        <li>
-		            <p>Data de nascimento:</p>
-		            <input type="text" name="funcionario.dataNascimento" value="${funcionario.dataNascimento}" />
-		        </li>
-		        <li>
-		            <p>Descrição:</p>
-		            <textarea name="funcionario.descricao" >${funcionario.descricao}</textarea>
-		        </li>
-		        <li>
-		            <p>Email:</p>
-		            <input type="text" name="funcionario.email" value="${funcionario.email}" />
-		        </li>
-		        <li>
-		        <!--
-		            <p>Situação:</p>
-		            <input type="radio" name="funcionario.ativo" value="${funcionario.situacao}" checked />Ativo
-		            <input type="radio" name="funcionario.inativo" value="${funcionario.situacao}" />Inativo
-		        </li>
-		        -->
-		    </ul>
-		    <div class="endereco">
-		        <ul>
-		            <li>
-		                <p>Logradouro:</p>
-		                <input type="text" name="funcionario.endereco.logradouro" value="${funcionario.endereco.logradouro}" />
-		            </li>
-		            <li>
-		                <p>N°:</p>
-		                <input type="text" name="funcionario.endereco.numero" value="${funcionario.endereco.numero}" />
-		            </li>
-		            <li>
-		                <p>CEP:</p>
-		                <input type="text" name="funcionario.endereco.cep" value="${funcionario.endereco.cep}" />
-		            </li>
-		            <li>
-		                <p>Complemento:</p>
-		                <input type="text" name="funcionario.endereco.complemento" value="${funcionario.endereco.complemento}" />
-		            </li>
-		            <li>
-		                <p>Bairro:</p>
-		                <input type="text" name="funcionario.endereco.bairro" value="${funcionario.endereco.bairro}" />
-		            </li>
-		            <li>
-		                <p>Cidade:</p>
-		                <input type="text" name="funcionario.endereco.cidade" value="${funcionario.endereco.cidade}" />
-		            </li>
-		            <li>
-		                <p>UF:</p>
-		                <input type="text" name="funcionario.endereco.uf" value="${funcionario.endereco.uf}" />
-		            </li>
-		        </ul>
-		    </div>
-		    <!--
-		    <div class="telefones">
-		        <ul>
-		            <li>
-		                <p>Telefone residencial:</p>
-		                <input type="text" name="funcionario.telefoneResidencial" value="${funcionario.addTelefone}" />
-		            </li>
-		            <li>
-		                <p>Telefone trabalho:</p>
-		                <input type="text" name="funcionario.telefoneTrabalho" value="${funcionario.addTelefone}" />
-		            </li>
-		            <li>
-		                <p>Celular:</p>
-		                <input type="text" name="funcionario.celular" value="${funcionario.addTelefone}" />
-		            </li>
-		        </ul>
-		    </div>
-		    -->
-		    <div class="login">
-		    	<ul>
-		    		<li>
-		    			<p>Login</p>
-		    			<input type="text" name="funcionario.login" value="${funcionario.login}" />
-		    		</li>
-		    		<li>
-		    			<p>Senha</p>
-		    			<input type="text" name="funcionario.senha" value="${funcionario.senha}" />
-		    		</li>
-		    	</ul>
-		    </div>
-		    <input type="submit" value="Salvar" />
-		</form>
+    	<c:import url="/WEB-INF/jsp/menu/menu.jsp" />
+		<div id="page-wrapper">
+               
+               <div id="div-cc-azul">
+                
+                    <p class="lbl-cclient"><strong><em>Formulário de Funcionário</em></strong></p>
+                            
+                      <form class="form-inline" id="codigo-pp-left" action="${linkTo[FuncionarioController].salvar}" method="post">
+                      <div class="form-group">
+                        <label for="exampleInputName1">Nome</label>
+                        <br>
+                        <input type="text" class="form-control" name="funcionario.nome" value="${funcionario.nome}" id="exampleInputName1" placeholder="Nome completo do usuário" maxlength="60" style="width: 280px">&nbsp;&nbsp;
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputEmail2">Email</label>
+                        <br>
+                        <input type="email" class="form-control" name="funcionario.email" value="${funcionario.email}" id="exampleInputEmail2" placeholder="Email do usuário" maxlength="40" style="width: 250px">&nbsp;&nbsp;
+                      </div>
+                      
+                      <br>
+                      <br>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputName1">Login</label>
+                        <br>
+                        <input type="text" class="form-control" name="funcionario.login" value="${funcionario.login}" id="exampleInputName1" placeholder="" maxlength="60" style="width: 200px">&nbsp;&nbsp;
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleInputName1">Senha</label>
+                        <br>
+                        <input type="text" class="form-control" name="funcionario.senha" value="${funcionario.senha}" id="exampleInputName1" placeholder="" maxlength="14" style="width: 180px">&nbsp;&nbsp;
+                      </div>
+                      
+                      <div class="form-group">
+                      <label for="exampleInputEmail1">Tipo de usuário</label><br>    
+                      <select class="form-control">
+                          <option>Administrador</option>
+	                      <option>Vendedor</option>
+	                      <option>Caixa</option>
+                      </select>
+                        </div>
+                        
+                        <br>
+                        <br>
+                        
+                        <div class="form-group" id="div-status-cfn">
+                          <p style="color:white"><strong>Status</strong></p>
+                          <div class="radio">
+                              <label style="align: center">
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" name="${funcionario.situacao}" value="funcionario.situacao" checked>
+                                Ativo
+                              </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+                               <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" name="${funcionario.situacao}" value="funcionario.situacao">
+                                Inativo
+                              </label>
+                            </div>
+                      </div>
+                      
+                      <br>
+                      <br>
+                      <br>
+                   </form>    
+                              
+                   <div>
+                       
+                        <button type="submit" class="btn btn-info" id="btn-cfn1"><strong>Salvar</strong></button>
+                    </div>
+                    
+                   </div>
+                </div>
 		<c:import url="/WEB-INF/jsp/menu/script.jsp" />
 	</body>
 </html>

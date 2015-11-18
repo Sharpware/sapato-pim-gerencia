@@ -9,9 +9,7 @@
     <body>    
     	<c:import url="/WEB-INF/jsp/menu/menu.jsp" />
             <div id="div-cc-azul">
-
                     <p class="lbl-cclient"><strong><em>Formulario de Cliente</em></strong></p>
-
 
                     <form class="form-inline" id="codigo-pp-left" action="${linkTo[ClienteController].salvar}" method="post">
                         <input type="text" name="cliente.id" value="${cliente.id}" hidden="true" />

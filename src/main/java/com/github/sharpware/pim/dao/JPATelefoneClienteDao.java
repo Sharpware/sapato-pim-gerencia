@@ -10,7 +10,6 @@ import com.github.sharpware.pim.model.Telefone;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
 /**
  *
  * @author George
