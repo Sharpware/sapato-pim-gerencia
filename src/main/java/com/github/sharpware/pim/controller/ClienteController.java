@@ -5,24 +5,25 @@
  */
 package com.github.sharpware.pim.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import javax.inject.Inject;
 
+import com.github.sharpware.pim.annotations.Transacional;
+import com.github.sharpware.pim.dao.IClienteDao;
 import com.github.sharpware.pim.model.Cliente;
+import com.github.sharpware.pim.model.Endereco;
+import com.github.sharpware.pim.model.Situacao;
+import com.github.sharpware.pim.model.Telefone;
+import com.github.sharpware.pim.model.TipoTelefone;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import com.github.sharpware.pim.annotations.Transacional;
-import com.github.sharpware.pim.dao.IClienteDao;
-import com.github.sharpware.pim.model.Endereco;
-import com.github.sharpware.pim.model.Situacao;
-import com.github.sharpware.pim.model.Telefone;
-import com.github.sharpware.pim.model.TipoTelefone;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 /**
  *
@@ -42,6 +43,7 @@ public class ClienteController {
         this.result = result;
         this.telefones = new ArrayList<>();
     }
+    
     public ClienteController() {
         this(null, null);
     }

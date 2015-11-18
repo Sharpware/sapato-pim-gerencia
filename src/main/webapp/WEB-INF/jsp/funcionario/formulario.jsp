@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+    	<title>Formulário de Funcionário</title>
         <c:import url="/WEB-INF/jsp/menu/template.jsp" />
-        <title>Formulário de Cliente</title>
     </head>	
     <body>
     	<c:import url="/WEB-INF/jsp/menu/menu.jsp" />

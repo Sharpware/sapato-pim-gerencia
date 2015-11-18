@@ -48,9 +48,9 @@
             <li>
                <a href="javascript:;" data-toggle="collapse" data-target="#down-estoque"><i class="fa fa-shopping-cart fa-lg"></i>&nbsp;&nbsp;Estoque<i class="fa fa-caret-down pull-right"></i></a>
                 <ul id="down-estoque" class="collapse">
-                    <li><a href="/sapato-pim-estoque/produto/entrada"><i class="fa fa-cart-arrow-down"></i>&nbsp;Entrada de produto</a></li>
-                    <li><a href="/sapato-pim-estoque/produto/pesquisar"><i class="fa fa-search"></i>&nbsp;Pesquisa de produto</a></li>
-                    <li><a href="/sapato-pim-estoque/produto/formulario"><i class="fa fa-cart-plus"></i>&nbsp;Cadastro de Produto</a></li>
+                    <li><a href="/sapato-pim-estoque/estoque/entrada"><i class="fa fa-cart-arrow-down"></i>&nbsp;Entrada de produto</a></li>
+                    <li><a href="/sapato-pim-estoque/estoque/pesquisar"><i class="fa fa-search"></i>&nbsp;Pesquisa de produto</a></li>
+                    <li><a href="/sapato-pim-estoque/estoque/formulario"><i class="fa fa-cart-plus"></i>&nbsp;Cadastro de Produto</a></li>
                 </ul>
             </li>
             <li>

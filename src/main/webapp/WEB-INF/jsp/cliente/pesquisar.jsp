@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    	<title>Pesquisa de Cliente</title>
         <c:import url="/WEB-INF/jsp/menu/template.jsp" />
     </head>
     <body>
@@ -10,7 +11,7 @@
             <div id="page-wrapper">
                 <div id="div-pc-azul">
 
-                    <p class="lbl-cclient"><strong><em>Pesquisar Cliente</em></strong></p>
+                    <p class="lbl-cclient"><strong><em>Pesquisa de Cliente</em></strong></p>
                     <br>
                     <form class="form-inline" id="codigo-pp-left">
 

@@ -11,7 +11,7 @@
     <link href="css/plugins/morris.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
-    <body>
+    <body style="color: white">
         <div id="wrapper">
            <!--Menu feito para todas as paginas -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -57,7 +57,7 @@
                             <ul id="down-estoque" class="collapse">
                                 <li><a href="EntradaProduto.html"><i class="fa fa-cart-arrow-down"></i>&nbsp;Entrada de produto</a></li>
                                 <li><a href="PesquisarProduto.html"><i class="fa fa-search"></i>&nbsp;Pesquisa de produto</a></li>
-                                <li><a href="CadastrarFuncionario.html"><i class="fa fa-cart-plus"></i>&nbsp;Cadastro de Produto</a></li>
+                                <li><a href="CasastrarProduto.html"><i class="fa fa-cart-plus"></i>&nbsp;Cadastro de Produto</a></li>
                             </ul>
                         </li>
                         <li>
@@ -79,7 +79,172 @@
                 </div>
             </nav>
             <!--Menu feito para todas as paginas -->
-            <div id="page-wrapper" style="background-color:#AADBFF">
+            <div id="page-wrapper">
+               
+                  <div id="div-cc-azul">
+                
+                    <p class="lbl-cclient"><strong><em>Cadastro de Produto</em></strong></p>
+                    
+                    
+                    <form class="form-inline" id="codigo-cp-left">           
+                      
+                      <div class="form-group">
+                        <label for="exampleInputName1">Nome</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Nome do produto" maxlength="60" style="width: 300px">&nbsp;&nbsp;
+                      </div>
+                      
+                      <div class="form-group">
+                       <label for="exampleInputName1">Marca</label>
+                       <br>
+                      <select class="form-control">
+                          <option>--Todos--</option>
+                          <option>Adidas</option>
+                          <option>Asics</option>
+                          <option>Mizuno</option>
+                          <option>Nike</option>
+                          <option>Oakley</option>
+                          <option>Olympikus</option>
+                          <option>Puma</option>
+                          <option>Timberland</option>
+                          
+                      </select>&nbsp;&nbsp;
+                        </div>
+                      
+                       <div class="form-group">
+                        <label for="exampleInputName1">Quantidade</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="11" style="width: 80px">&nbsp;&nbsp;
+                        
+                      </div>
+                      
+                      <div class="form-group">
+                      <label for="exampleInputName1">Tipo</label>
+                      <br>
+                      <select class="form-control">
+                          <option>--Todos--</option>
+                          <option>Basquete</option>
+                          <option>Chuteira de campo</option>
+                          <option>Chuteira de salão</option>
+                          <option>Corrida performance</option>
+                          <option>Corrida ou caminhada</option>
+                          <option>Fitness e musculação</option>
+                          <option>Skate</option>
+                          <option>Surf</option>
+                          <option>Vôlei</option>
+                          
+                      </select>&nbsp;&nbsp;
+                        </div>
+                      
+                      <br>
+                      <br>
+                      
+                      <div class="form-group">
+                      <label for="exampleInputEmail1">Tamanho</label>
+                      <br>
+                      <select class="form-control">
+                          <option>--Todos--</option>
+                          <option>34-35</option>
+                          <option>35-36</option>
+                          <option>36-37</option>
+                          <option>37-38</option>
+                          <option>38-39</option>
+                          <option>39-40</option>
+                          <option>40-41</option>
+                          <option>41-42</option>
+                          <option>42-43</option>
+                          <option>43-44</option>
+                          <option>44-45</option>
+                          <option>45+</option>
+                          
+                      </select>&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Fornecedor</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Nome do Fornecedor" maxlength="100" style="width: 300px">&nbsp;&nbsp;
+                      </div>
+                      
+                      <div class="form-group" id="div-status-cc">
+                          <p style="color:white"><strong>Status</strong></p>
+                          <div class="radio">
+                              <label style="align: center">
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                Ativo
+                              </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+                               <label>
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                Inativo
+                              </label>
+                            </div>
+                      </div>        
+                      
+                      <br>
+                      <br>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Código de barra</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="20" style="width: 273px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Preço de Custo</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="R$ 0,00" maxlength="100" style="width: 210px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Preço de Venda</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="R$ 0,00" maxlength="16" style="width: 80px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <br>
+                        <br>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Observação</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="500" style="width: 706px; height: 150px">&nbsp;&nbsp; 
+                        </div>
+                        
+                        <br>
+                        <br>
+                        
+                        
+                      
+                    </form>
+                    
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                    
+                    <button type="button" class="btn btn-info" id="btn-cp"><strong>Cadastrar Produto</strong></button>
+                    
+                    <br>
+                    <br>
+                    <br>
+                  
+                   <button type="button" class="btn btn-info" id="btn-cp"><strong>Cancelar Cadastro</strong></button>
+                    
+                </div>
+                   
+               
                 <br>
                 <br>
                 <br>

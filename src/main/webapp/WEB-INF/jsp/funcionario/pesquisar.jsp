@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    	<title>Pesquisa de Funcionario</title>
         <c:import url="/WEB-INF/jsp/menu/template.jsp" />
     </head>
     <body>

@@ -11,7 +11,7 @@
     <link href="css/plugins/morris.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
-    <body style="color: white">
+    <body style="color: #FFFFFF">
         <div id="wrapper">
            <!--Menu feito para todas as paginas -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -80,53 +80,49 @@
             </nav>
             <!--Menu feito para todas as paginas -->
             <div id="page-wrapper">
-               
-               <div id="div-cfn-azul">
+
+                <div id="div-cc-azul">
                 
-                    <p class="lbl-cclient"><strong><em>Cadastro de Funcionário</em></strong></p>
+                    <p class="lbl-cclient"><strong><em>Cadastro de Cliente</em></strong></p>
+                    
                     
                     <form class="form-inline" id="codigo-pp-left">           
                       
                       <div class="form-group">
                         <label for="exampleInputName1">Nome</label>
                         <br>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Nome completo do usuário" maxlength="60" style="width: 280px">&nbsp;&nbsp;
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="jane.doe@example.com" maxlength="60" style="width: 300px">&nbsp;&nbsp;
                       </div>
                       
-                      <div class="form-group">
+                       <div class="form-group">
                         <label for="exampleInputEmail2">Email</label>
                         <br>
-                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email do usuário" maxlength="40" style="width: 250px">&nbsp;&nbsp;
+                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com" maxlength="40" style="width: 250px">&nbsp;&nbsp;
                       </div>
                       
                       <br>
                       <br>
                       
-                      <div class="form-group">
-                        <label for="exampleInputName1">Login</label>
+                       <div class="form-group">
+                        <label for="exampleInputName1">CPF</label>
                         <br>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="60" style="width: 200px">&nbsp;&nbsp;
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="---.---.---.--" maxlength="11" style="width: 130px">&nbsp;&nbsp;
+                        
                       </div>
                       
                       <div class="form-group">
-                        <label for="exampleInputName1">Senha</label>
+                        <label for="exampleInputName1">Data de Nascimento</label>
                         <br>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="14" style="width: 180px">&nbsp;&nbsp;
+                        <input type="date" class="form-control" id="exampleInputName1" style="width: 160px">&nbsp;&nbsp;
                       </div>
                       
                       <div class="form-group">
-                      <label for="exampleInputEmail1">Tipo de usuário</label><br>    
-                      <select class="form-control">
-                          <option>Administrador</option>
-                          <option>Vendedor</option>
-                          <option>Caixa</option>
-                          </select>
-                        </div>
-                        
+                        <label for="exampleInputName1">Limite de Crédito</label>
                         <br>
-                        <br>
-                        
-                        <div class="form-group" id="div-status-cfn">
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="R$ 0,00" maxlength="12" style="width: 110px">&nbsp;&nbsp;
+                      </div>
+                      
+                      <div class="form-group" id="div-status-cc">
                           <p style="color:white"><strong>Status</strong></p>
                           <div class="radio">
                               <label style="align: center">
@@ -142,26 +138,109 @@
                       
                       <br>
                       <br>
-                      <br>
                       
+                      <div class="form-group">
+                        <label for="exampleInputName1">Telefone Residencial</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                      </div>
                       
-                   </form>    
-                              
-                   <div>
-                       
-                        <button type="button" class="btn btn-info" id="btn-cfn1"><strong>Cadastrar Funcionário</strong></button>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Telefone Comercial</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Celular</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="DDD + Cel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Restrição</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="200" style="width: 273px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <br>
+                        <br>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Logradouro</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="100" style="width: 210px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Número</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="100" style="width: 80px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Complemento</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 200px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Bairro</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 180px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <br>
+                        <br>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Cidade</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="" maxlength="100" style="width: 250px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">CEP</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="-----_---" maxlength="8" style="width: 90px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">UF</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="2" style="width: 50px">&nbsp;&nbsp;
+                        </div>
+                        
+                        <br>
+                        <br>
+                        
+                        <div class="form-group">
+                        <label for="exampleInputName1">Observação</label>
+                        <br>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Endereço" maxlength="500" style="width: 706px; height: 100px">&nbsp;&nbsp; 
+                        </div>
+                      
+                    </form>
+                    
+                    <div>
+                        
+                        <button type="button" class="btn btn-info" id="btn-cc1"><strong>Cadastrar Cliente</strong></button>
                     
                     </div>
                     
                     <div>
+                  
+                   <button type="button" class="btn btn-info" id="btn-cc2"><strong>Cancelar Cadastro</strong></button>
                         
-                        <button type="button" class="btn btn-info" id="btn-cfn2"><strong>Cadastrar Funcionário</strong></button>
-                    
                     </div>
                     
                 </div>
-               
-                <br>
+                
+                
+                
+                 <br>
+                 <br>
+                 <br>
                 <br>
                 <br>
                 <br>

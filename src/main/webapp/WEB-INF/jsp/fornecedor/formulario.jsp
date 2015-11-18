@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    	<title>Formulário de Fornecedor</title>
         <c:import url="/WEB-INF/jsp/menu/template.jsp" />
     </head>
     <body>
