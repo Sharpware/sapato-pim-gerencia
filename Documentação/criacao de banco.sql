@@ -35,6 +35,24 @@ CREATE TABLE `cliente` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `fornecedor` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `cnpj` varchar(255) DEFAULT NULL,
+  `email_primario` varchar(255) DEFAULT NULL,
+  `email_secundario` varchar(255) DEFAULT NULL,
+  `bairro` varchar(255) DEFAULT NULL,
+  `cep` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  `complemento` varchar(255) DEFAULT NULL,
+  `logradouro` varchar(255) DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  `uf` varchar(255) DEFAULT NULL,
+  `nome_fantasia` varchar(255) DEFAULT NULL,
+  `observacao` text,
+  `razao_social` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `funcionario` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(16) NOT NULL,
