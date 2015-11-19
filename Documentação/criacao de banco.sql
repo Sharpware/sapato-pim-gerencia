@@ -36,7 +36,7 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `fornecedor` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` int(20) NOT NULL AUTO_INCREMENT,
   `cnpj` varchar(255) DEFAULT NULL,
   `email_primario` varchar(255) DEFAULT NULL,
   `email_secundario` varchar(255) DEFAULT NULL,
