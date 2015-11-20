@@ -5,11 +5,13 @@
  */
 package com.github.sharpware.pim.dao;
 
-import com.github.sharpware.pim.model.Cliente;
-import com.github.sharpware.pim.model.Telefone;
 import java.util.List;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+
+import com.github.sharpware.pim.model.Cliente;
+import com.github.sharpware.pim.model.Telefone;
 /**
  *
  * @author George
@@ -23,7 +25,7 @@ public class JPATelefoneClienteDao implements ITelefoneDao<Cliente> {
     public JPATelefoneClienteDao(EntityManager manager) {
         this.manager = manager;
     }
-
+    
     public JPATelefoneClienteDao() {
         this(null);
     }

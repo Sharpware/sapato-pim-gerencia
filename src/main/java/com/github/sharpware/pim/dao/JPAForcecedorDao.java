@@ -8,7 +8,6 @@ import java.util.Optional;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.EntityTransaction;
 
 import com.github.sharpware.pim.model.Fornecedor;
 import com.github.sharpware.pim.model.Telefone;
@@ -16,20 +15,23 @@ import com.github.sharpware.pim.model.Telefone;
 public class JPAForcecedorDao implements IFornecedorDao {
 
     private EntityManager manager;
+	private ITelefoneDao<Fornecedor> dao;
 
     @Inject
-    public JPAForcecedorDao(EntityManager manager) {
+    public JPAForcecedorDao(EntityManager manager, ITelefoneDao<Fornecedor> dao) {
         this.manager = manager;
+		this.dao = dao;
     }
 
     public JPAForcecedorDao() {
-        this(null);
+        this(null, null);
     }
     
     @Override
     public void salvar(Fornecedor fornecedor, List<Telefone> telefones) {
         try {
-            manager.merge(requireNonNull(fornecedor));
+            Fornecedor novoFornecedor = manager.merge(requireNonNull(fornecedor));
+            dao.salvarTelefone(novoFornecedor, telefones);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

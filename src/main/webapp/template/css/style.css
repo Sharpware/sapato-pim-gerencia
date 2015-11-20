@@ -187,14 +187,14 @@
 
 #btn-cc1{
     float: right;
-    margin-right: 20px;
-    margin-top: 430px;
+    margin-right: 100px;
+    margin-top: 380px;
     background-color: #00417A;
 }
 
 #btn-cc2{
     float: right;
-    margin-right: 20px;
+    margin-right: 100px;
     margin-top: 20px;
     background-color: #00417A;
 }
@@ -283,14 +283,16 @@
 }
 
 #btn-cfn1{
-    float: left;
-    margin-left: 110px;
+    float: right;
+    margin-left: 100px;
+    margin-top: 500px;
     background-color: #00417A;
 }
 
 #btn-cfn2{
     float: right;
-    margin-right: 110px;
+    margin-left: 100px;
+    margin-top: 20px;
     background-color: #00417A;
 }
 

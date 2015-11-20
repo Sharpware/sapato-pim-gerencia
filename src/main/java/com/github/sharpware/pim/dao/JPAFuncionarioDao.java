@@ -13,7 +13,6 @@ import java.util.Optional;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.EntityTransaction;
 import javax.transaction.Transactional;
 
 /**
@@ -24,25 +23,24 @@ import javax.transaction.Transactional;
 public class JPAFuncionarioDao implements IFuncionarioDao {
 
     private EntityManager manager;
+	private ITelefoneDao<Funcionario> dao;
 
     @Inject
-    public JPAFuncionarioDao(EntityManager manager) {
+    public JPAFuncionarioDao(EntityManager manager, ITelefoneDao<Funcionario> dao) {
         this.manager = manager;
+		this.dao = dao;
     }
 
     public JPAFuncionarioDao() {
-        this(null);
+        this(null, null);
     }
 
     @Override
     public void salvar(Funcionario funcionario, List<Telefone> telefones) {
-        EntityTransaction transaction = manager.getTransaction();
         try {
-            transaction.begin();
-            manager.merge(requireNonNull(funcionario));
-            transaction.commit();
+            Funcionario novoFuncionario = manager.merge(requireNonNull(funcionario));
+            this.dao.salvarTelefone(novoFuncionario, telefones);
         } catch (Exception ex) {
-            transaction.rollback();
             throw new RuntimeException(ex);
         }
     }

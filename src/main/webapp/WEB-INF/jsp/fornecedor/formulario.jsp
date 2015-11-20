@@ -9,7 +9,8 @@
     <body>
         <c:import url="/WEB-INF/jsp/menu/menu.jsp" />
         
-        </div>
+        
+        
         <c:import url="/WEB-INF/jsp/menu/script.jsp" />
     </body>
 </html>

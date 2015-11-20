@@ -10,13 +10,19 @@
 <body>
 	<c:import url="/WEB-INF/jsp/menu/menu.jsp" />
 
-	
 	<p class="lbl-cclient">
 		<strong><em>Formulário de Cliente</em></strong>
 	</p>
 
+	<ul class="errors">
+		<c:forEach items="${errors}" var="error">
+			<li>${error.message}</li>
+		</c:forEach>
+	</ul>
+
 	<form class="form-inline" id="codigo-pp-left"
 		action="${linkTo[ClienteController].salvar}" method="post">
+		
 		<input type="text" name="cliente.id" value="${cliente.id}"
 			hidden="true" />
 		<div class="form-group">
@@ -58,11 +64,11 @@
 			</p>
 			<div class="radio">
 				<label style="align: center"> <input type="radio"
-					name="optionsRadios" id="ativo" value="option1" checked>
+					name="situacao" id="ativo" value="cliente.situacao" checked>
 					Ativo
 				</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
-					<input type="radio" name="optionsRadios" id="inativo"
-					value="option2"> Inativo
+					<input type="radio" name="situacao" id="inativo"
+					value="cliente.situacao"> Inativo
 				</label>
 			</div>
 		</div>
