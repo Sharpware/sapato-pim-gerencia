@@ -1,7 +1,15 @@
 package com.github.sharpware.pim.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("serial")
 @Entity
@@ -13,12 +21,15 @@ public class Fornecedor implements Serializable {
     @Column(name="id")
     private Long id;
     
+    @NotNull(message = "Razão social deve ser preenchida")
     @Column(name="razao_social")
     private String razaoSocial;
     
+    @NotNull(message = "Nome fantasia deve ser preenchida")
     @Column(name="nome_fantasia")
     private String nomeFantasia;
     
+    @NotNull(message = "CNPJ deve ser preenchida")
     @Column(name="cnpj")
     private String cnpj;
     

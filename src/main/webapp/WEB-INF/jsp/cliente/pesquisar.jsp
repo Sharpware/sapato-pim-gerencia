@@ -110,7 +110,7 @@
                     <br>
                     <br>
 
-                    <button type="button" class="btn btn-info" id="btn-pc"><strong>Cadastrar Cliente</strong></button>
+                    <a href="/sapato-pim-gerencia/cliente/formulario"><button type="button" class="btn btn-info" id="btn-pc"><strong>Cadastrar Cliente</strong></button></a>
 
                     <button type="button" class="btn btn-info" id="btn-pc"><strong>Inativar Cliente</strong></button>
 

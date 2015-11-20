@@ -10,20 +10,23 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 
-import com.github.sharpware.pim.annotations.Transacional;
+import com.github.sharpware.pim.annotation.Transacional;
 import com.github.sharpware.pim.dao.IClienteDao;
 import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Situacao;
 import com.github.sharpware.pim.model.Telefone;
 import com.github.sharpware.pim.model.TipoTelefone;
+import com.github.sharpware.pim.validator.TelefoneValidator;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.Validator;
 
 /**
  *
@@ -36,16 +39,20 @@ public class ClienteController {
     private final IClienteDao dao;
     private final Result result;    
     private final List<Telefone> telefones;
+    private TelefoneValidator telefoneValidator;
+	private Validator validator;
     
     @Inject
-    public ClienteController(IClienteDao dao, Result result) {
+    public ClienteController(IClienteDao dao, Result result, Validator validator) {
         this.dao = dao;
         this.result = result;
+		this.validator = validator;
         this.telefones = new ArrayList<>();
+        this.telefoneValidator = new TelefoneValidator();
     }
     
     public ClienteController() {
-        this(null, null);
+        this(null, null, null);
     }
 
     @Path("cliente/formulario")
@@ -53,9 +60,12 @@ public class ClienteController {
     
     @Transacional
     @Post("/cliente")
-    public void salvar(Cliente cliente, Endereco endereco
+    public void salvar(@Valid Cliente cliente, Endereco endereco
             ,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
-        cliente.setSituacao(Situacao.ATIVO);
+        
+    	validator.onErrorRedirectTo(this).formulario();
+    	
+    	cliente.setSituacao(Situacao.ATIVO);
         cliente.setEndereco(endereco);
         
         telefone1.setTipoTelefone(TipoTelefone.RESIDENCIAL);
@@ -65,6 +75,8 @@ public class ClienteController {
         telefones.add(telefone1);
         telefones.add(telefone2);
         telefones.add(telefone3);
+        
+        telefoneValidator.validateTelefonesNulo(telefones);
         
         this.dao.salvar(cliente, telefones);
         result.redirectTo(this).pesquisar();

@@ -2,7 +2,18 @@ package com.github.sharpware.pim.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("serial")
 @MappedSuperclass
@@ -13,9 +24,11 @@ public abstract class Pessoa<T> implements Serializable {
     @Column(name="id")
     private Long id;
     
+    @NotNull(message = "Nome deve ser preenchido")
     @Column(name="nome")
     private String nome;
     
+    @NotNull(message = "CPF deve ser preenchido")
     @Column(name="cpf")
     private String cpf;
     
