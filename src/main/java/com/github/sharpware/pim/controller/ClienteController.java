@@ -20,7 +20,6 @@ import com.github.sharpware.pim.model.Situacao;
 import com.github.sharpware.pim.model.Telefone;
 import com.github.sharpware.pim.model.TipoTelefone;
 import com.github.sharpware.pim.validator.TelefoneValidator;
-import com.google.common.primitives.Longs;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -65,13 +64,14 @@ public class ClienteController {
 	public void salvar(@Valid Cliente cliente, Endereco endereco 
 			,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
 
-		validator.onErrorRedirectTo(this).formulario();
+		this.validator.onErrorRedirectTo(this).formulario();
 
-		cliente.setSituacao(Situacao.ATIVO);
+		cliente.setEndereco(endereco);
+		cliente.setSituacao(Situacao.Ativo);
 
-		telefone1.setTipoTelefone(TipoTelefone.RESIDENCIAL);
-		telefone2.setTipoTelefone(TipoTelefone.TRABALHO);
-		telefone3.setTipoTelefone(TipoTelefone.CELULAR);
+		telefone1.setTipoTelefone(TipoTelefone.Residencial);
+		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
+		telefone3.setTipoTelefone(TipoTelefone.Celular);
 
 		telefones.add(telefone1);
 		telefones.add(telefone2);

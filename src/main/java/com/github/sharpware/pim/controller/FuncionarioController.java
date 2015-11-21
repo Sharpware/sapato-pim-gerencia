@@ -19,6 +19,7 @@ import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Funcionario;
 import com.github.sharpware.pim.model.Situacao;
 import com.github.sharpware.pim.model.Telefone;
+import com.github.sharpware.pim.model.TipoTelefone;
 import com.github.sharpware.pim.validator.TelefoneValidator;
 
 import br.com.caelum.vraptor.Controller;
@@ -63,9 +64,15 @@ public class FuncionarioController {
 	public void salvar(@Valid Funcionario funcionario, Endereco endereco 
 			,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
 
-		funcionario.setSituacao(Situacao.ATIVO);
+		this.validator.onErrorRedirectTo(this).formulario();
+		
+		funcionario.setSituacao(Situacao.Ativo);
 		funcionario.setEndereco(endereco);
 
+		telefone1.setTipoTelefone(TipoTelefone.Residencial);
+		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
+		telefone3.setTipoTelefone(TipoTelefone.Celular);
+		
 		this.telefoneValidator.validateTelefonesNulo(telefones);
 		
 		telefones.add(telefone1);

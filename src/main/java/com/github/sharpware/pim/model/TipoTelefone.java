@@ -11,9 +11,9 @@ package com.github.sharpware.pim.model;
  */
 public enum TipoTelefone {
     
-    RESIDENCIAL("Residencial"),
-    CELULAR("Celular"),
-    TRABALHO("Trabalho");
+	Residencial("Residencial"),
+	Trabalho("Trabalho"),
+	Celular("Celular");
     
     private String nome;
     

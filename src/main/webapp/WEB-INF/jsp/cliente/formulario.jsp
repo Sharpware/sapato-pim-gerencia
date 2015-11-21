@@ -22,7 +22,7 @@
 
 	<form class="form-inline" id="codigo-pp-left"
 		action="${linkTo[ClienteController].salvar}" method="post">
-		
+
 		<input type="text" name="cliente.id" value="${cliente.id}"
 			hidden="true" />
 		<div class="form-group">
@@ -160,12 +160,10 @@
 				maxlength="500" style="width: 706px">&nbsp;&nbsp;
 		</div>
 
-		<button type="submit" class="btn btn-info" id="btn-cc">
+		<button type="submit" class="btn btn-info" id="btn-cf2">
 			<strong>Salvar</strong>
 		</button>
 	</form>
-	</div>
-	</div>
 	<c:import url="/WEB-INF/jsp/menu/script.jsp" />
 </body>
 </html>

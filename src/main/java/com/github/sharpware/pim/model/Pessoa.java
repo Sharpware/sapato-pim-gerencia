@@ -97,9 +97,9 @@ public abstract class Pessoa<T> implements Serializable {
     }
 	public T setSituacao(String situacao) {
 		if (situacao == "ativo") {	
-			setSituacao(Situacao.ATIVO);
+			setSituacao(Situacao.Ativo);
 		} else if(situacao == "inativo") {
-			setSituacao(Situacao.INATIVO);
+			setSituacao(Situacao.Inativo);
 		}
 		return (T) this;
 	}

@@ -11,8 +11,8 @@ package com.github.sharpware.pim.model;
  */
 public enum Situacao {
     
-    ATIVO("Ativo"),
-    INATIVO("Inativo");
+    Ativo("Ativo"),
+    Inativo("Inativo");
 
     private final String nome;
     

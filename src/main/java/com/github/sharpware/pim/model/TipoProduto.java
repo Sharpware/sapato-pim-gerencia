@@ -10,15 +10,15 @@ package com.github.sharpware.pim.model;
  * @author George
  */
 public enum TipoProduto {
-    CORRIDA_CAMINHADA("CorridaCaminhada"),
-    CORRIDA_PERFORMACE("CorridaPerformace"),
-    SKATE("Skate"),
-    SURF("Surf"),
-    CHUTEIRA_SALAO("ChuteiraSalao"),
-    CHUTEIRA_CAMPO("ChuteiraCampo"),
-    VOLEI("Volei"),
-    FITNESS("Fitness"),
-    BASQUETE("Basquete");
+	CorridaCaminhada("CorridaCaminhada"),
+	CorridaPerformace("CorridaPerformace"),
+	Skate("Skate"),
+	Surf("Surf"),
+	ChuteiraSalao("ChuteiraSalao"),
+	ChuteiraCampo("ChuteiraCampo"),
+	Volei("Volei"),
+	Fitness("Fitness"),
+	Basquete("Basquete");
     
     private String nome;
     

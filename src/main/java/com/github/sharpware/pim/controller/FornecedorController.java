@@ -48,14 +48,17 @@ public class FornecedorController {
     public void formulario() { }
     
     @Transacional
-    @Post("fornecedor/")
+    @Post("/fornecedor/")
     public void salvar(@Valid Fornecedor fornecedor, Endereco endereco
     					,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
-        fornecedor.setEndereco(endereco);
+    	
+    	this.validator.onErrorRedirectTo(this).formulario();
+    	
+    	fornecedor.setEndereco(endereco);
         
-        telefone1.setTipoTelefone(TipoTelefone.TRABALHO);
-		telefone2.setTipoTelefone(TipoTelefone.TRABALHO);
-		telefone3.setTipoTelefone(TipoTelefone.CELULAR);
+        telefone1.setTipoTelefone(TipoTelefone.Trabalho);
+		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
+		telefone3.setTipoTelefone(TipoTelefone.Celular);
         
 		telefoneValidator.validateTelefonesNulo(telefones);
 		
@@ -63,8 +66,8 @@ public class FornecedorController {
         telefones.add(telefone2);
         telefones.add(telefone3);
         
-        dao.salvar(fornecedor, telefones);
-        result.redirectTo(this).pesquisar();
+        this.dao.salvar(fornecedor, telefones);
+        this.result.redirectTo(this).pesquisar();
     }
     
     @Get("fornecedor/pesquisar")
