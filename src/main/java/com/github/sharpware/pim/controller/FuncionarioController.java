@@ -73,7 +73,7 @@ public class FuncionarioController {
 		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
 		telefone3.setTipoTelefone(TipoTelefone.Celular);
 		
-		this.telefoneValidator.validateTelefonesNulo(telefones);
+		this.telefoneValidator.validateTelefonesNulos(telefones);
 		
 		telefones.add(telefone1);
 		telefones.add(telefone2);

@@ -6,12 +6,12 @@ import com.github.sharpware.pim.model.Telefone;
 
 public class TelefoneValidator {
 
-	public TelefoneValidator validateTelefonesNulo(List<Telefone> telefones) {
-		for (Telefone telefone : telefones) {
-			if (telefone.getNumero() == null) {
-				telefone.setNumero("");
-			}
-		}
-		return this;
-	}
+    public TelefoneValidator validateTelefonesNulos(List<Telefone> telefones) {
+        for (Telefone telefone : telefones) {
+                if (telefone.getNumero() == null) {
+                        telefone.setNumero("");
+                }
+        }
+        return this;
+    }
 }

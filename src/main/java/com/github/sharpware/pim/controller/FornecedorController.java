@@ -62,7 +62,7 @@ public class FornecedorController {
 		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
 		telefone3.setTipoTelefone(TipoTelefone.Celular);
         
-		telefoneValidator.validateTelefonesNulo(telefones);
+		telefoneValidator.validateTelefonesNulos(telefones);
 		
         telefones.add(telefone1);
         telefones.add(telefone2);

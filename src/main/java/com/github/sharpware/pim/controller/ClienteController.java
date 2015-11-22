@@ -36,82 +36,80 @@ import br.com.caelum.vraptor.validator.Validator;
 @Controller
 public class ClienteController {
 
-	private final IClienteDao dao;
-	private final Result result;
-	private List<Telefone> telefones;
-	private TelefoneValidator telefoneValidator;
-	private Validator validator;
-	private ITelefoneDao<Cliente> daoTelefone;
+    private final IClienteDao dao;
+    private final Result result;
+    private List<Telefone> telefones;
+    private TelefoneValidator telefoneValidator;
+    private Validator validator;
+    private ITelefoneDao<Cliente> daoTelefone;
 
-	@Inject
-	public ClienteController(IClienteDao dao, ITelefoneDao<Cliente> daoTelefone 
-									,Result result, Validator validator) {
-		this.dao = dao;
-		this.daoTelefone = daoTelefone;
-		this.result = result;
-		this.validator = validator;
-		this.telefones = new ArrayList<>();
-		this.telefoneValidator = new TelefoneValidator();
-	}
-	
-	public ClienteController() {
-		this(null, null, null, null);
-	}
+    @Inject
+    public ClienteController(IClienteDao dao, ITelefoneDao<Cliente> daoTelefone, Result result, Validator validator) {
+        this.dao = dao;
+        this.daoTelefone = daoTelefone;
+        this.result = result;
+        this.validator = validator;
+        this.telefones = new ArrayList<>();
+        this.telefoneValidator = new TelefoneValidator();
+    }
 
-	@Path("cliente/formulario")
-	public void formulario() { }
+    @Deprecated
+    public ClienteController() {
+        this(null, null, null, null);
+    }
 
-	@Transacional
-	@Post("/clientes")
-	public void salvar(@Valid Cliente cliente, Endereco endereco 
-			,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
+    @Path("cliente/formulario")
+    public void formulario() { }
 
-		this.validator.onErrorRedirectTo(this).formulario();
+    @Transacional
+    @Post("/clientes")
+    public void salvar(@Valid Cliente cliente, Endereco endereco 
+            ,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
 
-		cliente.setSituacao(Situacao.Ativo)
-				.setEndereco(endereco);
+        this.validator.onErrorRedirectTo(this).formulario();
 
-		telefone1.setTipoTelefone(TipoTelefone.Residencial);
-		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
-		telefone3.setTipoTelefone(TipoTelefone.Celular);
+        cliente.setSituacao(Situacao.Ativo)
+                .setEndereco(endereco);
 
-		this.telefones.add(telefone1);
-		this.telefones.add(telefone2);
-		this.telefones.add(telefone3);
+        telefone1.setTipoTelefone(TipoTelefone.Residencial);
+        telefone2.setTipoTelefone(TipoTelefone.Trabalho);
+        telefone3.setTipoTelefone(TipoTelefone.Celular);
 
-		telefoneValidator.validateTelefonesNulo(telefones);
+        this.telefones.add(telefone1);
+        this.telefones.add(telefone2);
+        this.telefones.add(telefone3);
 
-		this.dao.salvar(cliente, telefones);
-		result.redirectTo(this).pesquisar();
-	}
+        this.dao.salvar(cliente, telefones);
+        result.redirectTo(this).pesquisar();
+    }
 
-	@Get("/cliente/pesquisar")
-	public void pesquisar() {
-		List<Cliente> clientes = dao.buscarTodos();
-		result.include("clientes", clientes);
-	}
+    @Get("/cliente/pesquisar")
+    public void pesquisar() {
+        List<Cliente> clientes = dao.buscarTodos();
+        result.include("clientes", clientes);
+    }
 
-	@Get("/cliente/{id}")
-	public void editar(Long id) throws Exception {
-		try {
-			Optional<Cliente> optionalCliente = this.dao.buscarPorId(id);
-			
-			if (optionalCliente.isPresent()) {
-				Cliente cliente = optionalCliente.get();
-				List<Telefone> telefones = this.daoTelefone.buscarTelefones(cliente);
-				
-				Telefone telefone1 = telefones.get(0);
-				Telefone telefone2 = telefones.get(1);
-				Telefone telefone3 = telefones.get(2);
-				
-				result.include(cliente)
-					.include(telefone1)
-					.include(telefone2)
-					.include(telefone3);
-				result.redirectTo(this).formulario();
-			}
-		} catch (Exception ex) {
-			throw new Exception(ex.getMessage() + " " + ex.toString());
-		}
-	}
+    @Get("/cliente/{id}")
+    public void editar(Long id) throws Exception {
+        try {
+            Optional<Cliente> optionalCliente = this.dao.buscarPorId(id);
+
+            if (optionalCliente.isPresent()) {
+                Cliente cliente = optionalCliente.get();
+                List<Telefone> telefonesCliente = this.daoTelefone.buscarTelefones(cliente);
+
+                Telefone telefone1 = telefonesCliente.get(0);
+                Telefone telefone2 = telefonesCliente.get(1);
+                Telefone telefone3 = telefonesCliente.get(2);
+
+                result.include(cliente)
+                        .include("telefone1", telefone1)
+                        .include("telefone2", telefone2)
+                        .include("telefone3", telefone3);
+                result.redirectTo(this).formulario();
+            }
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage() + " " + ex.toString());
+        }
+    }
 }
