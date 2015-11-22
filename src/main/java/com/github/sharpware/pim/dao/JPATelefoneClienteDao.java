@@ -12,7 +12,6 @@ import javax.persistence.EntityManager;
 
 import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Telefone;
-import com.github.sharpware.pim.validator.TelefoneValidator;
 import java.util.ArrayList;
 
 /**
@@ -24,13 +23,13 @@ public class JPATelefoneClienteDao implements ITelefoneDao<Cliente> {
     private final JPATelefoneClienteDao that = this;
     private EntityManager manager;
     private List<Telefone> telefones;
-    private TelefoneValidator telefoneValidator;
+    
 
     @Inject
     public JPATelefoneClienteDao(EntityManager manager) {
         this.manager = manager;
         this.telefones = new ArrayList<>();
-        this.telefoneValidator = new TelefoneValidator();
+        
     }
 
     public JPATelefoneClienteDao() {
@@ -39,20 +38,20 @@ public class JPATelefoneClienteDao implements ITelefoneDao<Cliente> {
 
     @Override
     public void salvarTelefones(Cliente cliente, List<Telefone> telefones) {
-        telefoneValidator.validateTelefonesNulos(telefones);
         telefones
             .stream()
             .forEach((telefone) -> {
-                if(telefone != null) {
+                Telefone outroTelefone = that.manager.find(Telefone.class, telefone.getId());
+                if (that.manager.contains(outroTelefone)) {
                     that.manager.merge(telefone);
                 } else {
-                    that.manager.merge(telefone);
+                    Telefone novoTelefone = that.manager.merge(telefone);
                     that.manager
                     .createNativeQuery("INSERT INTO telefone_cliente"
                                     + "(cliente_id, telefone_id) "
                                     + "VALUES (:cliente_id, :telefone_id)")
                                     .setParameter("cliente_id", cliente.getId())
-                                    .setParameter("telefone_id", telefone.getId())
+                                    .setParameter("telefone_id", novoTelefone.getId())
                                     .executeUpdate();
                 }
             });

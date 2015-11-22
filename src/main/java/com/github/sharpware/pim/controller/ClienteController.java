@@ -39,8 +39,8 @@ public class ClienteController {
     private final IClienteDao dao;
     private final Result result;
     private List<Telefone> telefones;
-    private TelefoneValidator telefoneValidator;
     private Validator validator;
+    private TelefoneValidator telefoneValidator;
     private ITelefoneDao<Cliente> daoTelefone;
 
     @Inject
@@ -79,6 +79,8 @@ public class ClienteController {
         this.telefones.add(telefone2);
         this.telefones.add(telefone3);
 
+        telefoneValidator.validateTelefonesNulos(telefones);
+        
         this.dao.salvar(cliente, telefones);
         result.redirectTo(this).pesquisar();
     }
