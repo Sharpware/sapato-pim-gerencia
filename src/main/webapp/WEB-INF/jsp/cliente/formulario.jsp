@@ -23,8 +23,18 @@
 	<form class="form-inline" id="codigo-pp-left"
 		action="${linkTo[ClienteController].salvar}" method="post">
 
-		<input type="text" name="cliente.id" value="${cliente.id}"
-			hidden="true" />
+		<input type="text" name="cliente.id"
+		 value="${cliente.id}" hidden="true" /> 
+		
+		<input type="text" name="telefone1.id"
+		 value="${telefone1.id}" hidden="true" /> 
+		  
+		<input type="text" name="telefone2.id"
+		 value="${telefone2.id}" hidden="true" /> 
+		 
+		<input type="text" name="telefone3.id"
+	 	 value="${telefone3.id}" hidden="true" />
+		 
 		<div class="form-group">
 			<label for="exampleInputName1">Nome</label> <br> <input
 				type="text" class="form-control" id="exampleInputName1"

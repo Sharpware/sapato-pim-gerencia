@@ -15,5 +15,6 @@ import java.util.List;
  * @param <T>
  */
 public interface ITelefoneDao<T> {
-    void salvarTelefone(T entidade, List<Telefone> telefones);
+    void salvarTelefones(T entidade, List<Telefone> telefones);
+    List<Telefone> buscarTelefones(T entidade) throws Exception;
 }

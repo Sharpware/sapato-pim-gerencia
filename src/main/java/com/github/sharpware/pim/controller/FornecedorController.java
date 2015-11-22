@@ -11,6 +11,7 @@ import com.github.sharpware.pim.annotation.Transacional;
 import com.github.sharpware.pim.dao.IFornecedorDao;
 import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Fornecedor;
+import com.github.sharpware.pim.model.Situacao;
 import com.github.sharpware.pim.model.Telefone;
 import com.github.sharpware.pim.model.TipoTelefone;
 import com.github.sharpware.pim.validator.TelefoneValidator;
@@ -48,15 +49,16 @@ public class FornecedorController {
     public void formulario() { }
     
     @Transacional
-    @Post("/fornecedor/")
+    @Post("/fornecedores")
     public void salvar(@Valid Fornecedor fornecedor, Endereco endereco
     					,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
     	
     	this.validator.onErrorRedirectTo(this).formulario();
     	
-    	fornecedor.setEndereco(endereco);
+    	fornecedor.setSituacao(Situacao.Ativo)
+    				.setEndereco(endereco);
         
-        telefone1.setTipoTelefone(TipoTelefone.Trabalho);
+    	telefone1.setTipoTelefone(TipoTelefone.Trabalho);
 		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
 		telefone3.setTipoTelefone(TipoTelefone.Celular);
         

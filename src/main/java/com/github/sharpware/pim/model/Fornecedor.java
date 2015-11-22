@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,6 +43,10 @@ public class Fornecedor implements Serializable {
     
     @Column(name="email_secundario")
     private String emailSecundario;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name="situacao")
+    private Situacao situacao;
     
     @Embedded
     private Endereco endereco;
@@ -100,7 +106,15 @@ public class Fornecedor implements Serializable {
         return this;
     }
     
-        public Endereco getEndereco() {
+    public Situacao getSituacao() {
+		return situacao;
+	}
+	public Fornecedor setSituacao(Situacao situacao) {
+		this.situacao = situacao;
+		return this;
+	}
+    
+    public Endereco getEndereco() {
         return endereco;
     }
     public Fornecedor setEndereco(Endereco endereco) {

@@ -14,6 +14,7 @@ import javax.validation.Valid;
 
 import com.github.sharpware.pim.annotation.Transacional;
 import com.github.sharpware.pim.dao.IClienteDao;
+import com.github.sharpware.pim.dao.ITelefoneDao;
 import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Situacao;
@@ -30,7 +31,6 @@ import br.com.caelum.vraptor.validator.Validator;
 
 /**
  *
- * @author Christopher
  * @author George
  */
 @Controller
@@ -38,26 +38,28 @@ public class ClienteController {
 
 	private final IClienteDao dao;
 	private final Result result;
-	private final List<Telefone> telefones;
+	private List<Telefone> telefones;
 	private TelefoneValidator telefoneValidator;
 	private Validator validator;
+	private ITelefoneDao<Cliente> daoTelefone;
 
 	@Inject
-	public ClienteController(IClienteDao dao, Result result, Validator validator) {
+	public ClienteController(IClienteDao dao, ITelefoneDao<Cliente> daoTelefone 
+									,Result result, Validator validator) {
 		this.dao = dao;
+		this.daoTelefone = daoTelefone;
 		this.result = result;
 		this.validator = validator;
 		this.telefones = new ArrayList<>();
 		this.telefoneValidator = new TelefoneValidator();
 	}
-
+	
 	public ClienteController() {
-		this(null, null, null);
+		this(null, null, null, null);
 	}
 
 	@Path("cliente/formulario")
-	public void formulario() {
-	}
+	public void formulario() { }
 
 	@Transacional
 	@Post("/clientes")
@@ -66,16 +68,16 @@ public class ClienteController {
 
 		this.validator.onErrorRedirectTo(this).formulario();
 
-		cliente.setEndereco(endereco);
-		cliente.setSituacao(Situacao.Ativo);
+		cliente.setSituacao(Situacao.Ativo)
+				.setEndereco(endereco);
 
 		telefone1.setTipoTelefone(TipoTelefone.Residencial);
 		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
 		telefone3.setTipoTelefone(TipoTelefone.Celular);
 
-		telefones.add(telefone1);
-		telefones.add(telefone2);
-		telefones.add(telefone3);
+		this.telefones.add(telefone1);
+		this.telefones.add(telefone2);
+		this.telefones.add(telefone3);
 
 		telefoneValidator.validateTelefonesNulo(telefones);
 
@@ -89,15 +91,23 @@ public class ClienteController {
 		result.include("clientes", clientes);
 	}
 
-	@Get
-	@Path(value = "/cliente/{id}", priority=Path.LOW)
+	@Get("/cliente/{id}")
 	public void editar(Long id) throws Exception {
 		try {
-			Optional<Cliente> optionalCliente = dao.buscarPorId(id);
+			Optional<Cliente> optionalCliente = this.dao.buscarPorId(id);
 			
 			if (optionalCliente.isPresent()) {
 				Cliente cliente = optionalCliente.get();
-				result.include(cliente);
+				List<Telefone> telefones = this.daoTelefone.buscarTelefones(cliente);
+				
+				Telefone telefone1 = telefones.get(0);
+				Telefone telefone2 = telefones.get(1);
+				Telefone telefone3 = telefones.get(2);
+				
+				result.include(cliente)
+					.include(telefone1)
+					.include(telefone2)
+					.include(telefone3);
 				result.redirectTo(this).formulario();
 			}
 		} catch (Exception ex) {

@@ -31,7 +31,7 @@ public class JPAClienteDao implements IClienteDao {
     public void salvar(Cliente cliente, List<Telefone> telefones) {
         try {
             Cliente novoCliente = this.manager.merge(requireNonNull(cliente));
-            this.dao.salvarTelefone(novoCliente, telefones);
+            this.dao.salvarTelefones(novoCliente, telefones);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

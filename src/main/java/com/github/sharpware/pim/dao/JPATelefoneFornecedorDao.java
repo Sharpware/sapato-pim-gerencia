@@ -23,7 +23,7 @@ public class JPATelefoneFornecedorDao implements ITelefoneDao<Fornecedor> {
 	}
 	
 	@Override
-	public void salvarTelefone(Fornecedor fornecedor, List<Telefone> telefones) {
+	public void salvarTelefones(Fornecedor fornecedor, List<Telefone> telefones) {
 		telefones
         .stream()
         .map((telefone) -> that.manager.merge(telefone))
@@ -34,6 +34,12 @@ public class JPATelefoneFornecedorDao implements ITelefoneDao<Fornecedor> {
                     .setParameter("telefone_id", telefone.getId())
                     .executeUpdate();
         });
+	}
+
+	@Override
+	public List<Telefone> buscarTelefones(Fornecedor fornecedor) {
+		
+		return null;
 	}
 
 }

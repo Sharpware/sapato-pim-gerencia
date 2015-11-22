@@ -39,7 +39,7 @@ public class JPAFuncionarioDao implements IFuncionarioDao {
     public void salvar(Funcionario funcionario, List<Telefone> telefones) {
         try {
             Funcionario novoFuncionario = manager.merge(requireNonNull(funcionario));
-            this.dao.salvarTelefone(novoFuncionario, telefones);
+            this.dao.salvarTelefones(novoFuncionario, telefones);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

@@ -23,7 +23,7 @@ public class JPATelefoneFuncionarioDao implements ITelefoneDao<Funcionario> {
 	}
 	
 	@Override
-	public void salvarTelefone(Funcionario funcionario, List<Telefone> telefones) {
+	public void salvarTelefones(Funcionario funcionario, List<Telefone> telefones) {
 		telefones
         .stream()
         .map((telefone) -> that.manager.merge(telefone))
@@ -34,5 +34,11 @@ public class JPATelefoneFuncionarioDao implements ITelefoneDao<Funcionario> {
                     .setParameter("telefone_id", telefone.getId())
                     .executeUpdate();
         });
+	}
+
+	@Override
+	public List<Telefone> buscarTelefones(Funcionario funcionario) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -60,14 +60,14 @@ public class FuncionarioController {
 	}
 
 	@Transacional
-	@Post("/funcionario")
+	@Post("/funcionarios")
 	public void salvar(@Valid Funcionario funcionario, Endereco endereco 
 			,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
 
 		this.validator.onErrorRedirectTo(this).formulario();
 		
-		funcionario.setSituacao(Situacao.Ativo);
-		funcionario.setEndereco(endereco);
+		funcionario.setSituacao(Situacao.Ativo)
+					.setEndereco(endereco);
 
 		telefone1.setTipoTelefone(TipoTelefone.Residencial);
 		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
