@@ -33,7 +33,7 @@ public class JPATelefoneClienteDao implements ITelefoneDao<Cliente> {
     }
 
     public JPATelefoneClienteDao() {
-            this(null);
+        this(null);
     }
 
     @Override

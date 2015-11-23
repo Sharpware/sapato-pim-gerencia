@@ -15,12 +15,12 @@ import com.github.sharpware.pim.model.Telefone;
 public class JPAForcecedorDao implements IFornecedorDao {
 
     private EntityManager manager;
-	private ITelefoneDao<Fornecedor> dao;
+    private ITelefoneDao<Fornecedor> dao;
 
     @Inject
     public JPAForcecedorDao(EntityManager manager, ITelefoneDao<Fornecedor> dao) {
         this.manager = manager;
-		this.dao = dao;
+        this.dao = dao;
     }
 
     public JPAForcecedorDao() {

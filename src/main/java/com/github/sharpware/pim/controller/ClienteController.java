@@ -44,7 +44,8 @@ public class ClienteController {
     private ITelefoneDao<Cliente> daoTelefone;
 
     @Inject
-    public ClienteController(IClienteDao dao, ITelefoneDao<Cliente> daoTelefone, Result result, Validator validator) {
+    public ClienteController(IClienteDao dao, ITelefoneDao<Cliente> daoTelefone
+            ,Result result, Validator validator) {
         this.dao = dao;
         this.daoTelefone = daoTelefone;
         this.result = result;

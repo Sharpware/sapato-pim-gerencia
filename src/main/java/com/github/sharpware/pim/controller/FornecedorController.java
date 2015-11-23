@@ -22,27 +22,33 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import com.github.sharpware.pim.dao.ITelefoneDao;
+import com.github.sharpware.pim.model.Cliente;
 
 @Controller
 public class FornecedorController {
 
     private final IFornecedorDao dao;
+    private ITelefoneDao<Fornecedor> daoTelefone;
     private final Result result;
     private final List<Telefone> telefones;
     private final TelefoneValidator telefoneValidator;
-	private final Validator validator;
+    private final Validator validator;
 
     @Inject
-    public FornecedorController(IFornecedorDao dao, Result result, Validator validator) {
+    public FornecedorController(IFornecedorDao dao, ITelefoneDao<Fornecedor> daoTelefone
+                                    ,Result result, Validator validator) {
         this.dao = dao;
+        this.daoTelefone = daoTelefone;
         this.result = result;
-		this.validator = validator;
+        this.validator = validator;
         this.telefones = new ArrayList<>();
         this.telefoneValidator = new TelefoneValidator();
     }
     
+    @Deprecated
     public FornecedorController() {
-        this(null, null, null);
+        this(null, null, null, null);
     }
     
     @Path("fornecedor/formulario")
@@ -51,43 +57,55 @@ public class FornecedorController {
     @Transacional
     @Post("/fornecedores")
     public void salvar(@Valid Fornecedor fornecedor, Endereco endereco
-    					,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
+                        ,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
     	
     	this.validator.onErrorRedirectTo(this).formulario();
     	
     	fornecedor.setSituacao(Situacao.Ativo)
-    				.setEndereco(endereco);
+                    .setEndereco(endereco);
         
     	telefone1.setTipoTelefone(TipoTelefone.Trabalho);
-		telefone2.setTipoTelefone(TipoTelefone.Trabalho);
-		telefone3.setTipoTelefone(TipoTelefone.Celular);
+        telefone2.setTipoTelefone(TipoTelefone.Trabalho);
+        telefone3.setTipoTelefone(TipoTelefone.Celular);
         
-		telefoneValidator.validateTelefonesNulos(telefones);
-		
         telefones.add(telefone1);
         telefones.add(telefone2);
         telefones.add(telefone3);
+        
+        telefoneValidator.validateTelefonesNulos(telefones);
         
         this.dao.salvar(fornecedor, telefones);
         this.result.redirectTo(this).pesquisar();
     }
     
-    @Get("fornecedor/pesquisar")
+    @Get("/fornecedor/pesquisar")
     public void pesquisar() {
         List<Fornecedor> fornecedores = dao.buscarTodos();
-    	result.include("fornecedores", fornecedores);
+        result.include("fornecedores", fornecedores);
     }
+
     
     @Get("/fornecedor/{id}")
-    public void editar(Long id) {
-    	Optional<Fornecedor> optionalFornecedor = dao.buscarPorId(id);
-        if (optionalFornecedor.isPresent()) {
-        	Fornecedor funcionario= optionalFornecedor.get();
-            result.include(funcionario);
-            result.redirectTo(this).formulario();
-        } else {
-            result.notFound();
+    public void editar(Long id) throws Exception {
+        try {
+            Optional<Fornecedor> optionalFornecedor = this.dao.buscarPorId(id);
+
+            if (optionalFornecedor.isPresent()) {
+                Fornecedor fornecedor = optionalFornecedor.get();
+                List<Telefone> telefonesfornecedor = this.daoTelefone.buscarTelefones(fornecedor);
+
+                Telefone telefone1 = telefonesfornecedor.get(0);
+                Telefone telefone2 = telefonesfornecedor.get(1);
+                Telefone telefone3 = telefonesfornecedor.get(2);
+
+                result.include(fornecedor)
+                        .include("telefone1", telefone1)
+                        .include("telefone2", telefone2)
+                        .include("telefone3", telefone3);
+                result.redirectTo(this).formulario();
+            }
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage() + " " + ex.toString());
         }
     }
-	
 }
