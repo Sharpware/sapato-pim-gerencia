@@ -24,7 +24,7 @@ import com.github.sharpware.pim.annotation.Transacional;
 @Intercepts
 @AcceptsWithAnnotations(Transacional.class)
 public class TransacoesInterceptor {
-
+	
     private final EntityManager manager;
     
     @Inject

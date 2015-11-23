@@ -1,4 +1,4 @@
-package com.github.sharpware.pim.dao;
+	package com.github.sharpware.pim.dao;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
