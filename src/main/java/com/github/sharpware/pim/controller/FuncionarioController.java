@@ -12,8 +12,6 @@ import java.util.Optional;
 import javax.inject.Inject;
 
 import com.github.sharpware.pim.annotation.Transacional;
-import com.github.sharpware.pim.dao.IFuncionarioDao;
-import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Funcionario;
 import com.github.sharpware.pim.model.Situacao;
 import com.github.sharpware.pim.model.Telefone;
@@ -26,6 +24,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import com.github.sharpware.pim.dao.IDao;
 import com.github.sharpware.pim.dao.ITelefoneDao;
 import com.github.sharpware.pim.model.TipoFuncionario;
 
@@ -36,7 +35,7 @@ import com.github.sharpware.pim.model.TipoFuncionario;
 @Controller
 public class FuncionarioController {
 
-    private final IFuncionarioDao dao;
+    private final IDao<Funcionario> dao;
     private final Result result;
     private final List<Telefone> telefones;
     private final Validator validator;
@@ -44,7 +43,7 @@ public class FuncionarioController {
     private final ITelefoneDao<Funcionario> daoTelefone;
 
     @Inject
-    public FuncionarioController(IFuncionarioDao dao, Result result, Validator validator, ITelefoneDao<Funcionario> daoTelefone) {
+    public FuncionarioController(IDao<Funcionario> dao, Result result, Validator validator, ITelefoneDao<Funcionario> daoTelefone) {
         this.validator = validator;
         this.dao = dao;
         this.daoTelefone = daoTelefone;

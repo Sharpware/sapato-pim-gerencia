@@ -7,7 +7,6 @@ import java.util.Optional;
 import javax.inject.Inject;
 
 import com.github.sharpware.pim.annotation.Transacional;
-import com.github.sharpware.pim.dao.IFornecedorDao;
 import com.github.sharpware.pim.model.Endereco;
 import com.github.sharpware.pim.model.Fornecedor;
 import com.github.sharpware.pim.model.Situacao;
@@ -21,13 +20,14 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import com.github.sharpware.pim.dao.IDao;
 import com.github.sharpware.pim.dao.ITelefoneDao;
 
 
 @Controller
 public class FornecedorController {
 
-    private final IFornecedorDao dao;
+    private final IDao<Fornecedor> dao;
     private final ITelefoneDao<Fornecedor> daoTelefone;
     private final Result result;
     private final List<Telefone> telefones;
@@ -35,7 +35,7 @@ public class FornecedorController {
     private final Validator validator;
 
     @Inject
-    public FornecedorController(IFornecedorDao dao, ITelefoneDao<Fornecedor> daoTelefone
+    public FornecedorController(IDao<Fornecedor> dao, ITelefoneDao<Fornecedor> daoTelefone
                                     ,Result result, Validator validator) {
         this.dao = dao;
         this.daoTelefone = daoTelefone;

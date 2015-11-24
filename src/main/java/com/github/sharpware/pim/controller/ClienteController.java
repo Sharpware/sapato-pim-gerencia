@@ -12,7 +12,6 @@ import java.util.Optional;
 import javax.inject.Inject;
 
 import com.github.sharpware.pim.annotation.Transacional;
-import com.github.sharpware.pim.dao.IClienteDao;
 import com.github.sharpware.pim.dao.ITelefoneDao;
 import com.github.sharpware.pim.model.Cliente;
 import com.github.sharpware.pim.model.Endereco;
@@ -27,6 +26,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import com.github.sharpware.pim.dao.IDao;
 
 /**
  *
@@ -35,7 +35,7 @@ import br.com.caelum.vraptor.validator.Validator;
 @Controller
 public class ClienteController {
 
-    private final IClienteDao dao;
+    private final IDao<Cliente> dao;
     private final Result result;
     private List<Telefone> telefones;
     private Validator validator;
@@ -43,7 +43,7 @@ public class ClienteController {
     private ITelefoneDao<Cliente> daoTelefone;
 
     @Inject
-    public ClienteController(IClienteDao dao, ITelefoneDao<Cliente> daoTelefone
+    public ClienteController(IDao<Cliente> dao, ITelefoneDao<Cliente> daoTelefone
             ,Result result, Validator validator) {
         this.dao = dao;
         this.daoTelefone = daoTelefone;
