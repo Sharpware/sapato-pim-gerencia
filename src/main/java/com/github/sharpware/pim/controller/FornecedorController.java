@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 
 import com.github.sharpware.pim.annotation.Transacional;
 import com.github.sharpware.pim.dao.IFornecedorDao;
@@ -23,7 +22,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
 import com.github.sharpware.pim.dao.ITelefoneDao;
-import com.github.sharpware.pim.model.Cliente;
+
 
 @Controller
 public class FornecedorController {
@@ -56,26 +55,27 @@ public class FornecedorController {
     
     @Transacional
     @Post("/fornecedores")
-    public void salvar(@Valid Fornecedor fornecedor, Endereco endereco
+    public void salvar(Fornecedor fornecedor, Endereco endereco
                         ,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
     	
-    	this.validator.onErrorRedirectTo(this).formulario();
-    	
-    	fornecedor.setSituacao(Situacao.Ativo)
-                    .setEndereco(endereco);
-        
-    	telefone1.setTipoTelefone(TipoTelefone.Trabalho);
+        this.validator.validate(fornecedor);
+        this.validator.onErrorUsePageOf(this).formulario();
+
+        fornecedor.setSituacao(Situacao.Ativo)
+                .setEndereco(endereco);
+
+        telefone1.setTipoTelefone(TipoTelefone.Residencial);
         telefone2.setTipoTelefone(TipoTelefone.Trabalho);
         telefone3.setTipoTelefone(TipoTelefone.Celular);
-        
-        telefones.add(telefone1);
-        telefones.add(telefone2);
-        telefones.add(telefone3);
-        
+
+        this.telefones.add(telefone1);
+        this.telefones.add(telefone2);
+        this.telefones.add(telefone3);
+
         telefoneValidator.validateTelefonesNulos(telefones);
         
         this.dao.salvar(fornecedor, telefones);
-        this.result.redirectTo(this).pesquisar();
+        result.redirectTo(this).pesquisar();
     }
     
     @Get("/fornecedor/pesquisar")

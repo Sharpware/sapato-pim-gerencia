@@ -28,34 +28,34 @@ public class JPATelefoneFornecedorDao implements ITelefoneDao<Fornecedor> {
     @Override
     public void salvarTelefones(Fornecedor fornecedor, List<Telefone> telefones) {
         telefones
-            .stream()
-            .forEach((telefone) -> {
-                Telefone outroTelefone = that.manager.find(Telefone.class, telefone.getId());
-                if (that.manager.contains(outroTelefone)) {
-                    that.manager.merge(telefone);
-                } else {
-                    Telefone novoTelefone = that.manager.merge(telefone);
-                    that.manager
-                    .createNativeQuery("INSERT INTO telefone_fornecedor"
-                                    + "(fornecedor_id, telefone_id) "
-                                    + "VALUES (:fornecedor_id, :telefone_id)")
-                                    .setParameter("fornecedor_id", fornecedor.getId())
-                                    .setParameter("telefone_id", novoTelefone.getId())
-                                    .executeUpdate();
-                }
-            });
+                .stream()
+                .forEach((telefone) -> {
+                    Telefone outroTelefone = that.manager.find(Telefone.class, telefone.getId());
+                    if (that.manager.contains(outroTelefone)) {
+                        that.manager.merge(telefone);
+                    } else {
+                        Telefone novoTelefone = that.manager.merge(telefone);
+                        that.manager
+                        .createNativeQuery("INSERT INTO telefone_fornecedor"
+                                + "(fornecedor_id, telefone_id) "
+                                + "VALUES (:fornecedor_id, :telefone_id)")
+                        .setParameter("fornecedor_id", fornecedor.getId())
+                        .setParameter("telefone_id", novoTelefone.getId())
+                        .executeUpdate();
+                    }
+                });
     }
-    
+
     @SuppressWarnings("unchecked")
     @Override
     public List<Telefone> buscarTelefones(Fornecedor fornecedor) throws Exception {
         try {
             List<Integer> telefonesId = that.manager
-                            .createNativeQuery("SELECT telefone_id "
-                                    + "FROM telefone_fornecedor "
-                                    + "WHERE fornecedor_id = :fornecedor_id")
-                                    .setParameter("fornecedor_id", fornecedor.getId())
-                                    .getResultList();
+                    .createNativeQuery("SELECT telefone_id "
+                            + "FROM telefone_fornecedor "
+                            + "WHERE fornecedor_id = :fornecedor_id")
+                    .setParameter("fornecedor_id", fornecedor.getId())
+                    .getResultList();
 
             telefonesId.stream().forEach((id) -> {
                 int idInt = id;
@@ -63,8 +63,8 @@ public class JPATelefoneFornecedorDao implements ITelefoneDao<Fornecedor> {
                 Telefone telefone = that.manager.find(Telefone.class, idCerto);
                 this.telefones.add(telefone);
             });
-        } catch(Exception ex) {
-                throw new Exception(ex.getMessage() + " " + ex.toString());
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage() + " " + ex.toString());
         }
         return this.telefones;
     }

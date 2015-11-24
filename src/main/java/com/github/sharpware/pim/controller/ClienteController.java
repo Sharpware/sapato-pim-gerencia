@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 
 import com.github.sharpware.pim.annotation.Transacional;
 import com.github.sharpware.pim.dao.IClienteDao;
@@ -64,10 +63,11 @@ public class ClienteController {
 
     @Transacional
     @Post("/clientes")
-    public void salvar(@Valid Cliente cliente, Endereco endereco 
+    public void salvar(Cliente cliente, Endereco endereco 
             ,Telefone telefone1, Telefone telefone2, Telefone telefone3) {
 
-        this.validator.onErrorRedirectTo(this).formulario();
+        this.validator.validate(cliente);
+        this.validator.onErrorUsePageOf(this).formulario();
 
         cliente.setSituacao(Situacao.Ativo)
                 .setEndereco(endereco);

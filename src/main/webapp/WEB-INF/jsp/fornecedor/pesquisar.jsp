@@ -90,7 +90,6 @@
         <br>
 
         <button type="submit" class="btn btn-info" id="btn-pc"><strong>Cadastrar Fornecedor</strong></button>
-
         <button type="submit" class="btn btn-info" id="btn-pc"><strong>Inativar Fornecedor</strong></button>
 
     </div>

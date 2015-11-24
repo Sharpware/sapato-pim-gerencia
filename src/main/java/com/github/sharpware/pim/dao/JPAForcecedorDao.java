@@ -30,8 +30,8 @@ public class JPAForcecedorDao implements IFornecedorDao {
     @Override
     public void salvar(Fornecedor fornecedor, List<Telefone> telefones) {
         try {
-            Fornecedor novoFornecedor = manager.merge(requireNonNull(fornecedor));
-            dao.salvarTelefones(novoFornecedor, telefones);
+            Fornecedor novoFornecedor = this.manager.merge(requireNonNull(fornecedor));
+            this.dao.salvarTelefones(novoFornecedor, telefones);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

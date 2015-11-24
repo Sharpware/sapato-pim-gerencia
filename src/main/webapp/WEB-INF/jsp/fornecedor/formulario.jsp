@@ -25,6 +25,15 @@
             <input type="text" name="fornecedor.id" value="${fornecedor.id}"
                    hidden="true" />
 
+            <input type="text" name="telefone1.id"
+                   value="${telefone1.id}" hidden="true" />
+
+            <input type="text" name="telefone2.id"
+                   value="${telefone2.id}" hidden="true" />
+
+            <input type="text" name="telefone3.id"
+                   value="${telefone3.id}" hidden="true" />
+
             <div class="form-group">
                 <label for="exampleInputName1">Razão Social</label> <br> <input
                     type="text" class="form-control" name="fornecedor.razaoSocial"
@@ -170,7 +179,7 @@
             <div>
                 <button type="submit" class="btn btn-info" id="btn-cf2">
                     <strong>Salvar</strong>
-                </button>
+                </button>   
             </div>
             <div>
                 <a href="/sapato-pim-gerencia/index.jsp">

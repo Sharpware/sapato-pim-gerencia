@@ -71,11 +71,12 @@
                       <br>
                       <br>
                       <br>
+                      <button type="submit" class="btn btn-info" id="btn-cfn1"><strong>Salvar</strong></button>
                    </form>    
                               
                    <div>
                        
-                        <button type="submit" class="btn btn-info" id="btn-cfn1"><strong>Salvar</strong></button>
+                        
                     </div>
                     
                    </div>
