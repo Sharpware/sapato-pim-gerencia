@@ -15,17 +15,15 @@
 
         <ul class="errors">
             <c:forEach items="${errors}" var="error">
-                <li>
-                    ${error.message}
-                </li>
-            </c:forEach>
+                <li>${error.message}</li>
+                </c:forEach>
         </ul>
 
         <form class="form-inline" id="codigo-pp-left"
               action="${linkTo[FornecedorController].salvar}" method="post">
 
-            <input type="text" name="fornecedor.id" 
-                   value="${fornecedor.id}" hidden="true" />
+            <input type="text" name="fornecedor.id" value="${fornecedor.id}"
+                   hidden="true" />
 
             <input type="text" name="telefone1.id"
                    value="${telefone1.id}" hidden="true" />
@@ -118,14 +116,14 @@
             <div class="form-group">
                 <label for="exampleInputName1">Logradouro</label> <br> <input
                     type="text" class="form-control"
-                    name="endereco.logradouro"
+                    name="fornecedor.endereco.logradouro"
                     value="${fornecedor.endereco.logradouro}" id="exampleInputName1"
                     placeholder="Endereço" maxlength="100" style="width: 210px">&nbsp;&nbsp;
             </div>
 
             <div class="form-group">
                 <label for="exampleInputName1">Número</label> <br> <input
-                    type="text" class="form-control" name="endereco.numero"
+                    type="text" class="form-control" name="fornecedor.endereco.numero"
                     value="${fornecedor.endereco.numero}" id="exampleInputName1"
                     placeholder="Endereço" maxlength="100" style="width: 80px">&nbsp;&nbsp;
             </div>
@@ -133,14 +131,14 @@
             <div class="form-group">
                 <label for="exampleInputName1">Complemento</label> <br> <input
                     type="text" class="form-control"
-                    name="endereco.complemento"
+                    name="fornecedor.endereco.complemento"
                     value="${fornecedor.endereco.complemento}" id="exampleInputName1"
                     placeholder="" maxlength="100" style="width: 200px">&nbsp;&nbsp;
             </div>
 
             <div class="form-group">
                 <label for="exampleInputName1">Bairro</label> <br> <input
-                    type="text" class="form-control" name="endereco.bairro"
+                    type="text" class="form-control" name="fornecedor.endereco.bairro"
                     value="${fornecedor.endereco.bairro}" id="exampleInputName1"
                     placeholder="" maxlength="100" style="width: 177px">&nbsp;&nbsp;
             </div>
@@ -149,21 +147,21 @@
 
             <div class="form-group">
                 <label for="exampleInputName1">Cidade</label> <br> <input
-                    type="text" class="form-control" name="endereco.cidade"
+                    type="text" class="form-control" name="fornecedor.endereco.cidade"
                     value="${fornecedor.endereco.cidade}" id="exampleInputName1"
                     placeholder="" maxlength="100" style="width: 250px">&nbsp;&nbsp;
             </div>
 
             <div class="form-group">
                 <label for="exampleInputName1">CEP</label> <br> <input
-                    type="text" class="form-control" name="endereco.cep"
+                    type="text" class="form-control" name="fornecedor.endereco.cep"
                     value="${fornecedor.endereco.cep}" id="exampleInputName1"
                     placeholder="-----_---" maxlength="8" style="width: 90px">&nbsp;&nbsp;
             </div>
 
             <div class="form-group">
                 <label for="exampleInputName1">UF</label> <br> <input
-                    type="text" class="form-control" name="endereco.uf"
+                    type="text" class="form-control" name="fornecedor.endereco.uf"
                     value="${fornecedor.endereco.uf}" id="exampleInputName1"
                     placeholder="Endereço" maxlength="2" style="width: 50px">&nbsp;&nbsp;
             </div>

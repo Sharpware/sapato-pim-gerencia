@@ -29,6 +29,7 @@ public class JPATelefoneClienteDao implements ITelefoneDao<Cliente> {
     public JPATelefoneClienteDao(EntityManager manager) {
         this.manager = manager;
         this.telefones = new ArrayList<>();
+        
     }
 
     public JPATelefoneClienteDao() {

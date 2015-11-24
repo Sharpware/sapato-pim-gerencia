@@ -6,18 +6,15 @@
 package com.github.sharpware.pim.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "funcionario")
 public class Funcionario extends Pessoa<Funcionario> {
 
-    @NotNull(message = "Login deve ser preenchido")
     @Column(name = "login")
     private String login;
 
-    @NotNull(message = "Senha deve ser preenchida")
     @Column(name = "senha")
     private String senha;
 

@@ -73,15 +73,12 @@
                                 <td>${fornecedor.id}</td>
                                 <td>${fornecedor.nomeFantasia}</td>
                                 <td>${fornecedor.cnpj}</td>
-                                <td>
-                                    <a href="${linkTo[FornecedorController].editar(fornecedor.id)}">
+                                <td><a
+                                        href="${linkTo[FornecedorController].editar(fornecedor.id)}">
                                         <button type="button" class="btn btn-info" id="btn-pc">
-                                            <strong>
-                                                Editar Fornecedor
-                                            </strong>
+                                            <strong>Editar Fornecedor</strong>
                                         </button>
-                                    </a>
-                                </td>
+                                    </a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

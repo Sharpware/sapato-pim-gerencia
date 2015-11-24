@@ -27,8 +27,13 @@ import com.github.sharpware.pim.dao.ITelefoneDao;
 @Controller
 public class FornecedorController {
 
+<<<<<<< HEAD
     private final IDao<Fornecedor> dao;
     private final ITelefoneDao<Fornecedor> daoTelefone;
+=======
+    private final IFornecedorDao dao;
+    private ITelefoneDao<Fornecedor> daoTelefone;
+>>>>>>> parent of a516a8b... cadastro e edição de funcionario e fornecedor funcionando
     private final Result result;
     private final List<Telefone> telefones;
     private final TelefoneValidator telefoneValidator;
@@ -62,9 +67,9 @@ public class FornecedorController {
         this.validator.onErrorUsePageOf(this).formulario();
 
         fornecedor.setSituacao(Situacao.Ativo)
-                    .setEndereco(endereco);
+                .setEndereco(endereco);
 
-        telefone1.setTipoTelefone(TipoTelefone.Trabalho);
+        telefone1.setTipoTelefone(TipoTelefone.Residencial);
         telefone2.setTipoTelefone(TipoTelefone.Trabalho);
         telefone3.setTipoTelefone(TipoTelefone.Celular);
 
