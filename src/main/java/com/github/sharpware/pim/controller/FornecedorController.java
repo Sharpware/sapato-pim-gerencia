@@ -28,7 +28,7 @@ import com.github.sharpware.pim.dao.ITelefoneDao;
 public class FornecedorController {
 
     private final IFornecedorDao dao;
-    private ITelefoneDao<Fornecedor> daoTelefone;
+    private final ITelefoneDao<Fornecedor> daoTelefone;
     private final Result result;
     private final List<Telefone> telefones;
     private final TelefoneValidator telefoneValidator;
@@ -62,9 +62,9 @@ public class FornecedorController {
         this.validator.onErrorUsePageOf(this).formulario();
 
         fornecedor.setSituacao(Situacao.Ativo)
-                .setEndereco(endereco);
+                    .setEndereco(endereco);
 
-        telefone1.setTipoTelefone(TipoTelefone.Residencial);
+        telefone1.setTipoTelefone(TipoTelefone.Trabalho);
         telefone2.setTipoTelefone(TipoTelefone.Trabalho);
         telefone3.setTipoTelefone(TipoTelefone.Celular);
 

@@ -4,22 +4,40 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    	<title>Pesquisa de Funcionario</title>
+        <title>Pesquisa de Funcionario</title>
         <c:import url="/WEB-INF/jsp/menu/template.jsp" />
     </head>
     <body>
         <c:import url="/WEB-INF/jsp/menu/menu.jsp" />
-            <div id="page-wrapper" style="background-color:#AADBFF">
-               <ul>
-		            <c:forEach items="${funcionarios}" var="funcionario">
-		                <li>
-		                    ID: ${funcionario.id} Nome: ${funcionario.nome} CPF: ${funcionario.cpf} 
-		                    <a${linkTo[FuncionarioController].editar(funcionario.id)}>Modificar</a>
-		                </li>
-		            </c:forEach>
-		        </ul>
+        <table class="table" border="1px">
+            <div>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome do Funcionario</th>
+                        <th>CPF</th>
+                        <th>Editar</th>
+                </thead>
+                <tbody>
+                    <c:forEach items="${funcionarios}" var="funcionario">
+                        <tr>
+                            <td>${funcionario.id}</td>
+                            <td>${funcionario.nome}</td>
+                            <td>${funcionario.cpf}</td>
+                            <td>
+                                <a href="${linkTo[FuncionarioController].editar(funcionario.id)}">
+                                    <button type="button" class="btn btn-info" id="btn-pc">
+                                        <strong>
+                                            Editar Funcionario
+                                        </strong>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
             </div>
-        </div>
+        </table>
         <c:import url="/WEB-INF/jsp/menu/script.jsp" />
     </body>
 </html>

@@ -16,7 +16,9 @@
 
         <ul class="errors">
             <c:forEach items="${errors}" var="error">
-                <li>${error.message}</li>
+                <li>
+                    ${error.message}
+                </li>
             </c:forEach>
         </ul>
 
