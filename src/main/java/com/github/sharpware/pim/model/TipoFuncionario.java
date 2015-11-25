@@ -11,13 +11,8 @@ package com.github.sharpware.pim.model;
  */
 public enum TipoFuncionario {
     
-    CAIXA("Caixa"),
-    VENDEDOR("Vendedor"),
-    GERENTE("Gerente");
-    
-    private String nome;
-    
-    TipoFuncionario(String nome) {
-        this.nome = nome;
-    }
+	Caixa,
+	Vendedor,
+	Gerente;
+
 }

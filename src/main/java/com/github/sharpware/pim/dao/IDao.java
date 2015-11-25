@@ -17,5 +17,7 @@ import java.util.Optional;
 public interface IDao<T> {
     void salvar(T entidade, List<Telefone> telefones);
     Optional<T> buscarPorId(Long id);
+    List<T> buscarPorNome(String nome);
+    List<T> buscarPorCPF(String cpf);
     List<T> buscarTodos();
 }

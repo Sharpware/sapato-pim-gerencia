@@ -52,4 +52,20 @@ public class JPAClienteDao implements IDao<Cliente> {
         return this.manager.createQuery("SELECT c FROM Cliente c", Cliente.class)
                 .getResultList();
     }
+
+	@Override
+	public List<Cliente> buscarPorNome(String nome) {
+		return this.manager.createQuery("SELECT c FROM Cliente c "
+										+ "WHERE c.nome = :nome", Cliente.class)
+										.setParameter("nome", nome)
+                						.getResultList();
+	}
+
+	@Override
+	public List<Cliente> buscarPorCPF(String cpf) {
+		return this.manager.createQuery("SELECT c FROM Cliente c "
+				+ "WHERE c.cpf = :cpf", Cliente.class)
+				.setParameter("cpf", cpf)
+				.getResultList();
+	}
 }

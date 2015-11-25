@@ -1,274 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Interface</title>
+    <title>Pesquisa de Produto</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/plugins/morris.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-</head>
-    <body style="color: white">
+    </head>
+    <body>
         <div id="wrapper">
-           <!--Menu feito para todas as paginas -->
+        <!--Menu feito para todas as paginas -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
                     <a href="index.html" class="navbar-brand"><strong><span style="color:#006CCA">Sharp</span><span style="color:#009D73">Ware</span></strong></a>
                 </div>
                 <ul class="nav navbar-right top-nav">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user"></i> Login
-                        <span class="caret"></span>
+                    <i class="fa fa-user"></i> Login
+                    <span class="caret"></span>
                     </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-                            <li> <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="https://github.com/Sharpware">&nbsp;<i class="fa fa-github"></i> github</a></li>
-                        </ul>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+                    <li> <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="https://github.com/Sharpware">&nbsp;<i class="fa fa-github"></i> github</a></li>
+                </ul>
                     </li>
                 </ul>
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav side-nav" >
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <ul class="nav navbar-nav side-nav" >
                         <li>
-                           <a href="javascript:;" data-toggle="collapse" data-target="#down-cliente" ><i class="fa fa-users fa-lg"></i>&nbsp;&nbsp;Cliente <i class="fa fa-caret-down pull-right"></i></a>
-                            <ul id="down-cliente" class="collapse">
-                                <li><a href="PesquisarCliente.html"><i class="fa fa-search"></i>&nbsp;Pesquisar Cliente</a></li>
-                                <li><a href="CadastrarCliente.html"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar Cliente</a></li>
-                            </ul>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#down-cliente" ><i class="fa fa-users fa-lg"></i>&nbsp;&nbsp;Cliente <i class="fa fa-caret-down pull-right"></i></a>
+                        <ul id="down-cliente" class="collapse">
+                        <li><a href="PesquisarCliente.html"><i class="fa fa-search"></i>&nbsp;Pesquisar Cliente</a></li>
+                        <li><a href="CadastrarCliente.html"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar Cliente</a></li>
+                        </ul>
                         </li>
                         <li>
-                           <a href="javascript:;" data-toggle="collapse" data-target="#down-fornecedor"><i class="fa fa-truck fa-lg"></i>&nbsp;&nbsp;Fornecedor <i class="fa fa-caret-down pull-right"></i></a>
-                            <ul id="down-fornecedor" class="collapse">
-                                <li><a href="PesquisarFornecedor.html"><i class="fa fa-search"></i>&nbsp;Pesquisar Fornecedor</a></li>
-                                <li><a href="CadastrarFornecedor.html"><i class="fa fa-ambulance"></i>&nbsp;Cadastrar Fornecedor</a></li>
-                            </ul>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#down-fornecedor"><i class="fa fa-truck fa-lg"></i>&nbsp;&nbsp;Fornecedor <i class="fa fa-caret-down pull-right"></i></a>
+                        <ul id="down-fornecedor" class="collapse">
+                        <li><a href="PesquisarFornecedor.html"><i class="fa fa-search"></i>&nbsp;Pesquisar Fornecedor</a></li>
+                        <li><a href="CadastrarFornecedor.html"><i class="fa fa-ambulance"></i>&nbsp;Cadastrar Fornecedor</a></li>
+                        </ul>
                         </li>
                         <li>
-                           <a href="javascript:;" data-toggle="collapse" data-target="#down-estoque"><i class="fa fa-shopping-cart fa-lg"></i>&nbsp;&nbsp;Estoque<i class="fa fa-caret-down pull-right"></i></a>
-                            <ul id="down-estoque" class="collapse">
-                                <li><a href="EntradaProduto.html"><i class="fa fa-cart-arrow-down"></i>&nbsp;Entrada de produto</a></li>
-                                <li><a href="PesquisarProduto.html"><i class="fa fa-search"></i>&nbsp;Pesquisa de produto</a></li>
-                                <li><a href="CasastrarProduto.html"><i class="fa fa-cart-plus"></i>&nbsp;Cadastro de Produto</a></li>
-                            </ul>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#down-estoque"><i class="fa fa-shopping-cart fa-lg"></i>&nbsp;&nbsp;Estoque<i class="fa fa-caret-down pull-right"></i></a>
+                        <ul id="down-estoque" class="collapse">
+                        <li><a href="EntradaProduto.html"><i class="fa fa-cart-arrow-down"></i>&nbsp;Entrada de produto</a></li>
+                        <li><a href="PesquisarProduto.html"><i class="fa fa-search"></i>&nbsp;Pesquisa de produto</a></li>
+                        <li><a href="CadastrarProduto.html"><i class="fa fa-cart-plus"></i>&nbsp;Cadastro de Produto</a></li>
+                        </ul>
                         </li>
                         <li>
-                           <a href="javascript:;" data-toggle="collapse" data-target="#down-gerencia"><i class="fa fa-suitcase fa-lg"></i>&nbsp;&nbsp;Gerencia<i class="fa fa-caret-down pull-right"></i></a>
-                            <ul id="down-gerencia" class="collapse">
-                                <li><a href="CadastrarFuncionario.html"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar funcionario</a></li>
-                                <li><a href="PesquisarFuncionario.html"><i class="fa fa-search"></i>&nbsp;Pesquisar funcionario</a></li>
-                            </ul>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#down-gerencia"><i class="fa fa-suitcase fa-lg"></i>&nbsp;&nbsp;Gerencia<i class="fa fa-caret-down pull-right"></i></a>
+                        <ul id="down-gerencia" class="collapse">
+                        <li><a href="CadastrarFuncionario.html"><i class="fa fa-user-plus"></i>&nbsp;Cadastrar funcionario</a></li>
+                        <li><a href="PesquisarFuncionario.html"><i class="fa fa-search"></i>&nbsp;Pesquisar funcionario</a></li>
+                        </ul>
                         </li>
                         <li>
-                           <a href="javascript:;" data-toggle="collapse" data-target="#down-relatorios"><i class="fa fa-line-chart fa-lg"></i>&nbsp;&nbsp;Relatorios<i class="fa fa-caret-down pull-right"></i></a>
-                            <ul id="down-relatorios" class="collapse">
-                                <li><a href="RelatorioVendaPeriodo.html"><i class="fa fa-calendar-check-o"></i>&nbsp;Relatorio de vendas por periodo</a></li>
-                                <li><a href="RelatorioVendaVendedor.html"><i class="fa fa-balance-scale"></i>&nbsp;Relatorio de venda por vendedor</a></li>
-                            </ul>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#down-relatorios"><i class="fa fa-line-chart fa-lg"></i>&nbsp;&nbsp;Relatorios<i class="fa fa-caret-down pull-right"></i></a>
+                        <ul id="down-relatorios" class="collapse">
+                        <li><a href="RelatorioVendaPeriodo.html"><i class="fa fa-calendar-check-o"></i>&nbsp;Relatorio de vendas por periodo</a></li>
+                        <li><a href="RelatorioVendaVendedor.html"><i class="fa fa-balance-scale"></i>&nbsp;Relatorio de venda por vendedor</a></li>
+                        </ul>
                         </li>
-                        
-                    </ul>    
+
+                    </ul> 
                 </div>
             </nav>
-            
-            <!--Menu feito para todas as paginas -->
-            
-            <!-- LABEL PESQUISAR PRODUTO AZUL -->
-            
-            <div id="page-wrapper">
-                <p style="color:#00959F; font-size:40px; text-align:center"><strong><em>PESQUISAR PRODUTO</em></strong></p>
-                
-                <!-- DIV AZUL COM -->
+<!--Menu feito para todas as paginas -->
+<div id="page-wrapper">
 
-                <div id="div-pesquisa-produto-azul">
-                   
-                    <form id="codigo-pp-left">
-                     
-                      <div class="form-group" >
-                        <label for="exampleInputEmail1">Código</label>
-                        <input class="form-control" type="text" id="formGroupInputSmall" placeholder="Código do produto">
-                      </div>
-                      
-                      <!-- COLOCAR COMBOBOX AQUI DENTRO -->
-                      
-                      <label for="exampleInputEmail1">Tipo</label>
-                      <select class="form-control">
-                          <option>--Todos--</option>
-                          <option>Basquete</option>
-                          <option>Chuteira de campo</option>
-                          <option>Chuteira de salão</option>
-                          <option>Corrida performance</option>
-                          <option>Corrida ou caminhada</option>
-                          <option>Fitness e musculação</option>
-                          <option>Skate</option>
-                          <option>Surf</option>
-                          <option>Vôlei</option>
-                          
-                      </select>
-                      
-                      <label for="exampleInputEmail1">Marca</label>
-                      <select class="form-control">
-                          <option>--Todos--</option>
-                          <option>Adidas</option>
-                          <option>Asics</option>
-                          <option>Mizuno</option>
-                          <option>Nike</option>
-                          <option>Oakley</option>
-                          <option>Olympikus</option>
-                          <option>Puma</option>
-                          <option>Timberland</option>
-                          
-                      </select>
-                      
-                      <!-- COLOCAR COMBOBOX AQUI DENTRO -->
-                    </form>
-                      
-                      <form id="codigo-pp-right">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Nome do Produto</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="">
-                      </div>
-                      
-                      <!-- COLOCAR COMBOBOX AQUI DENTRO -->
-                      
-                      <label for="exampleInputEmail1">Tamanho</label>
-                      <select class="form-control">
-                          <option>--Todos--</option>
-                          <option>34-35</option>
-                          <option>35-36</option>
-                          <option>36-37</option>
-                          <option>37-38</option>
-                          <option>38-39</option>
-                          <option>39-40</option>
-                          <option>40-41</option>
-                          <option>41-42</option>
-                          <option>42-43</option>
-                          <option>43-44</option>
-                          <option>44-45</option>
-                          <option>45+</option>
-                          
-                      </select>                      
-                      
-                      <!-- COLOCAR COMBOBOX AQUI DENTRO -->
-                    </form>
+    <div class="container col-md-12">
+        <h1 class="text-center col-xs-12"><strong><em>Pesquisar Produto</em></strong></h1>
+        <form class="form-horizontal col-md-offset-2 col-xs-12 col-sm-12 col-md-8 col-lg-8">
+               <br>   
+           
+    <div class="row">
+        <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="nomeTbx">Name</label>
+                        <input type="text" class="form-control" id="nomeTbx" placeholder="Digite o nome do fornecedor">
+                    </div>    
+
+                    <div class="form-group">
+                        <label for="codigoTbx">Código</label>
+                            <input type="text" class="form-control" id="codigoTbx" placeholder="Digite o código do fornecedor">
+                    </div>
                     
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tipo</label>
+                            <select class="form-control">
+                                <option>--Todos--</option>
+                                <option>Basquete</option>
+                                <option>Chuteira de campo</option>
+                                <option>Chuteira de salão</option>
+                                <option>Corrida performance</option>
+                                <option>Corrida ou caminhada</option>
+                                <option>Fitness e musculação</option>
+                                <option>Skate</option>
+                                <option>Surf</option>
+                                <option>Vôlei</option>
+                            </select>
+                    </div>
+
+
+
+
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Marca</label>
+                            <select class="form-control">
+                                <option>--Todos--</option>
+                                <option>Adidas</option>
+                                <option>Asics</option>
+                                <option>Mizuno</option>
+                                <option>Nike</option>
+                                <option>Oakley</option>
+                                <option>Olympikus</option>
+                                <option>Puma</option>
+                                <option>Timberland</option>
+                        </select>
+                    </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="col-md-5-push-1">
+            <br>    
+            <div class="radio borda">
+                <h4 class="text-center">Pesquisar por:</h4>
+                <div class="col-md-offset-2">
+                <label class="col-md-12">
+                    <input type="radio" name="tipoFuncionario" id="ativoRb" value="situacao.ativo" checked>
+                    Nome
+                    </label>
+                    <label class="col-md-12">
+                        <input type="radio" name="tipoFuncionario" id="inativoRb" value="situacao.inativo">
+                    Código
+                    </label>
+                    <label class="col-md-12">
+                       <input type="radio" name="tipoFuncionario" id="inativoRb" value="situacao.inativo">
+                    Marca
+                    </label>
+                    <label>
+                       <input type="radio" name="tipoFuncionario" id="inativoRb" value="situacao.inativo">
+                    Tipo
+                    </label>
+                    </div>
+                    <br>
                 </div>
-                
-                <!-- DIV CINZA (IMAGEM DE PRODUTOS) -->
-                
-                <div id="div-pesquisa-produto-cinza">
-                    
-                </div>
-                
-                <!-- PAINEL BRANCO -->
-                
-                <div id="grid-pesquisa-produto" class="panel panel-default">
-
-                  <!-- Tables no PAINEL BRANCO -->
-                  <table class="table" border="1px">
-                        <div>
-                            <div>
-
-            <thead class="txt-preto">
-                <tr>
-                    <th>
-                        Código
-                    </th>
-                                
-                    <th>
-                        Tipo
-                    </th>
-                    <th>
-                        Nome do Produto
-                    </th>
-                    <th>
-                        Descrição
-                    </th>
-                    <th>
-                        Tamanho
-                    </th>
-                    <th>
-                        Valor
-                    </th>
-                    <th>
-                        Quantidade
-                    </th>
-                
-            </thead>
-                <tbody>
-                    
+            </div>
+        </div>
+    </div>
+    </form>
+                <table class="table table-bordered table-hover tabela">
+                <thead>
                     <tr>
-                        <td>
-                            &nbsp;
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                            
-                        </td>
-                        
+                        <th class="text-center">Código</th>
+                        <th class="text-center">Tipo</th> 
+                        <th class="text-center">Nome do Produto</th>
+                        <th class="text-center">Descrição</th>
+                        <th class="text-center">Tamanho</th>
+                        <th class="text-center">Valor</th>
+                        <th class="text-center">Quantidade</th>
+                        <th class="text-center">Funções</th>
                     </tr>
-                    
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>a</td>
+                        <td>b</td> 
+                        <td>c</td>
+                        <td>d</td>
+                        <td>e</td>
+                        <td>f</td>
+                        <td>g</td>
+                        <td><button type="submit" class="btn btn-primary btn-sm col-md-offset-2 col-xs-12 col-md-4"><SPAN class="glyphicon glyphicon-ban-circle"></SPAN> Inativar</button>
+                            <button type="submit" class="btn btn-primary btn-sm col-xs-12 col-md-4"><SPAN class="glyphicon glyphicon-pencil"></SPAN> Editar</button>
+                       </td>
+                    </tr>
                 </tbody>
-                                 
-                            </div>
-                            
-                  </table>
-                </div>
-
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <button type="submit" class="btn btn-info" id="btn-pp"><strong>Pesquisar produto</strong></button>
-                <br>
-                <br>
-                <br>
-                <button type="submit" class="btn btn-info" id="btn-pp"><strong>Finalizar pesquisa</strong></button>
-                <br>
-                <img src="imagens/sport4you.png" id="img-sport4you"></a>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-
+            </table>
+                <div class="col-md-6 col-md-push-8">
+                        <button type="submit" class="btn btn-danger  col-md-4 col-md-pull-1" ><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                        <button type="submit" class="btn btn-success  col-md-4 " ><span class="glyphicon glyphicon-search"></span> Pesquisar</button>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+            </div>
+    </div>
+</div>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/plugins/morris/raphael.min.js"></script>

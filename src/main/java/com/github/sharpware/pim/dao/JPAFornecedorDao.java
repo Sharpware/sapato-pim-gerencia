@@ -12,18 +12,18 @@ import javax.persistence.EntityNotFoundException;
 import com.github.sharpware.pim.model.Fornecedor;
 import com.github.sharpware.pim.model.Telefone;
 
-public class JPAForcecedorDao implements IDao<Fornecedor> {
+public class JPAFornecedorDao implements IDao<Fornecedor> {
 
     private EntityManager manager;
     private ITelefoneDao<Fornecedor> dao;
 
     @Inject
-    public JPAForcecedorDao(EntityManager manager, ITelefoneDao<Fornecedor> dao) {
+    public JPAFornecedorDao(EntityManager manager, ITelefoneDao<Fornecedor> dao) {
         this.manager = manager;
         this.dao = dao;
     }
 
-    public JPAForcecedorDao() {
+    public JPAFornecedorDao() {
         this(null, null);
     }
 
@@ -52,4 +52,20 @@ public class JPAForcecedorDao implements IDao<Fornecedor> {
         return this.manager.createQuery("SELECT f FROM Fornecedor f", Fornecedor.class)
                 .getResultList();
     }
+
+	@Override
+	public List<Fornecedor> buscarPorNome(String nome) {
+		return this.manager.createQuery("SELECT f FROM Fornecedor f "
+										+ "WHERE f.nome = :nome", Fornecedor.class)
+										.setParameter("nome", nome)
+                						.getResultList();
+	}
+
+	@Override
+	public List<Fornecedor> buscarPorCPF(String cpf) {
+		return this.manager.createQuery("SELECT f FROM Fornecedor f "
+										+ "WHERE f.cpf = :cpf", Fornecedor.class)
+										.setParameter("cpf", cpf)
+										.getResultList();
+	}
 }

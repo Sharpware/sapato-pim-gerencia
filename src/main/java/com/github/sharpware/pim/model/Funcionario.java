@@ -5,16 +5,23 @@
  */
 package com.github.sharpware.pim.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "funcionario")
 public class Funcionario extends Pessoa<Funcionario> {
 
+	@NotNull(message = "Login deve ser preenchido")
     @Column(name = "login")
     private String login;
 
+	@NotNull(message = "Senha deve ser preenchido")
     @Column(name = "senha")
     private String senha;
 

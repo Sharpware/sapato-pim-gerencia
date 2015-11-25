@@ -4,7 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Interface Sharpware</title>
+<title>Cadastro de Produto</title>
 <link href="css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link href="css/sb-admin.css" rel="stylesheet">
@@ -80,41 +80,55 @@
 </nav>
 <!--Menu feito para todas as paginas -->
     <div id="page-wrapper">
-        <div class="container col-md-12">
-        <form class="form-horizontal col-md-offset-2 col-md-8 ">
-           <h1 class="text-center"><strong><em>Formulario de fornecedor</em></strong></h1>
+        <div class="container col-md-12 row">
+            <form class="form-horizontal col-md-offset-2 col-md-8">
+           <h1 class="text-center"><strong><em>Cadastro de Produto</em></strong></h1>
            <br>
-           <div class="row">
-                <div class="col-md-6">    
+           
+        <div class="row">
+            <div class="col-md-5">
                     <div class="form-group">
-                        <label for="razaoSocialTbx">Razao Social</label>
-                        <input type="text" class="form-control" id="razaoSocialTbx" placeholder="Razão social" name="fornecedor.razaoSocial" value="${fornecedor.razaoSocial}" />
-                    </div>
-                </div>
-                <div class="col-md-5 col-md-push-1">    
-                    <div class="form-group">
-                        <label for="nomeFantasiaTbx">Nome fantasia</label>
-                        <input type="text" class="form-control" id="nomeFantasiaTbx" placeholder="Nome fantasia" name="fornecedor.nomeFantasia" value="${fornecedor.nomeFantasia}" />
-                    </div>
-                </div>    
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="cnpjTbx">CNPJ</label>
-                        <input type="text" class="form-control" id="cnpjTbx" placeholder="CPF" name="fornecedor.cnpj" value="${fornecedor.cnpj}" data-mask="99.999.999/9999-99" />
+                        <label for="nomeTbx">Nome do Produto</label>
+                        <input type="text" class="form-control" id="nomeTbx" placeholder="Nome" name="cliente.nome" value="${cliente.nome}" />
                     </div>
                     <div class="form-group">
-                        <label for="emailPrimarioTbx">Email primario</label>
-                        <input type="email" class="form-control" id="emailPrimarioTbx" placeholder="Data de nascimento" name="fornecedor.emailPrimario" value="${fornecedor.emailPrimario}" />
+                        <label for="exampleInputName1">Tipo</label>
+                        <br>
+                            <select class="form-control">
+                                <option>--Todos--</option>
+                                <option>Basquete</option>
+                                <option>Chuteira de campo</option>
+                                <option>Chuteira de salão</option>
+                                <option>Corrida performance</option>
+                                <option>Corrida ou caminhada</option>
+                                <option>Fitness e musculação</option>
+                                <option>Skate</option>
+                                <option>Surf</option>
+                                <option>Vôlei</option>
+                            </select>
                     </div>
                     <div class="form-group">
-                        <label for="emailSecundarioTbx">Email secundario</label>
-                        <input type="email" class="form-control" id="emailSecundarioTbx" placeholder="Data de nascimento" name="fornecedor.emailSecundario" value="${fornecedor.emailSecundario}" />
+                        <label for="nomeTbx">Fornecedor</label>
+                        <input type="text" class="form-control" id="nomeTbx" placeholder="Nome" name="cliente.nome" value="${cliente.nome}" />
+                    </div> 
+            </div> 
+               <div class="col-md-5 col-md-offset-1">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Marca</label>
+                        <br>
+                            <select class="form-control">
+                                <option>--Todos--</option>
+                                <option>Adidas</option>
+                                <option>Asics</option>
+                                <option>Mizuno</option>
+                                <option>Nike</option>
+                                <option>Oakley</option>
+                                <option>Olympikus</option>
+                                <option>Puma</option>
+                                <option>Timberland</option>
+                            </select>
                     </div>
-                </div>
-                <br>
-                <div class="col-md-5 col-md-push-1">
+                    <br>
                     <div class="radio borda">
                        <h4 class="text-center">Situação</h4>
                        <div class="col-md-offset-2">
@@ -128,86 +142,54 @@
                         </label>
                         </div>
                         <br>
-                    </div>
+                   </div>
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputName1">Tamanho</label>
+                    <br>
+                        <select class="form-control">
+                            <option>--Todos--</option>
+                            <option>34-35</option>
+                            <option>35-36</option>
+                            <option>36-37</option>
+                            <option>37-38</option>
+                            <option>38-39</option>
+                            <option>39-40</option>
+                            <option>40-41</option>
+                            <option>41-42</option>
+                            <option>42-43</option>
+                            <option>43-44</option>
+                            <option>44-45</option>
+                            <option>45+</option>
+                        </select>
+                </div>
+                </div>
+
+                    <div class="col-md-3 col-md-offset-1">
                     <div class="form-group">
-                        <label for="telefoneResidencialTbx">Telefone Residencial</label>
-                        <input type="text" class="form-control" id="telefoneResidencialTbx" placeholder="Telefone Residencial" name="fornecedor.telefoneResidencial" value="${fornecedor.telefoneResidencial}" data-mask="(99)9999-9999" />
+                        <label for="telefoneComercialTbx">Código de barras</label>
+                        <input type="text" class="form-control" id="telefoneComercialTbx" placeholder="Telefone comercial" name="cliente.telefoneComercial" value="${cliente.telefoneComercial}" />
                     </div>
                     </div>
                     <div class="col-md-3 col-md-offset-1">
                     <div class="form-group">
-                        <label for="telefoneComercialTbx">Telefone Comercial</label>
-                        <input type="text" class="form-control" id="telefoneComercialTbx" placeholder="Telefone comercial" name="fornecedor.telefoneComercial" value="${fornecedor.telefoneComercial}" data-mask="(99)9999-9999" />
-                    </div>
-                    </div>
-                    <div class="col-md-3 col-md-offset-1">
-                    <div class="form-group">
-                        <label for="celularTbx">Celular</label>
-                        <input type="text" class="form-control" id="celularTbx" placeholder="Celular" name="fornecedor.celular" value="${fornecedor.celular}" data-mask="(99)9-9999-9999"/>
+                        <label for="celularTbx">Preço de Custo</label>
+                        <input type="text" class="form-control" id="celularTbx" placeholder="Celular" name="cliente.celular" value="${cliente.celular}" />
                     </div>
                 </div>
-            </div>
+            </div>            
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="logradouroTbx">Logradouro</label>
-                        <input type="text" class="form-control" id="logradouroTbx" placeholder="Logradouro" name="fornecedor.endereco.logradouro" value="${fornecedor.endereco.logradouro}" />
-                    </div>
-                </div>
-                <div class="col-md-5 col-md-push-1">
-                    <div class="form-group">
-                        <label for="numeroTbx">Numero</label>
-                        <input type="text" class="form-control" id="numeroTbx" placeholder="Numero" name="fornecedor.endereco.numero" value="${fornecedor.endereco.numero}" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="complementoTbx">Complemento</label>
-                        <input type="text" class="form-control" id="complementoTbx" placeholder="Complemento" name="fornecedor.endereco.complemento" value="${fornecedor.endereco.complemento}" />
-                    </div>
-                </div>
-                <div class="col-md-5 col-md-push-1">
-                    <div class="form-group">
-                        <label for="bairroTbx">Bairro</label>
-                        <input type="text" class="form-control" id="bairroTbx" placeholder="Bairro" name="fornecedor.endereco.bairro" value="${fornecedor.endereco.bairro}" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label for="cidadeTbx">Cidade</label>
-                        <input type="text" class="form-control" id="cidadeTbx" placeholder="Cidade" name="fornecedor.endereco.cidade" value="${fornecedor.endereco.cidade}" />
-                    </div>
-                </div>
-                <div class="col-md-4 col-md-push-1">
-                     <div class="form-group">
-                        <label for="cepTbx">CEP</label>
-                        <input type="text" class="form-control" id="cepTbx" placeholder="CEP" name="fornecedor.endereco.cep" value="${fornecedor.endereco.cep}" data-mask="99999-999"/>
-                    </div>
-                </div>
-                <div class="col-md-1 col-md-push-2">
-                     <div class="form-group">
-                        <label for="ufTbx">UF</label>
-                        <input type="text" class="form-control" id="ufTbx" placeholder="UF" name="fornecedor.endereco.uf" value="${fornecedor.endereco.uf}" data-mask="AA" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-11">
                     <div class="form-group">
                         <label for="observacaoTbx">Observação</label>
                         <textarea class="form-control col-md-12" rows="4"></textarea>
                     </div>
                 </div>
             </div>
-            <br>
             <div class="row">
                <div class="col-md-6 col-md-push-8">
                 <button type="submit" class="btn btn-danger col-md-4 col-md-pull-1" ><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
@@ -218,13 +200,11 @@
                 </div>
             </div>
         </form>
-        </div>
-       </div>
     </div>
-    
+    </div>
+    </div>
 
 <script src="js/jquery.js"></script>
-<script src="js/jquery.mask.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/plugins/morris/raphael.min.js"></script>
 <script src="js/plugins/morris/morris.min.js"></script>

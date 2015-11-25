@@ -16,7 +16,6 @@ import com.github.sharpware.pim.validator.TelefoneValidator;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
@@ -51,8 +50,9 @@ public class FornecedorController {
         this(null, null, null, null);
     }
     
-    @Path("fornecedor/formulario")
     public void formulario() { }
+    
+    public void pesquisa() { }
     
     @Transacional
     @Post("/fornecedores")
@@ -76,15 +76,37 @@ public class FornecedorController {
         telefoneValidator.validateTelefonesNulos(telefones);
         
         this.dao.salvar(fornecedor, telefones);
-        result.redirectTo(this).pesquisar();
+        result.redirectTo(this).pesquisa();
     }
     
-    @Get("/fornecedor/pesquisar")
-    public void pesquisar() {
-        List<Fornecedor> fornecedores = dao.buscarTodos();
-        result.include("fornecedores", fornecedores);
+    @Get
+    public void pesquisarTodos() {
+    	List<Fornecedor> fornecedores = dao.buscarTodos();
+        this.result.include("fornecedores", fornecedores);
+        this.result.redirectTo(this).pesquisa();
     }
-
+    
+    @Get
+    public void pesquisarPorId(Long id) {
+		Optional<Fornecedor> optionalFornecedor = this.dao.buscarPorId(id);
+		Fornecedor fornecedor = optionalFornecedor.get();
+		this.result.include(fornecedor);
+		this.result.redirectTo(this).pesquisa();
+	}
+	
+    @Get
+	public void pesquisarPorNome(String nome) {
+		List<Fornecedor> fornecedores = this.dao.buscarPorNome(nome);
+		this.result.include("fornecedores", fornecedores);
+		this.result.redirectTo(this).pesquisa();
+	}
+	
+    @Get
+	public void pesuisarPorCPF(String cpf) {
+		List<Fornecedor> fornecedores = this.dao.buscarPorCPF(cpf);
+		this.result.include("fornecedores", fornecedores);
+		this.result.redirectTo(this).pesquisa();
+	}
     
     @Get("/fornecedor/{id}")
     public void editar(Long id) throws Exception {
@@ -99,11 +121,11 @@ public class FornecedorController {
                 Telefone telefone2 = telefonesfornecedor.get(1);
                 Telefone telefone3 = telefonesfornecedor.get(2);
 
-                result.include(fornecedor)
+                this.result.include(fornecedor)
                         .include("telefone1", telefone1)
                         .include("telefone2", telefone2)
                         .include("telefone3", telefone3);
-                result.redirectTo(this).formulario();
+                this.result.redirectTo(this).formulario();
             }
         } catch (Exception ex) {
             throw new Exception(ex.getMessage() + " " + ex.toString());

@@ -2,193 +2,200 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Formulário de Fornecedor</title>
-        <c:import url="/WEB-INF/jsp/menu/template.jsp" />
-    </head>
-    <body>
-        <c:import url="/WEB-INF/jsp/menu/menu.jsp" />
-
-        <p class="lbl-cclient">
-            <strong><em>Formulário de Fornecedor</em></strong>
-        </p>
-
-        <ul class="errors">
-            <c:forEach items="${errors}" var="error">
-                <li>${error.message}</li>
-                </c:forEach>
-        </ul>
-
-        <form class="form-inline" id="codigo-pp-left"
-              action="${linkTo[FornecedorController].salvar}" method="post">
-
-            <input type="text" name="fornecedor.id" value="${fornecedor.id}"
-                   hidden="true" />
-
-            <input type="text" name="telefone1.id"
-                   value="${telefone1.id}" hidden="true" />
-
-            <input type="text" name="telefone2.id"
-                   value="${telefone2.id}" hidden="true" />
-
-            <input type="text" name="telefone3.id"
-                   value="${telefone3.id}" hidden="true" />
-
-            <div class="form-group">
-                <label for="exampleInputName1">Razão Social</label> <br> <input
-                    type="text" class="form-control" name="fornecedor.razaoSocial"
-                    value="${fornecedor.razaoSocial}" id="exampleInputName1"
-                    placeholder="" maxlength="60" style="width: 250px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Nome Fantasia</label> <br> <input
-                    type="text" class="form-control" name="fornecedor.nomeFantasia"
-                    value="${fornecedor.nomeFantasia}" id="exampleInputName1"
-                    placeholder="" maxlength="60" style="width: 230px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group" id="div-status-cc">
-                <p style="color: white">
-                    <strong>Situação</strong>
-                </p>
-                <div class="radio">
-                    <label style="align: center"> <input type="radio"
-                                                         name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                        Ativo
-                    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2"
-                               value="option2"> Inativo
-                    </label>
-                </div>
-            </div>
-
-            <br> <br>
-
-            <div class="form-group">
-                <label for="exampleInputName1">CNPJ</label> <br> <input
-                    type="text" class="form-control" name="fornecedor.cnpj"
-                    value="${fornecedor.cnpj}" id="exampleInputName1"
-                    placeholder="--.---.---/----.--" maxlength="14" style="width: 150px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputEmail2">Email Principal</label> <br> <input
-                    type="email" class="form-control" name="fornecedor.emailPrimario"
-                    value="${fornecedor.emailPrimario}" id="exampleInputEmail2"
-                    placeholder="Email do Fornecedor" maxlength="40"
-                    style="width: 265px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputEmail2">Email Secundário</label> <br> <input
-                    type="email" class="form-control" name="fornecedor.Secundario"
-                    value="${fornecedor.emailSecundario}" id="exampleInputEmail2"
-                    placeholder="2º Email do Fornecedor" maxlength="40"
-                    style="width: 265px">&nbsp;&nbsp;
-            </div>
-
-            <br> <br>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Telefone 1</label> <br> <input
-                    type="text" class="form-control" name="telefone1.numero"
-                    value="${telefone1.numero}" id="exampleInputName1"
-                    placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Telefone 2</label> <br> <input
-                    type="text" class="form-control" name="telefone2.numero"
-                    value="${telefone2.numero}" id="exampleInputName1"
-                    placeholder="DDD + Tel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Celular</label> <br> <input
-                    type="text" class="form-control" name="telefone3.numero"
-                    value="${telefone3.numero}" id="exampleInputName1"
-                    placeholder="DDD + Cel" maxlength="12" style="width: 130px">&nbsp;&nbsp;
-            </div>
-
-            <br> <br>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Logradouro</label> <br> <input
-                    type="text" class="form-control"
-                    name="fornecedor.endereco.logradouro"
-                    value="${fornecedor.endereco.logradouro}" id="exampleInputName1"
-                    placeholder="Endereço" maxlength="100" style="width: 210px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Número</label> <br> <input
-                    type="text" class="form-control" name="fornecedor.endereco.numero"
-                    value="${fornecedor.endereco.numero}" id="exampleInputName1"
-                    placeholder="Endereço" maxlength="100" style="width: 80px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Complemento</label> <br> <input
-                    type="text" class="form-control"
-                    name="fornecedor.endereco.complemento"
-                    value="${fornecedor.endereco.complemento}" id="exampleInputName1"
-                    placeholder="" maxlength="100" style="width: 200px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Bairro</label> <br> <input
-                    type="text" class="form-control" name="fornecedor.endereco.bairro"
-                    value="${fornecedor.endereco.bairro}" id="exampleInputName1"
-                    placeholder="" maxlength="100" style="width: 177px">&nbsp;&nbsp;
-            </div>
-
-            <br> <br>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Cidade</label> <br> <input
-                    type="text" class="form-control" name="fornecedor.endereco.cidade"
-                    value="${fornecedor.endereco.cidade}" id="exampleInputName1"
-                    placeholder="" maxlength="100" style="width: 250px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputName1">CEP</label> <br> <input
-                    type="text" class="form-control" name="fornecedor.endereco.cep"
-                    value="${fornecedor.endereco.cep}" id="exampleInputName1"
-                    placeholder="-----_---" maxlength="8" style="width: 90px">&nbsp;&nbsp;
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputName1">UF</label> <br> <input
-                    type="text" class="form-control" name="fornecedor.endereco.uf"
-                    value="${fornecedor.endereco.uf}" id="exampleInputName1"
-                    placeholder="Endereço" maxlength="2" style="width: 50px">&nbsp;&nbsp;
-            </div>
-
-            <br> <br>
-
-            <div class="form-group">
-                <label for="exampleInputName1">Observação</label> <br>
-                <textarea rows="5" cols="50" class="form-control"
-                          name="fornecedor.observacao" id="exampleInputName1"
-                          placeholder="Escreva algo se for necessário." maxlength="500"
-                          style="width: 706px; height: 100px">${fornecedor.observacao}</textarea>
-                &nbsp;&nbsp;
-            </div>
-            <div>
-                <button type="submit" class="btn btn-info" id="btn-cf2">
-                    <strong>Salvar</strong>
-                </button>   
-            </div>
-            <div>
-                <a href="/sapato-pim-gerencia/index.jsp">
-                    <button type="button" class="btn btn-info" id="btn-cf2">
-                        <strong>Cancelar</strong>
-                    </button>
-                </a>
-            </div>
-        </form>
-        <c:import url="/WEB-INF/jsp/menu/script.jsp" />
-    </body>
+<head>
+<title>Formulário de Fornecedor</title>
+<c:import url="/WEB-INF/jsp/menu/template.jsp" />
+</head>
+<body>
+	<c:import url="/WEB-INF/jsp/menu/menu.jsp" />
+	<form action="${linkTo[FornecedorController].salvar}" method="post"
+		class="form-horizontal col-md-offset-2 col-md-8 ">
+		<h1 class="text-center">
+			<strong><em>Formulário de Fornecedor</em></strong>
+		</h1>
+		
+		<ul class="errors">
+			<c:forEach items="${errors}" var="error">
+				<li>${error.message}</li>
+			</c:forEach>
+		</ul>
+		
+		<input type="text" name="cliente.id" value="${fornecedor.id}"
+			hidden="true" /> <input type="text" name="telefone1.id"
+			value="${telefone1.id}" hidden="true" /> <input type="text"
+			name="telefone2.id" value="${telefone2.id}" hidden="true" /> <input
+			type="text" name="telefone3.id" value="${telefone3.id}" hidden="true" />
+		
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="razaoSocialTbx">Razao Social</label> <input type="text"
+						class="form-control" id="razaoSocialTbx"
+						placeholder="Razão social" name="fornecedor.razaoSocial"
+						value="${fornecedor.razaoSocial}" />
+				</div>
+			</div>
+			<div class="col-md-5 col-md-push-1">
+				<div class="form-group">
+					<label for="nomeFantasiaTbx">Nome fantasia</label> <input
+						type="text" class="form-control" id="nomeFantasiaTbx"
+						placeholder="Nome fantasia" name="fornecedor.nomeFantasia"
+						value="${fornecedor.nomeFantasia}" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="cnpjTbx">CNPJ</label> <input type="text"
+						class="form-control" id="cnpjTbx" placeholder="CPF"
+						name="fornecedor.cnpj" value="${fornecedor.cnpj}"
+						data-mask="99.999.999/9999-99" />
+				</div>
+				<div class="form-group">
+					<label for="emailPrimarioTbx">Email primario</label> <input
+						type="email" class="form-control" id="emailPrimarioTbx"
+						placeholder="Data de nascimento" name="fornecedor.emailPrimario"
+						value="${fornecedor.emailPrimario}" />
+				</div>
+				<div class="form-group">
+					<label for="emailSecundarioTbx">Email secundario</label> <input
+						type="email" class="form-control" id="emailSecundarioTbx"
+						placeholder="Data de nascimento" name="fornecedor.emailSecundario"
+						value="${fornecedor.emailSecundario}" />
+				</div>
+			</div>
+			<br>
+			<div class="col-md-5 col-md-push-1">
+				<div class="radio borda">
+					<h4 class="text-center">Situação</h4>
+					<div class="col-md-offset-2">
+						<label class="col-md-12"> <input type="radio"
+							name="situacao" id="ativoRb" value="situacao.ativo" checked>
+							Ativo
+						</label> <label> <input type="radio" name="situacao"
+							id="inativoRb" value="situacao.inativo"> Inativo
+						</label>
+					</div>
+					<br>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="form-group">
+					<label for="telefoneResidencialTbx">Telefone Residencial</label> <input
+						type="text" class="form-control" id="telefoneResidencialTbx"
+						placeholder="Telefone Residencial"
+						name="telefone1.numero"
+						value="${telefone1.numero}"
+						data-mask="(99)9999-9999" />
+				</div>
+			</div>
+			<div class="col-md-3 col-md-offset-1">
+				<div class="form-group">
+					<label for="telefoneComercialTbx">Telefone Comercial</label> <input
+						type="text" class="form-control" id="telefoneComercialTbx"
+						placeholder="Telefone comercial"
+						name="telefone2.numero"
+						value="${telefone2.numero}" data-mask="(99)9999-9999" />
+				</div>
+			</div>
+			<div class="col-md-3 col-md-offset-1">
+				<div class="form-group">
+					<label for="celularTbx">Celular</label> <input type="text"
+						class="form-control" id="celularTbx" placeholder="Celular"
+						name="telefone3.numero" value="${telefone3.numero}"
+						data-mask="(99)9-9999-9999" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="logradouroTbx">Logradouro</label> <input type="text"
+						class="form-control" id="logradouroTbx" placeholder="Logradouro"
+						name="fornecedor.endereco.logradouro"
+						value="${fornecedor.endereco.logradouro}" />
+				</div>
+			</div>
+			<div class="col-md-5 col-md-push-1">
+				<div class="form-group">
+					<label for="numeroTbx">Numero</label> <input type="text"
+						class="form-control" id="numeroTbx" placeholder="Numero"
+						name="fornecedor.endereco.numero"
+						value="${fornecedor.endereco.numero}" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="complementoTbx">Complemento</label> <input type="text"
+						class="form-control" id="complementoTbx" placeholder="Complemento"
+						name="fornecedor.endereco.complemento"
+						value="${fornecedor.endereco.complemento}" />
+				</div>
+			</div>
+			<div class="col-md-5 col-md-push-1">
+				<div class="form-group">
+					<label for="bairroTbx">Bairro</label> <input type="text"
+						class="form-control" id="bairroTbx" placeholder="Bairro"
+						name="fornecedor.endereco.bairro"
+						value="${fornecedor.endereco.bairro}" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="form-group">
+					<label for="cidadeTbx">Cidade</label> <input type="text"
+						class="form-control" id="cidadeTbx" placeholder="Cidade"
+						name="fornecedor.endereco.cidade"
+						value="${fornecedor.endereco.cidade}" />
+				</div>
+			</div>
+			<div class="col-md-4 col-md-push-1">
+				<div class="form-group">
+					<label for="cepTbx">CEP</label> <input type="text"
+						class="form-control" id="cepTbx" placeholder="CEP"
+						name="fornecedor.endereco.cep" value="${fornecedor.endereco.cep}"
+						data-mask="99999-999" />
+				</div>
+			</div>
+			<div class="col-md-1 col-md-push-2">
+				<div class="form-group">
+					<label for="ufTbx">UF</label> <input type="text"
+						class="form-control" id="ufTbx" placeholder="UF"
+						name="fornecedor.endereco.uf" value="${fornecedor.endereco.uf}"
+						data-mask="AA" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label for="observacaoTbx">Observação</label>
+					<textarea class="form-control col-md-12" rows="4"></textarea>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6 col-md-push-8">
+				<a href="../index.jsp">
+					<button type="button" class="btn btn-danger col-md-4 col-md-pull-1">
+						<span class="glyphicon glyphicon-remove"></span> Cancelar
+					</button>
+				</a>
+				<button type="submit" class="btn btn-success col-md-4 ">
+					<span class="glyphicon glyphicon-floppy-save"></span> Salvar
+				</button>
+				<br> <br> <br>
+			</div>
+		</div>
+	</form>
+	<c:import url="/WEB-INF/jsp/menu/script.jsp" />
+</body>
 </html>

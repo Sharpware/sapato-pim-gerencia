@@ -60,5 +60,20 @@ public class JPAFuncionarioDao implements IDao<Funcionario> {
         return this.manager.createQuery("SELECT f FROM Funcionario f", Funcionario.class)
                 .getResultList();
     }
+    
+	@Override
+	public List<Funcionario> buscarPorNome(String nome) {
+		return this.manager.createQuery("SELECT f FROM Funcionario f "
+										+ "WHERE f.nome = :nome", Funcionario.class)
+										.setParameter("nome", nome)
+                						.getResultList();
+	}
 
+	@Override
+	public List<Funcionario> buscarPorCPF(String cpf) {
+		return this.manager.createQuery("SELECT f FROM Funcionario f "
+										+ "WHERE f.cpf = :cpf", Funcionario.class)
+										.setParameter("cpf", cpf)
+										.getResultList();
+	}
 }
